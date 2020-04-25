@@ -35,6 +35,7 @@ const Blurb = styled.div`
 
 	font-size: 16px;
 	font-family: Comic Sans;
+	z-index:0;
 `;
 
 class Editorial extends Component {

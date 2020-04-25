@@ -10,18 +10,14 @@ const defaultProps = {
 	children: undefined,
 };
 
-const StyledLogo = styled.a`
-	color: purple;
-	font-size: 48px;
-  font-family: Impact;
-	font-weight: 750;
-	border-bottom: 2px solid skyblue;
-	opacity: 1;
+const StyledLogo = styled.img`
+	width: 127px;
+	height: 33px;
 	&:hover {
 		cursor: pointer;
-	  animation: spin 2s ease;
-	  opacity: 0.7;
-	  transition: opacity .5s ease;
+		  animation: spin 2s ease;
+		  opacity: 0.7;
+		  transition: opacity .5s ease;
 	}
 	@keyframes spin {
 	  0% { transform: rotate(0deg); }
@@ -33,9 +29,7 @@ const StyledLogo = styled.a`
 const Logo = props => {
 	const { children } = props;
 	return(
-		<StyledLogo>
-		{children}
-		</StyledLogo>
+		<StyledLogo src={'https://images.complex.com/complex/image/upload/complex-logo-dark_loo0gl.svg'}/>
 	)
 };
 

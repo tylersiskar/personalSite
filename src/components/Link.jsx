@@ -11,22 +11,28 @@ const defaultProps = {
 };
 
 const StyledLink = styled.a`
-  display: flex;
+  display: inline-block;
   color: black;
   text-align: center;
-  padding: 16px;
+  padding: 4px 7px;
   text-decoration: none;
-  font-family: Impact;
+  font-family: base-complex,sans-serif;
+  font-weight: bold;
+  font-size: 0.9375rem;
+  line-height: 0.9375rem;
+  text-transform: uppercase;
+  font-stretch: 100%;
   &:hover {
   	cursor: pointer;
-  	color: gray;
+  	color: white;
+  	background-color: black;
   }
 `;
 
 const Link = props => {
 	const { children } = props;
 	return(
-		<StyledLink>
+		<StyledLink onClick={props.onClick}>
 		{children}
 		</StyledLink>
 	)

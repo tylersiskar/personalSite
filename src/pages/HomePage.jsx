@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Editorial from '../components/Editorial';
-import Logo from '../components/Logo';
-import Link from '../components/Link';
+import Header from '../components/Header';
+import MusicPage from './MusicPage';
 
 const propTypes = {
 	on: PropTypes.bool
@@ -13,42 +13,21 @@ const defaultProps = {
 	on: false
 }
 
-const Home = styled.header`
-  background-color: skyblue;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  font-size: calc(10px + 2vmin);
-  color: white;
+const Home = styled.main`
+	margin-left: 20px;
+	background-color: white;
+	height: 100vh;
 `;
 
-const Header = styled.div`
-	display: flex;
-	height: 15%;
-  background-color: skyblue;
-	position: relative;
-	padding: 24px;
-	box-sizing: border-box;
-	width: 100%;
-	top: 0;
-	align-items: center;
-	justify-content: space-between; 
+const Page = styled.div`
+  background-image: url(https://images.complex.com/complex/image/upload/f_auto,q_auto/complex_edge-v3_lqcs5n.png);
+	background-repeat: repeat-y;
+	background-size: 40px auto;
 `;
-
-const HeaderLinks = styled.li`
-	float: left;
-	list-style: none;
-`;
-
-const List = styled.ul`
-	display: flex;
-`;
-
 const MainPage = styled.div`
 	display: flex;
 	position: relative;
 	padding: 24px;
-	width: 100%;
 	flex-direction: column;
 `;
 
@@ -66,7 +45,8 @@ Lorem ipsum dolor sit amet, dolore volumus urbanitas sea te, has id justo augue 
 
 class HomePage extends Component {
 	state = {
-		mounted: false
+		mounted: false,
+		viewNav: false
 	}
 
 	_handleScroll = (e) => {
@@ -76,9 +56,7 @@ class HomePage extends Component {
 	}
 	
 	componentDidMount() { 
-		console.log('y')
-  	window.addEventListener('scroll', this._handleScroll);
-		
+  		window.addEventListener('scroll', this._handleScroll);
 	}
 
 	componentWillUnmount(){ 
@@ -89,23 +67,11 @@ class HomePage extends Component {
 
 
 		return(
+			<Page>
 			<Home>
-				<Header>
-					<Logo> TheZine </Logo>
-					<List>
-						<HeaderLinks>
-							<Link> Today </Link>
-						</HeaderLinks>
-						<HeaderLinks> <Link> Music </Link> </HeaderLinks>
-						<HeaderLinks> <Link> Sports </Link> </HeaderLinks>
-						<HeaderLinks> <Link> Technology </Link> </HeaderLinks>
-						<HeaderLinks> <Link> Us Guys </Link> </HeaderLinks>
-					</List>
-				</Header>
-				<MainPage>
-				<Editorial view={this.state.mounted} text={content}/>
-				</MainPage>
+				<Header />
 			</Home>
+			</Page>
 		)
 	}
 };
