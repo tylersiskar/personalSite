@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { keyframes, css } from 'styled-components';
 import PropTypes from 'prop-types';
+import colors from '../colors/colors';
 import Button from './Button';
 
 const propTypes = {
@@ -41,7 +42,7 @@ const PopUpNav = styled.nav`
   left: 0;
   height: 100vh;
   z-index: 1000;
-  background-color: black;
+  background-color: ${colors.forestGreen};
   animation: ${animateIn} 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)
     both;
 ${({ unmounted }) =>
@@ -55,7 +56,7 @@ css`
 
 const NavHeader = styled.div`
 	display: flex;
-  background-color: black;
+  background-color: ${colors.forestGreen};
 	padding-bottom: 15px;
 	justify-content: flex-end;
   z-index: 999;
