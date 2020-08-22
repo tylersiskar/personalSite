@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Blurb, Header, SideNav } from '../components';
+import { Blurb, Header, Image } from '../components';
 import colors from '../colors/colors';
-import Image from '../colors/Image';
 import background from '../colors/background.jpg';
 
 const Home = styled.main`
