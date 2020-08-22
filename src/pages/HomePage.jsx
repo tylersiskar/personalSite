@@ -33,11 +33,11 @@ const HomePage = props => {
 				<Home>
 					<Header />
 					<MainPage>
-						<Blurb fontSize={32} fontColor={colors.darkGreen} text={content1}/>
+						<Blurb fontSize={32} fontColor={colors.darkGreen} backgroundColor={colors.powderBlue} text={content1}/>
 						<MiddleRow>
 							<Blurb fontSize={32} fontColor={colors.darkGreen} text={content2}/>
 						</MiddleRow>
-						<Blurb fontSize={32} fontColor={colors.darkGreen} text={content3}/>
+						<Blurb fontSize={32} fontColor={colors.darkGreen} backgroundColor="lavender" text={content3}/>
 					</MainPage>
 				</Home>
 		)

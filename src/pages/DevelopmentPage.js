@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Header from '../components/Header';
+import { Header, Blurb } from '../components';
 import colors from '../colors/colors';
-import Blurb from '../components/Blurb';
 
 const Home = styled.main`
 	background-color: ${colors.mintCream};

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Header from '../components/Header';
+import { Header } from '../components';
 import colors from '../colors/colors';
 
 const Home = styled.main`
