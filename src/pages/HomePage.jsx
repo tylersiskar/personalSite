@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Editorial from '../components/Editorial';
+import Blurb from '../components/Blurb';
 import Header from '../components/Header';
 import MusicPage from './MusicPage';
+import colors from '../colors/colors';
 
 const propTypes = {
 	on: PropTypes.bool
@@ -14,16 +15,10 @@ const defaultProps = {
 }
 
 const Home = styled.main`
-	margin-left: 20px;
-	background-color: white;
+	background-color: ${colors.mintCream};
 	height: 100vh;
 `;
 
-const Page = styled.div`
-  background-image: url(https://images.complex.com/complex/image/upload/f_auto,q_auto/complex_edge-v3_lqcs5n.png);
-	background-repeat: repeat-y;
-	background-size: 40px auto;
-`;
 const MainPage = styled.div`
 	display: flex;
 	position: relative;
@@ -31,49 +26,32 @@ const MainPage = styled.div`
 	flex-direction: column;
 `;
 
-const content = `Lorem ipsum dolor sit amet, dolore volumus urbanitas sea te, has id justo augue singulis. Cu reprimique interpretaris est, ut ius aperiri eripuit dignissim. In probatus comprehensam mei, pri feugiat ceteros invenire ne. Pro te altera detraxit, audire consulatu no mea, vim platonem tincidunt democritum ne. Posse menandri ut has, reque adipiscing ad pri. Illud epicurei erroribus at pro, elitr graeco eripuit cum an.
-Lorem ipsum dolor sit amet, dolore volumus urbanitas sea te, has id justo augue singulis. Cu reprimique interpretaris est, ut ius aperiri eripuit dignissim. In probatus comprehensam mei, pri feugiat ceteros invenire ne. Pro te altera detraxit, audire consulatu no mea, vim platonem tincidunt democritum ne. Posse menandri ut has, reque adipiscing ad pri. Illud epicurei erroribus at pro, elitr graeco eripuit cum an.
-Lorem ipsum dolor sit amet, dolore volumus urbanitas sea te, has id justo augue singulis. Cu reprimique interpretaris est, ut ius aperiri eripuit dignissim. In probatus comprehensam mei, pri feugiat ceteros invenire ne. Pro te altera detraxit, audire consulatu no mea, vim platonem tincidunt democritum ne. Posse menandri ut has, reque adipiscing ad pri. Illud epicurei erroribus at pro, elitr graeco eripuit cum an
-Lorem ipsum dolor sit amet, dolore volumus urbanitas sea te, has id justo augue singulis. Cu reprimique interpretaris est, ut ius aperiri eripuit dignissim. In probatus comprehensam mei, pri feugiat ceteros invenire ne. Pro te altera detraxit, audire consulatu no mea, vim platonem tincidunt democritum ne. Posse menandri ut has, reque adipiscing ad pri. Illud epicurei erroribus at pro, elitr graeco eripuit cum an
-Lorem ipsum dolor sit amet, dolore volumus urbanitas sea te, has id justo augue singulis. Cu reprimique interpretaris est, ut ius aperiri eripuit dignissim. In probatus comprehensam mei, pri feugiat ceteros invenire ne. Pro te altera detraxit, audire consulatu no mea, vim platonem tincidunt democritum ne. Posse menandri ut has, reque adipiscing ad pri. Illud epicurei erroribus at pro, elitr graeco eripuit cum an
-Lorem ipsum dolor sit amet, dolore volumus urbanitas sea te, has id justo augue singulis. Cu reprimique interpretaris est, ut ius aperiri eripuit dignissim. In probatus comprehensam mei, pri feugiat ceteros invenire ne. Pro te altera detraxit, audire consulatu no mea, vim platonem tincidunt democritum ne. Posse menandri ut has, reque adipiscing ad pri. Illud epicurei erroribus at pro, elitr graeco eripuit cum an
-Lorem ipsum dolor sit amet, dolore volumus urbanitas sea te, has id justo augue singulis. Cu reprimique interpretaris est, ut ius aperiri eripuit dignissim. In probatus comprehensam mei, pri feugiat ceteros invenire ne. Pro te altera detraxit, audire consulatu no mea, vim platonem tincidunt democritum ne. Posse menandri ut has, reque adipiscing ad pri. Illud epicurei erroribus at pro, elitr graeco eripuit cum an
-Lorem ipsum dolor sit amet, dolore volumus urbanitas sea te, has id justo augue singulis. Cu reprimique interpretaris est, ut ius aperiri eripuit dignissim. In probatus comprehensam mei, pri feugiat ceteros invenire ne. Pro te altera detraxit, audire consulatu no mea, vim platonem tincidunt democritum ne. Posse menandri ut has, reque adipiscing ad pri. Illud epicurei erroribus at pro, elitr graeco eripuit cum an
-Lorem ipsum dolor sit amet, dolore volumus urbanitas sea te, has id justo augue singulis. Cu reprimique interpretaris est, ut ius aperiri eripuit dignissim. In probatus comprehensam mei, pri feugiat ceteros invenire ne. Pro te altera detraxit, audire consulatu no mea, vim platonem tincidunt democritum ne. Posse menandri ut has, reque adipiscing ad pri. Illud epicurei erroribus at pro, elitr graeco eripuit cum an
-Lorem ipsum dolor sit amet, dolore volumus urbanitas sea te, has id justo augue singulis. Cu reprimique interpretaris est, ut ius aperiri eripuit dignissim. In probatus comprehensam mei, pri feugiat ceteros invenire ne. Pro te altera detraxit, audire consulatu no mea, vim platonem tincidunt democritum ne. Posse menandri ut has, reque adipiscing ad pri. Illud epicurei erroribus at pro, elitr graeco eripuit cum anLorem ipsum dolor sit amet, dolore volumus urbanitas sea te, has id justo augue singulis. Cu reprimique interpretaris est, ut ius aperiri eripuit dignissim. In probatus comprehensam mei, pri feugiat ceteros invenire ne. Pro te altera detraxit, audire consulatu no mea, vim platonem tincidunt democritum ne. Posse menandri ut has, reque adipiscing ad pri. Illud epicurei erroribus at pro, elitr graeco eripuit cum an
+const MiddleRow = styled.div`
+	display: flex;
+	width: 100%;
+	justify-content: flex-end;
 `;
 
-class HomePage extends Component {
-	state = {
-		mounted: false,
-		viewNav: false
-	}
 
-	_handleScroll = (e) => {
-	  this.setState({
-	    mounted: true
-	  });
-	}
-	
-	componentDidMount() { 
-  		window.addEventListener('scroll', this._handleScroll);
-	}
 
-	componentWillUnmount(){ 
-		window.removeEventListener('scroll', this._handleScroll);
-	}
+const HomePage = props => {
 
-	render() {
-
+	let content1 = `Hello! My name is Tyler Siskar, welcome to my page!`;
+	let content2 = 'I am a React Developer who is in the process of making his own website.';
+	let content3 = 'In the header, there are links to other sections where you\'ll learn more about me. In the top right you can access my social media on Facebook or Twitter. Enjoy!';
 
 		return(
-			<Page>
-			<Home>
-				<Header />
-			</Home>
-			</Page>
+				<Home>
+					<Header />
+					<MainPage>
+						<Blurb fontSize={32} fontColor={colors.darkGreen} text={content1}/>
+						<MiddleRow>
+							<Blurb fontSize={32} fontColor={colors.darkGreen} text={content2}/>
+						</MiddleRow>
+						<Blurb fontSize={32} fontColor={colors.darkGreen} text={content3}/>
+					</MainPage>
+				</Home>
 		)
-	}
 };
 
 HomePage.propTypes = propTypes;

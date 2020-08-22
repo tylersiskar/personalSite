@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import colors from '../colors/colors';
 import PropTypes from 'prop-types';
 
 const propTypes = {
@@ -10,9 +11,7 @@ const defaultProps = {
 	children: undefined,
 };
 
-const StyledLogo = styled.img`
-	width: 127px;
-	height: 33px;
+const StyledLogo = styled.div`
 	&:hover {
 		cursor: pointer;
 		  animation: spin 2s ease;
@@ -24,12 +23,18 @@ const StyledLogo = styled.img`
 	  50% { transform: rotate(30deg); }
 	  100% { transform: rotate(0deg); }
 	}
+	font-size: 32px;
+	font-weight: bold;
+	font-family: fantasy;
+	color: ${colors.darkGreen}
 `;
 
 const Logo = props => {
-	const { children } = props;
+	const { children, name } = props;
+
+	let complexLogo = 'https://images.complex.com/complex/image/upload/complex-logo-dark_loo0gl.svg'
 	return(
-		<StyledLogo src={'https://images.complex.com/complex/image/upload/complex-logo-dark_loo0gl.svg'}/>
+		<StyledLogo> Tyler Siskar </StyledLogo>
 	)
 };
 

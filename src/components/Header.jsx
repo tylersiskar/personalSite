@@ -6,6 +6,7 @@ import Link from './Link';
 import LogoMenu from './LogoMenu';
 import MenuNav from './MenuNav';
 import Button from './Button';
+import colors from '../colors/colors';
 
 const propTypes = {
 	children: PropTypes.node,
@@ -21,42 +22,17 @@ const defaultProps = {
 
 const headerLinks = [
   {
-    name: 'music',
+    name: 'personal',
     url: 'https://www.complex.com/',
     href: "/#/music"
   },
   {
-    name: 'style',
+    name: 'development',
     url: 'https://www.complex.com/',
     dropdown: false
   },
   {
-    name: 'pop culture',
-    url: 'https://www.complex.com/',
-    dropdown: false
-  },
-  {
-    name: 'sports',
-    url: 'https://www.complex.com/',
-    dropdown: false
-  },
-  {
-    name: 'life',
-    url: 'https://www.complex.com/',
-    dropdown: false
-  },
-  {
-    name: 'sneakers',
-    url: 'https://www.complex.com/',
-    dropdown: false
-  },
-  {
-    name: 'shop',
-    url: 'https://www.complex.com/',
-    dropdown: false
-  },
-  {
-    name: 'shows',
+    name: 'hobbies',
     url: 'https://www.complex.com/',
     dropdown: false
   },
@@ -76,7 +52,7 @@ const Head = styled.header`
 
 const StyledHeader = styled.div`
   display: flex;
-  background-color: white;
+  background-color: ${colors.mintCream};
   position: relative;
   padding: 10px 15px;
   margin: auto;
@@ -91,11 +67,17 @@ const StyledHeader = styled.div`
 const HeaderLinks = styled.li`
   display: inline-flex;
   float: left;
+  a {
+    color: ${colors.forestGreen}
+  }
+  button {
+    color: ${colors.forestGreen}
+  }
   list-style: none;
   &:last-child:before {
       content: "";
       height: 24px;
-      border-left: 1px solid #f3f3f3;
+      border-left: 1px solid ${colors.nyanza};
       margin-left: 7px;
       margin-right: 7px;
       float: left;
@@ -105,11 +87,9 @@ const HeaderLinks = styled.li`
     outline: none;
     a {
       border: 1px dashed black;
-      outline: none;
     }
     button {
       border: 1px dashed black;
-      outline: none;
     }
   }
 `;
@@ -122,7 +102,7 @@ const List = styled.ul`
 
 
 const Header = props => {
-	const { children } = props;
+	const { children, onClick } = props;
 
   const [ viewNav, setViewNav ] = useState(false); 
 
@@ -130,17 +110,24 @@ const Header = props => {
     setViewNav(true);
     props.onClick();
   }
+
+  function _onClose() {
+    setTimeout(function(){ 
+      setViewNav(false);
+      props.onClick();
+   }, 400);
+  }
   
 	return(
     <Head>
-      {viewNav && <MenuNav visible={viewNav} onClick={() => setViewNav(false)}/>}
+      {viewNav && <MenuNav visible={viewNav} onClick={_onClose}/>}
   		<StyledHeader>
         <Logo/>
         <List>
         {headerLinks.map((item, index) => {
           let Item = item.lastChild ? Button : Link;
             return(
-              <HeaderLinks tabIndex={0}  href={item.href} onClick={item.lastChild ? _handleClick : props.onClick()}>
+              <HeaderLinks tabIndex={0}  href={item.href} onClick={item.lastChild ? _handleClick : onClick}>
                 <Item type={'dropdown'} href={item.href} tabIndex={-1}>
                   {item.name}
                 </Item>
