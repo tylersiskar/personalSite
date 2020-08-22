@@ -9,7 +9,42 @@ import HobbiesPage from './pages/HobbiesPage';
 import DevelopmentPage from './pages/DevelopmentPage';
 import { SideNav, Header } from './components';
 
-
+const developmentData =  [
+  {
+    type: 'dropdown',
+    children: 'React',
+    projects: [
+      "Verizon Design System",
+      "Finta",
+      "Personal Website"
+      ]
+  },
+  {
+    type: 'dropdown',
+    children: 'React Native',
+    projects: [
+      "Burner",
+      "MG Stream",
+      ]
+  },
+  {
+    type: 'dropdown',
+    children: 'Java',
+    projects: [
+      "Budgeting App",
+      "CS Courses",
+      "Teaching",
+      ]
+  },
+  {
+    type: 'dropdown',
+    children: 'Python',
+    projects: [
+      "Physics / Math courses",
+      "Teaching",
+      ]
+  }
+];
 
 class App extends React.Component {
 
@@ -22,7 +57,7 @@ class App extends React.Component {
 				</React.Fragment>);
       case 'development':
         return( <React.Fragment>
-					<Header />
+					<Header sideNavData={developmentData}/>
 					<DevelopmentPage {...this.props}/>
 				</React.Fragment>);
       case 'hobbies':

@@ -34,7 +34,6 @@ class DevelopmentPage extends Component {
 		return(
 			<Home>
 				<Image src={background} />
-				<SideNav />
 				<ContentWrapper>
 				<Development>
 				Developing & Software Experience

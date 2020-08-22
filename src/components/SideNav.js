@@ -51,43 +51,6 @@ const MenuItem = styled.span`
   padding: 6px 0px;
 `;
 
-let buttons = [
-  {
-    type: 'dropdown',
-    children: 'React',
-    projects: [
-      "Verizon Design System",
-      "Finta",
-      "Personal Website"
-      ]
-  },
-  {
-    type: 'dropdown',
-    children: 'React Native',
-    projects: [
-      "Burner",
-      "MG Stream",
-      ]
-  },
-  {
-    type: 'dropdown',
-    children: 'Java',
-    projects: [
-      "Budgeting App",
-      "CS Courses",
-      "Teaching",
-      ]
-  },
-  {
-    type: 'dropdown',
-    children: 'Python',
-    projects: [
-      "Physics / Math courses",
-      "Teaching",
-      ]
-  }
-];
-
 const SideNav = props => {
 	const { children, data } = props;
   const [ menu, openMenu ] = useState(false);
@@ -99,7 +62,7 @@ const SideNav = props => {
 
 	return(
 		<SideNavWrapper>
-      {buttons.map((item, index) => {
+      {data && data.map((item, index) => {
         return(
           <Fragment>
             <SideItem key={index} id={item.children} onClick={(e) => _onClick(e, item)}>

@@ -6,6 +6,7 @@ import AnchorLink from './Link';
 import LogoMenu from './LogoMenu';
 import MenuNav from './MenuNav';
 import Button from './Button';
+import SideNav from './SideNav';
 import colors from '../colors/colors';
 
 const propTypes = {
@@ -95,6 +96,7 @@ const List = styled.ul`
 
 
 const Header = props => {
+  const { sideNavData } = props;
   const [ viewNav, setViewNav ] = useState(false); 
 
   function _handleClick(e) {
@@ -116,6 +118,7 @@ const Header = props => {
 	return(
     <Head>
       {viewNav && <MenuNav visible={viewNav} onClick={_onClose}/>}
+      {sideNavData && <SideNav data={sideNavData}/>}
   		<StyledHeader>
         <Logo/>
         <List>
