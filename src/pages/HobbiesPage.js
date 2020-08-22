@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Header } from '../components';
+import { Header, Blurb } from '../components';
 import colors from '../colors/colors';
 
 const Home = styled.main`
@@ -10,13 +10,20 @@ const Home = styled.main`
 `;
 
 const Hobbies = styled.div`
-	height: 100%;
+	width: 100%;
 	background-color: ${colors.beauBlue};
 	font-weight: 800;
 	font-family: Impact;
 	font-size: 64px;
 `;
 
+
+const ContentWrapper = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+`;
 
 class HobbiesPage extends Component {
 	state = {
@@ -28,9 +35,14 @@ class HobbiesPage extends Component {
 		return(
 			<Home>
 			<Header />
-				<Hobbies>
-				This is where i will talk about my hobbies!
-				</Hobbies>
+				<ContentWrapper>
+					<Hobbies>
+					This is where i will talk about my hobbies!
+					</Hobbies>
+					<Blurb title="Sports" fontSize={20} backgroundColor={colors.powderBlue}>
+						I'm a lifelong Bills fan, and am excited about the upcoming season! I enjoy playing recreational basketball, golf, and baseball. 
+					</Blurb>
+				</ContentWrapper>
 			</Home>
 		)
 	}
