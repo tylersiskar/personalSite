@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import colors from '../colors/colors';
 
 const propTypes = {
 	children: PropTypes.node
@@ -40,7 +41,7 @@ const ButtonBase = styled.button`
     height: 8px;
     width: 8px;
     border: solid;
-    border-color: ${({ color }) => color};
+    border-color: ${colors.forestGreen};
     border-width: 2px 2px 0 0;
     transform: rotate(135deg) translateY(4px);
   }
