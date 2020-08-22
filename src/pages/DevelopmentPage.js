@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Header, Blurb, Image } from '../components';
+import { Header, Blurb, Image, SideNav } from '../components';
 import colors from '../colors/colors';
 import logo from './react.png';
 import background from '../colors/background.jpg';
@@ -33,7 +33,8 @@ class DevelopmentPage extends Component {
 
 		return(
 			<Home>
-					<Image src={background} />
+				<Image src={background} />
+				<SideNav />
 				<ContentWrapper>
 				<Development>
 				Developing & Software Experience

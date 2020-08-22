@@ -4,16 +4,21 @@ import PropTypes from 'prop-types';
 import colors from '../colors/colors';
 
 const propTypes = {
-	children: PropTypes.node
+	children: PropTypes.node,
+  type: PropTypes.string,
+  textColor: PropTypes.string
 };
 
 const defaultProps = {
 	children: undefined,
+  type: 'dropdown',
+  textColor: colors.forestGreen
 };
 
 const ButtonBase = styled.button`
   display: inline-block;
-  color: black;
+  color: ${({ textColor }) => textColor};
+  outline: none;
   text-align: center;
   padding: 4px 7px;
   text-decoration: none;
@@ -40,7 +45,7 @@ const ButtonBase = styled.button`
     height: 8px;
     width: 8px;
     border: solid;
-    border-color: ${colors.forestGreen};
+    border-color: ${({ textColor }) => textColor};
     border-width: 2px 2px 0 0;
     transform: rotate(135deg) translateY(4px);
   }
@@ -68,7 +73,7 @@ const Button = props => {
 
   if (type === 'dropdown') {
     return (
-  		<ButtonBase>
+  		<ButtonBase {...props} textColor={props.textColor}>
         <StyledSpan >
     		{children}
         </StyledSpan>
