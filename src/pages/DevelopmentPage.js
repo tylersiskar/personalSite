@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Header, Blurb } from '../components';
 import colors from '../colors/colors';
+import logo from './react.png';
 
 const Home = styled.main`
 	background-color: ${colors.mintCream};
@@ -42,6 +43,7 @@ class DevelopmentPage extends Component {
 				<Blurb title="Projects" fontSize={20} backgroundColor={colors.forestGreen}>
 					Verizon Design System, Burner Mobile App, Finta Web App, Personal Website, Budgeting App from college, Social Media App 
 				</Blurb>
+				<img style={{height: '200px'}}src={logo} />
 				</ContentWrapper>
 			</Home>
 		)

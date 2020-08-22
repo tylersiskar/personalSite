@@ -21,22 +21,15 @@ const defaultProps = {
 const headerLinks = [
   {
     name: 'personal',
-    url: 'https://www.complex.com/',
-    href: "/#/music"
   },
   {
     name: 'development',
-    url: 'https://www.complex.com/',
-    dropdown: false
   },
   {
     name: 'hobbies',
-    url: 'https://www.complex.com/',
-    dropdown: false
   },
   {
     name: 'more',
-    url: 'https://www.complex.com/',
     lastChild: true
   }
 ];

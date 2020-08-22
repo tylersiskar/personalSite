@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Header, Blurb } from '../components';
 import colors from '../colors/colors';
+import logo from './ubbull.jpg';
 
 const Home = styled.main`
 	background-color: ${colors.mintCream};
@@ -21,6 +22,10 @@ const ContentWrapper = styled.div`
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+`;
+
+const StyledImage = styled.img`
+	height: 200px;
 `;
 
 
@@ -44,6 +49,7 @@ class PersonalPage extends Component {
 				<Blurb title="Education" fontSize={20} backgroundColor={colors.morningBlue}>
 				 I went to Clarence High School and the University at Buffalo for undergrad, where I completed a degree in Computational Physics with a Mathematics minor. Fun fact: I originally started as a Civil Engineer, but eventually found my path to the developing world.
 				 </Blurb>
+				 <StyledImage src={logo} />
 				</ContentWrapper>
 			</Home>
 		)
