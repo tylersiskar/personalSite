@@ -6,13 +6,12 @@ import colors from '../colors/colors';
 const Home = styled.main`
 	background-color: ${colors.mintCream};
 	height: 100vh;
+	width: 100vw;
 `;
 
 const Hobbies = styled.div`
-	width: auto;
 	height: 100%;
-	padding: 0 15px;
-	background-color: blue;
+	background-color: ${colors.beauBlue};
 	opacity: 0.6;
 	font-weight: 800;
 	font-family: Impact;
