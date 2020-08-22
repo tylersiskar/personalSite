@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { Header, Blurb } from '../components';
 import colors from '../colors/colors';
 import logo from './ubbull.jpg';
+import Image from '../colors/Image';
+import background from '../colors/background.jpg';
 
 const Home = styled.main`
 	width: 100vw;
@@ -40,6 +42,7 @@ class PersonalPage extends Component {
 
 		return(
 			<Home>
+					<Image src={background} />
 				<ContentWrapper>
 				<Personal>
 				Background & Education

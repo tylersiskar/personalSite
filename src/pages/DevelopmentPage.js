@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { Header, Blurb } from '../components';
 import colors from '../colors/colors';
 import logo from './react.png';
+import Image from '../colors/Image';
+import background from '../colors/background.jpg';
 
 const Home = styled.main`
 	height: 100vh;
@@ -32,6 +34,7 @@ class DevelopmentPage extends Component {
 
 		return(
 			<Home>
+					<Image src={background} />
 				<ContentWrapper>
 				<Development>
 				Developing & Software Experience
