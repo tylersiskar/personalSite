@@ -24,7 +24,6 @@ const StyledLink = styled.a`
   font-stretch: 100%;
   &:hover {
   	cursor: pointer;
-  	color: white;
   	background-color: black;
   }
 `;

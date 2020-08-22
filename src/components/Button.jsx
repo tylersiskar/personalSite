@@ -27,7 +27,6 @@ const ButtonBase = styled.button`
   border: none;
   &:hover {
   	cursor: pointer;
-  	color: white;
   	background-color: black;
 
   }
