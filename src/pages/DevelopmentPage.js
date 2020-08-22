@@ -43,7 +43,7 @@ class DevelopmentPage extends Component {
 				<Blurb title="Projects" fontSize={20} backgroundColor={colors.forestGreen}>
 					Verizon Design System, Burner Mobile App, Finta Web App, Personal Website, Budgeting App from college, Social Media App 
 				</Blurb>
-				<img style={{height: '200px'}}src={logo} />
+				<img style={{height: '200px', borderRadius: '20px'}}src={logo} />
 				</ContentWrapper>
 			</Home>
 		)
