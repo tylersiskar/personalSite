@@ -5,7 +5,6 @@ import colors from '../colors/colors';
 import logo from './ubbull.jpg';
 
 const Home = styled.main`
-	background-color: ${colors.mintCream};
 	width: 100vw;
 	height: 100vh;
 `;

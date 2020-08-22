@@ -4,7 +4,6 @@ import { Header, Blurb } from '../components';
 import colors from '../colors/colors';
 
 const Home = styled.main`
-	background-color: ${colors.mintCream};
 	height: 100vh;
 `;
 

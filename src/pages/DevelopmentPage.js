@@ -5,7 +5,6 @@ import colors from '../colors/colors';
 import logo from './react.png';
 
 const Home = styled.main`
-	background-color: ${colors.mintCream};
 	height: 100vh;
 `;
 
