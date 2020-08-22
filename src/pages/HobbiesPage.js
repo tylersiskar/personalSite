@@ -12,7 +12,6 @@ const Home = styled.main`
 const Hobbies = styled.div`
 	height: 100%;
 	background-color: ${colors.beauBlue};
-	opacity: 0.6;
 	font-weight: 800;
 	font-family: Impact;
 	font-size: 64px;

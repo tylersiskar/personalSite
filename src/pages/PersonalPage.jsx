@@ -11,7 +11,6 @@ const Home = styled.main`
 const Personal = styled.div`
 	width: 100%;
 	background-color: ${colors.beauBlue};
-	opacity: 0.6;
 	font-weight: 800;
 	font-family: Impact;
 	font-size: 64px;
