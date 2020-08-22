@@ -36,8 +36,7 @@ const StyledLink = styled(Link)`
 
 const Logo = props => {
 	const { children, name } = props;
-
-	let complexLogo = 'https://images.complex.com/complex/image/upload/complex-logo-dark_loo0gl.svg'
+	
 	return(
 		<StyledLogo> <StyledLink to='/homepagez'> Tyler Siskar </StyledLink> </StyledLogo>
 	)
