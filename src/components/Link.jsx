@@ -29,7 +29,7 @@ const StyledLink = styled.a`
   }
 `;
 
-const Link = props => {
+const AnchorLink = props => {
 	const { children } = props;
 	return(
 		<StyledLink onClick={props.onClick}>
@@ -38,7 +38,7 @@ const Link = props => {
 	)
 };
 
-Link.propTypes = propTypes;
-Link.defaultProps = defaultProps;
+AnchorLink.propTypes = propTypes;
+AnchorLink.defaultProps = defaultProps;
 
-export default Link;
+export default AnchorLink;

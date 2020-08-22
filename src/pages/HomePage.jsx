@@ -1,18 +1,8 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Blurb from '../components/Blurb';
 import Header from '../components/Header';
-import MusicPage from './MusicPage';
 import colors from '../colors/colors';
-
-const propTypes = {
-	on: PropTypes.bool
-};
-
-const defaultProps = {
-	on: false
-}
 
 const Home = styled.main`
 	background-color: ${colors.mintCream};
@@ -39,7 +29,6 @@ const HomePage = props => {
 	let content1 = `Hello! My name is Tyler Siskar, welcome to my page!`;
 	let content2 = 'I am a React Developer who is in the process of making his own website.';
 	let content3 = 'In the header, there are links to other sections where you\'ll learn more about me. In the top right you can access my social media on Facebook or Twitter. Enjoy!';
-
 		return(
 				<Home>
 					<Header />
@@ -54,7 +43,5 @@ const HomePage = props => {
 		)
 };
 
-HomePage.propTypes = propTypes;
-HomePage.defaultProps = defaultProps;
 
 export default HomePage;

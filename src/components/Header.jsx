@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import PropTypes from 'prop-types';
 import Logo from './Logo';
-import Link from './Link';
+import AnchorLink from './Link';
+import { Link } from 'react-router-dom';
 import LogoMenu from './LogoMenu';
 import MenuNav from './MenuNav';
 import Button from './Button';
@@ -64,9 +65,10 @@ const StyledHeader = styled.div`
   z-index: 999;
 `;
 
-const HeaderLinks = styled.li`
+const HeaderLinks = styled(Link)`
   display: inline-flex;
   float: left;
+  text-decoration: none;
   a {
     color: ${colors.forestGreen}
   }
@@ -125,9 +127,9 @@ const Header = props => {
         <Logo/>
         <List>
         {headerLinks.map((item, index) => {
-          let Item = item.lastChild ? Button : Link;
+          let Item = item.lastChild ? Button : AnchorLink;
             return(
-              <HeaderLinks tabIndex={0}  href={item.href} onClick={item.lastChild ? _handleClick : onClick}>
+              <HeaderLinks to={item.lastChild ? '/homepagez' : `/${item.name}`} tabIndex={0}  href={item.href} onClick={item.lastChild ? _handleClick : onClick}>
                 <Item type={'dropdown'} href={item.href} tabIndex={-1}>
                   {item.name}
                 </Item>
