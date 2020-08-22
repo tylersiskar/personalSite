@@ -74,6 +74,7 @@ let buttons = [
     children: 'Java',
     projects: [
       "Budgeting App",
+      "CS Courses",
       "Teaching",
       ]
   },
