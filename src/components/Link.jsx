@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import colors from '../colors/colors';
 
 const propTypes = {
 	children: PropTypes.node
@@ -10,7 +12,7 @@ const defaultProps = {
 	children: undefined,
 };
 
-const StyledLink = styled.a`
+const StyledLink = styled(Link)`
   display: inline-block;
   color: black;
   text-align: center;
@@ -22,16 +24,18 @@ const StyledLink = styled.a`
   line-height: 0.9375rem;
   text-transform: uppercase;
   font-stretch: 100%;
+  outline: none;
   &:hover {
   	cursor: pointer;
-  	background-color: gray;
+  	background-color: lightgray;
+    border-radius: 6px;
   }
 `;
 
 const AnchorLink = props => {
 	const { children } = props;
 	return(
-		<StyledLink onClick={props.onClick}>
+		<StyledLink {...props}>
 		{children}
 		</StyledLink>
 	)

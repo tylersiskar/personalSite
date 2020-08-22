@@ -5,7 +5,7 @@ const colors = {
 	morningBlue: '#91A8A4',
 	forestGreen: '#7CA982',
 	nyanza: '#E0EEC6',
-	gold: '#C2A83E',
+	gold: '#F4E285',
 	darkGreen: '#243E36'
 };
 

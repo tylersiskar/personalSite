@@ -26,9 +26,9 @@ const ButtonBase = styled.button`
   background-color: transparent;
   border: none;
   &:hover {
-  	cursor: pointer;
-  	background-color: gray;
-
+    cursor: pointer;
+    background-color: lightgray;
+    border-radius: 6px;
   }
   &:active {
     outline: none;

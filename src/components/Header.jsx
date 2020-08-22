@@ -3,7 +3,6 @@ import styled, { keyframes } from 'styled-components';
 import PropTypes from 'prop-types';
 import Logo from './Logo';
 import AnchorLink from './Link';
-import { Link } from 'react-router-dom';
 import LogoMenu from './LogoMenu';
 import MenuNav from './MenuNav';
 import Button from './Button';
@@ -66,7 +65,7 @@ const StyledHeader = styled.div`
   z-index: 999;
 `;
 
-const HeaderLinks = styled(Link)`
+const HeaderLinks = styled.li`
   display: inline-flex;
   float: left;
   text-decoration: none;
@@ -106,18 +105,21 @@ const List = styled.ul`
 
 const Header = props => {
 	const { children, onClick } = props;
-
   const [ viewNav, setViewNav ] = useState(false); 
 
   function _handleClick(e) {
     setViewNav(true);
-    props.onClick();
+    props.onClick && props.onClick();
+  }
+
+  function _onClick(e) {
+    props.onClick && props.onClick();
   }
 
   function _onClose() {
     setTimeout(function(){ 
       setViewNav(false);
-      props.onClick();
+      props.onClick && props.onClick();
    }, 400);
   }
   
@@ -130,8 +132,8 @@ const Header = props => {
         {headerLinks.map((item, index) => {
           let Item = item.lastChild ? Button : AnchorLink;
             return(
-              <HeaderLinks to={item.lastChild ? '/homepagez' : `/${item.name}`} tabIndex={0}  href={item.href} onClick={item.lastChild ? _handleClick : onClick}>
-                <Item type={'dropdown'} href={item.href} tabIndex={-1}>
+              <HeaderLinks tabIndex={0}  href={item.href} onClick={item.lastChild ? _handleClick : _onClick}>
+                <Item to={item.lastChild ? '/homepagez' : `/${item.name}`}  type={'dropdown'} href={item.href} tabIndex={-1}>
                   {item.name}
                 </Item>
               </HeaderLinks>)

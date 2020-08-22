@@ -14,9 +14,7 @@ import DevelopmentPage from './pages/DevelopmentPage';
 
 class App extends React.Component {
 
-	 _renderScreen = (route) => {
-	 	console.log(route);
-
+ _renderScreen = (route) => {
     switch(route) {
       case 'personal':
         return <PersonalPage {...this.props}/>;
@@ -27,7 +25,7 @@ class App extends React.Component {
       case 'homepage':
       default:
         return <HomePage {...this.props}/>;
-    }
+		}
 
   }
 
@@ -47,7 +45,7 @@ class App extends React.Component {
 		          <Route 
 		            path="/hobbies" 
 		            component={() => this._renderScreen('hobbies')}/>
-		   
+		   		  <Redirect to="/homepagez"/>
 		        </Switch>
 		      </div>
 
