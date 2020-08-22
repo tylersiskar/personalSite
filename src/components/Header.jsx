@@ -49,6 +49,7 @@ const Head = styled.header`
   display: block;
   position: sticky;
   width: 100%;
+  box-shadow: lightgray 0px 5px 10px;
 `;
 
 const StyledHeader = styled.div`
