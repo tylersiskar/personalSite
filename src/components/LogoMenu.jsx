@@ -65,7 +65,7 @@ const LogoMenu = props => {
 <ul>
  { logoData.map((item, index) => {
      return (
-       <StyledLink href={logoData[index].href}>
+       <StyledLink key={index} href={logoData[index].href}>
          <svg xmlns="http://www.w3.org/2000/svg"  version="1.0" x="0px" y="0px" width="20" height="20" viewBox="0 0 200 200">    
            <path d={logoData[index].path.d} fill={colors.forestGreen}/>
          </svg>

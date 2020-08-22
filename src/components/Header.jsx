@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Logo from './Logo';
 import AnchorLink from './Link';
@@ -9,12 +9,10 @@ import Button from './Button';
 import colors from '../colors/colors';
 
 const propTypes = {
-	children: PropTypes.node,
   onClick: PropTypes.func,
 };
 
 const defaultProps = {
-	children: undefined,
   onClick: () => {}
 };
 
@@ -104,7 +102,6 @@ const List = styled.ul`
 
 
 const Header = props => {
-	const { children, onClick } = props;
   const [ viewNav, setViewNav ] = useState(false); 
 
   function _handleClick(e) {
@@ -132,7 +129,7 @@ const Header = props => {
         {headerLinks.map((item, index) => {
           let Item = item.lastChild ? Button : AnchorLink;
             return(
-              <HeaderLinks tabIndex={0}  href={item.href} onClick={item.lastChild ? _handleClick : _onClick}>
+              <HeaderLinks tabIndex={0}  key={index} href={item.href} onClick={item.lastChild ? _handleClick : _onClick}>
                 <Item to={item.lastChild ? '/homepagez' : `/${item.name}`}  type={'dropdown'} href={item.href} tabIndex={-1}>
                   {item.name}
                 </Item>
