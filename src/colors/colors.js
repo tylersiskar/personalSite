@@ -6,7 +6,8 @@ const colors = {
 	forestGreen: '#7CA982',
 	nyanza: '#E0EEC6',
 	gold: '#F4E285',
-	darkGreen: '#243E36'
+	darkGreen: '#243E36',
+	darkGray: 'darkslategray'
 };
 
 export default colors;
