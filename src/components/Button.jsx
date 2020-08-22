@@ -27,7 +27,7 @@ const ButtonBase = styled.button`
   border: none;
   &:hover {
   	cursor: pointer;
-  	background-color: black;
+  	background-color: gray;
 
   }
   &:active {
@@ -63,13 +63,12 @@ const StyledSpan = styled.span`
 `;
   
 const Button = props => {
-  const [ color, setColor ] = useState('black');
   const [ visible, setVisible ] = useState('visible');
 	const { children, type } = props;
 
   if (type === 'dropdown') {
     return (
-  		<ButtonBase color={color} onMouseOver={() => setColor('white')} onMouseLeave={() => setColor('black')}>
+  		<ButtonBase>
         <StyledSpan >
     		{children}
         </StyledSpan>
