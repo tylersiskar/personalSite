@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Header, Blurb, Image } from '../components';
 import colors from '../colors/colors';
 import background from '../colors/background.jpg';
+import avengers from '../colors/avengers.jpg';
 
 const Home = styled.main`
 	height: 100vh;
@@ -23,6 +24,11 @@ const ContentWrapper = styled.div`
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+`;
+
+const StyledImage = styled.img`
+	height: 200px;
+	border-radius: 20px;
 `;
 
 class HobbiesPage extends Component {
@@ -48,6 +54,7 @@ class HobbiesPage extends Component {
 					<Blurb title="Music" fontSize={20} backgroundColor={colors.forestGreen} fontColor={colors.darkGray}>
 						Most of my music interest lies in hip-hop/rap music, but I have been listening to more pop lately. Favorite artists: J Cole, Kendrick Lamar, Drake. Lately I've listened to Harry Styles' and Justin Bieber's latest albums. 
 					</Blurb>
+					<StyledImage src={avengers} />
 				</ContentWrapper>
 			</Home>
 		)
