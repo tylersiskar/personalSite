@@ -8,13 +8,15 @@ const propTypes = {
 	text: PropTypes.string,
 	view: PropTypes.bool,
 	fontSize: PropTypes.number,
-	fontColor: PropTypes.string
+	fontColor: PropTypes.string,
+	backgroundColor: PropTypes.string
 };
 
 const defaultProps = {
 	children: undefined,
 	text: undefined,
-	fontSize: 16
+	fontSize: 16,
+	backgroundColor: colors.gold
 }
 
 const BlurbContainer = styled.div`
@@ -22,7 +24,7 @@ const BlurbContainer = styled.div`
 	flex-direction: column;
 	text-align: center;
 	color: ${({ color }) => color};
-	background-color: ${colors.gold};
+	background-color: ${({ backgroundColor }) => backgroundColor};
 	border-radius: 10px;
 	width: 50%;
 	min-height: 100px;
@@ -35,10 +37,15 @@ const BlurbContainer = styled.div`
 	margin-bottom: 12px;
 `;
 
+const TitleContent = styled.span`
+	font-size: ${({ fontSize }) => fontSize + 4}px;
+`;
+
 const Blurb = props => {
-		const { children, text, fontSize, fontColor } = props;
+		const { children, text, fontSize, fontColor, backgroundColor, title } = props;
 		return(
-			<BlurbContainer color={fontColor} fontSize={fontSize}>
+			<BlurbContainer color={fontColor} fontSize={fontSize} backgroundColor={backgroundColor}>
+			{title && <TitleContent fontSize={fontSize}> {title} </TitleContent>}
 			{text ? text : children}
 			</BlurbContainer>
 		)
