@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import Blurb from '../components/Blurb';
-import Header from '../components/Header';
+import { Blurb, Header, SideNav } from '../components';
 import colors from '../colors/colors';
 
 const Home = styled.main`
 	background-color: ${colors.mintCream};
 	height: 100vh;
+	position: relative;
 `;
 
 const MainPage = styled.div`
@@ -31,7 +31,6 @@ const HomePage = props => {
 	let content3 = 'In the header, there are links to other sections where you\'ll learn more about me. In the top right you can access my social media on Facebook or Twitter. Enjoy!';
 		return(
 				<Home>
-					<Header />
 					<MainPage>
 						<Blurb fontSize={32} fontColor={colors.darkGreen} backgroundColor={colors.powderBlue} text={content1}/>
 						<MiddleRow>

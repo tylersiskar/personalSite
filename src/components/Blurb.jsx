@@ -33,7 +33,6 @@ const BlurbContainer = styled.div`
 	text-transform: uppercase;
     font-weight: bold;
 	font-size: ${({ fontSize }) => fontSize}px;
-	z-index: -1;
 	margin-bottom: 12px;
   	box-shadow: lightgray 0px 5px 10px;
 `;

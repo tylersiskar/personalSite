@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage';
 import PersonalPage from './pages/PersonalPage';
 import HobbiesPage from './pages/HobbiesPage';
 import DevelopmentPage from './pages/DevelopmentPage';
+import { SideNav, Header } from './components';
 
 
 
@@ -15,14 +16,26 @@ class App extends React.Component {
  _renderScreen = (route) => {
     switch(route) {
       case 'personal':
-        return <PersonalPage {...this.props}/>;
+        return( <React.Fragment>
+					<Header />
+					<PersonalPage {...this.props}/>
+				</React.Fragment>);
       case 'development':
-        return <DevelopmentPage {...this.props}/>;
+        return( <React.Fragment>
+					<Header />
+					<DevelopmentPage {...this.props}/>
+				</React.Fragment>);
       case 'hobbies':
-        return <HobbiesPage {...this.props}/>;
+        return( <React.Fragment>
+					<Header />
+					<HobbiesPage {...this.props}/>
+				</React.Fragment>);
       case 'homepage':
       default:
-        return <HomePage {...this.props}/>;
+        return( <React.Fragment>
+					<Header />
+					<HomePage {...this.props}/>
+				</React.Fragment>);
 		}
 
   }

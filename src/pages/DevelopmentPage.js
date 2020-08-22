@@ -15,6 +15,7 @@ const Development = styled.div`
 	font-weight: 800;
 	font-family: Impact;
 	font-size: 64px;
+	text-align: center;
 `;
 
 const ContentWrapper = styled.div`
@@ -32,10 +33,9 @@ class DevelopmentPage extends Component {
 
 		return(
 			<Home>
-			<Header />
 				<ContentWrapper>
 				<Development>
-				This is where i will talk about my developing experience.
+				Developing & Software Experience
 				</Development>
 				<Blurb title="Programming Languages" fontSize={20}>
 					React, React Native, Java, Python

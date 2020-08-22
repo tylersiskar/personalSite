@@ -1,6 +1,6 @@
 const colors = {
 	beauBlue: '#C4D7F2',
-	mintCream: '#FOF7EE',
+	mintCream: 'mintcream',
 	powderBlue: '#AFDEDC',
 	morningBlue: '#91A8A4',
 	forestGreen: '#7CA982',

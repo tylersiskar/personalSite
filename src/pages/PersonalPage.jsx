@@ -6,6 +6,7 @@ import logo from './ubbull.jpg';
 
 const Home = styled.main`
 	background-color: ${colors.mintCream};
+	width: 100vw;
 	height: 100vh;
 `;
 
@@ -15,6 +16,7 @@ const Personal = styled.div`
 	font-weight: 800;
 	font-family: Impact;
 	font-size: 64px;
+	text-align: center;
 `;
 
 const ContentWrapper = styled.div`
@@ -39,10 +41,9 @@ class PersonalPage extends Component {
 
 		return(
 			<Home>
-			<Header />
 				<ContentWrapper>
 				<Personal>
-				This is where i will talk about myself
+				Background & Education
 				</Personal>
 				<Blurb title="Where I am from" fontSize={20} backgroundColor={colors.nyanza}>
 				I currently live in Clarence Center, New York and have lived in the WNY area my entire life.
