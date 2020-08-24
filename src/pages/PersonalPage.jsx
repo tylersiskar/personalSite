@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Header, Blurb, Image } from '../components';
+import { Blurb, Image } from '../components';
 import colors from '../colors/colors';
 import logo from './ubbull.jpg';
 import background from '../colors/background.jpg';
@@ -41,7 +41,7 @@ class PersonalPage extends Component {
 
 		return(
 			<Home>
-				<Image src={background} />
+				<Image alt="" src={background} />
 				<ContentWrapper>
 				<Personal>
 				Background & Education

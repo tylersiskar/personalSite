@@ -42,10 +42,7 @@ const logoData = [
     }
   }
 
-]
-
-const ListItem = styled.li`
-`;
+];
 
 const StyledLink = styled.a`
   margin-left: 15px;
@@ -57,10 +54,7 @@ const StyledLink = styled.a`
   }
 `;
 
-const Icon = styled.svg``;
-
 const LogoMenu = props => {
-	const { children } = props;
   return(
 <ul>
  { logoData.map((item, index) => {
@@ -80,8 +74,3 @@ LogoMenu.propTypes = propTypes;
 LogoMenu.defaultProps = defaultProps;
 
 export default LogoMenu;
-
-
-{/*
-
-*/}

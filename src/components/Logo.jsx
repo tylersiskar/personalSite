@@ -1,15 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import colors from '../colors/colors';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const propTypes = {
-	children: PropTypes.node
 };
 
 const defaultProps = {
-	children: undefined,
 };
 
 const StyledLogo = styled.div`
@@ -35,8 +33,6 @@ const StyledLink = styled(Link)`
 `;
 
 const Logo = props => {
-	const { children, name } = props;
-	
 	return(
 		<StyledLogo> <StyledLink to='/homepagez'> Tyler Siskar </StyledLink> </StyledLogo>
 	)

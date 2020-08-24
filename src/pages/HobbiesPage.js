@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Header, Blurb, Image } from '../components';
+import { Blurb, Image } from '../components';
 import colors from '../colors/colors';
 import background from '../colors/background.jpg';
 import avengers from '../colors/avengers.jpg';
@@ -40,7 +40,7 @@ class HobbiesPage extends Component {
 
 		return(
 			<Home>
-					<Image src={background} />
+					<Image alt="" src={background} />
 				<ContentWrapper>
 					<Hobbies>
 					Hobbies & Interests

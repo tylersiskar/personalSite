@@ -7,7 +7,7 @@ import HomePage from './pages/HomePage';
 import PersonalPage from './pages/PersonalPage';
 import HobbiesPage from './pages/HobbiesPage';
 import DevelopmentPage from './pages/DevelopmentPage';
-import { SideNav, Header } from './components';
+import { Header } from './components';
 
 const developmentData =  [
   {

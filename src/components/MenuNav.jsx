@@ -1,15 +1,13 @@
 import React from 'react';
 import styled, { keyframes, css } from 'styled-components';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import colors from '../colors/colors';
 import Button from './Button';
 
 const propTypes = {
-	children: PropTypes.node
 };
 
 const defaultProps = {
-	children: undefined,
 };
 
 const animateIn = keyframes `
@@ -81,7 +79,6 @@ class MenuNav extends React.Component {
 	}
 
 	render() {
-		const { children, visible } = this.props;
 		return(
 			<PopUpNav unmounted={this.state.mounted}>
 					<NavHeader>

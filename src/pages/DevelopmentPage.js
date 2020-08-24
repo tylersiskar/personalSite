@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Header, Blurb, Image, SideNav } from '../components';
+import { Blurb, Image } from '../components';
 import colors from '../colors/colors';
 import logo from './react.png';
 import background from '../colors/background.jpg';
@@ -33,7 +33,7 @@ class DevelopmentPage extends Component {
 
 		return(
 			<Home>
-				<Image src={background} />
+				<Image alt="" src={background} />
 				<ContentWrapper>
 				<Development>
 				Developing & Software Experience
@@ -44,7 +44,7 @@ class DevelopmentPage extends Component {
 				<Blurb title="Projects" fontSize={20} backgroundColor={colors.forestGreen}>
 					Verizon Design System, Burner Mobile App, Finta Web App, Personal Website, Budgeting App from college, Social Media App 
 				</Blurb>
-				<img style={{height: '200px', borderRadius: '20px'}}src={logo} />
+				<img alt="" style={{height: '200px', borderRadius: '20px'}}src={logo} />
 				</ContentWrapper>
 			</Home>
 		)

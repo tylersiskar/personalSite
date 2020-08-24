@@ -1,15 +1,13 @@
 import React, { Fragment, useState } from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import colors from '../colors/colors';
 import Button from './Button';
 
 const propTypes = {
-	children: PropTypes.node
 };
 
 const defaultProps = {
-	children: undefined,
 };
 
 const SideNavWrapper = styled.div`
@@ -52,7 +50,7 @@ const MenuItem = styled.span`
 `;
 
 const SideNav = props => {
-	const { children, data } = props;
+	const { data } = props;
   const [ menu, openMenu ] = useState(false);
 
   function _onClick(e, item) {
