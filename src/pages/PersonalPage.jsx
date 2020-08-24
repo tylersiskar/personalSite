@@ -14,8 +14,9 @@ const Personal = styled.div`
 	width: 100%;
 	background-color: ${colors.beauBlue};
 	font-weight: 800;
-	font-family: Impact;
-	font-size: 64px;
+  font-family: Copperplate;
+  text-transform: uppercase;
+	font-size: 48px;
 	text-align: center;
 `;
 

@@ -17,12 +17,10 @@ const StyledLink = styled(Link)`
   text-align: center;
   padding: 4px 7px;
   text-decoration: none;
-  font-family: base-complex,sans-serif;
-  font-weight: bold;
-  font-size: 0.9375rem;
-  line-height: 0.9375rem;
+  font-family: Copperplate;
   text-transform: uppercase;
-  font-stretch: 100%;
+  font-weight: bold;
+  font-size: 20px;
   outline: none;
   &:hover {
   	cursor: pointer;

@@ -22,9 +22,9 @@ const StyledLogo = styled.div`
 	  50% { transform: rotate(30deg); }
 	  100% { transform: rotate(0deg); }
 	}
-	font-size: 32px;
-	font-weight: bold;
-	font-family: fantasy;
+	font-size: 44px;
+	font-family: Brush Script MT;
+	letter-spacing: 0.5px;
 `;
 
 const StyledLink = styled(Link)`
