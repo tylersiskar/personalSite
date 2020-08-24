@@ -24,7 +24,7 @@ const developmentData =  [
     children: 'React Native',
     projects: [
       "Burner",
-      "MG Stream",
+      "Social Media App",
       ]
   },
   {
