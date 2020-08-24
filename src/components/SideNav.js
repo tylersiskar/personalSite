@@ -54,7 +54,6 @@ const SideNav = props => {
   const [ menu, openMenu ] = useState(false);
 
   function _onClick(e, item) {
-    console.log(menu, 'clicked button');
     item.projects ? openMenu(!menu) : openMenu(menu);
   }
 

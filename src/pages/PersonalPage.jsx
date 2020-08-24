@@ -14,8 +14,8 @@ const Personal = styled.div`
 	width: 100%;
 	background-color: ${colors.beauBlue};
 	font-weight: 800;
-  font-family: Copperplate;
-  text-transform: uppercase;
+  font-family: Helvetica;
+  
 	font-size: 48px;
 	text-align: center;
 `;
@@ -47,7 +47,7 @@ class PersonalPage extends Component {
 				<Personal>
 				Background & Education
 				</Personal>
-				<Blurb title="Where I am from" fontSize={20} backgroundColor={colors.nyanza}>
+				<Blurb title="Hometown" fontSize={20} backgroundColor={colors.nyanza}>
 				I currently live in Clarence Center, New York and have lived in the WNY area my entire life.
 				</Blurb>
 				<Blurb title="Education" fontSize={20} backgroundColor={colors.morningBlue}>

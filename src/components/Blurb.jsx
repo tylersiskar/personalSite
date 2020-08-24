@@ -29,9 +29,8 @@ const BlurbContainer = styled.div`
 	width: 50%;
 	min-height: 100px;
 	padding: 16px;
-	font-family: Copperplate;
-	text-transform: uppercase;
-    font-weight: bold;
+	font-family: Helvetica;
+	
 	font-size: ${({ fontSize }) => fontSize}px;
 	margin-bottom: 12px;
   	box-shadow: lightgray 0px 5px 10px;
@@ -39,6 +38,7 @@ const BlurbContainer = styled.div`
 
 const TitleContent = styled.span`
 	font-size: ${({ fontSize }) => fontSize + 4}px;
+	font-weight: bold;
 `;
 
 const Blurb = props => {

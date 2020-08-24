@@ -22,8 +22,8 @@ const ButtonBase = styled.button`
   text-align: center;
   padding: 4px 7px;
   text-decoration: none;
-  font-family: Copperplate;
-  text-transform: uppercase;
+  font-family: Helvetica;
+  
   font-weight: bold;
   font-size: 20px;
   font-stretch: 100%;
