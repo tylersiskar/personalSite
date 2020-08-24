@@ -50,7 +50,7 @@ class PersonalPage extends Component {
 				I currently live in Clarence Center, New York and have lived in the WNY area my entire life.
 				</Blurb>
 				<Blurb title="Education" fontSize={20} backgroundColor={colors.morningBlue}>
-				 I went to Clarence High School and the University at Buffalo for undergrad, where I completed a degree in Computational Physics with a Mathematics minor. Fun fact: I originally started as a Civil Engineer, but eventually found my path to the developing world.
+				 I went to Clarence High School and the University at Buffalo for undergrad, where I completed a degree in Computational Physics with a Mathematics minor. Fun fact: I originally started as a Civil Engineer, but eventually found my path to the software developing world.
 				 </Blurb>
 				 <StyledImage src={logo} />
 				</ContentWrapper>
