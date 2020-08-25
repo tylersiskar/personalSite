@@ -62,10 +62,10 @@ const HeaderLinks = styled.li`
   float: left;
   text-decoration: none;
   a {
-    color: ${colors.forestGreen}
+    color: ${({ active }) => active ? colors.beauBlue : colors.forestGreen};
   }
   button {
-    color: ${colors.forestGreen}
+    color: ${({ active }) => active ? colors.beauBlue : colors.forestGreen};
   }
   list-style: none;
   &:last-child:before {
@@ -96,7 +96,7 @@ const List = styled.ul`
 
 
 const Header = props => {
-  const { sideNavData } = props;
+  const { sideNavData, active } = props;
   const [ viewNav, setViewNav ] = useState(false); 
 
   function _handleClick(e) {
@@ -125,8 +125,8 @@ const Header = props => {
         {headerLinks.map((item, index) => {
           let Item = item.lastChild ? Button : AnchorLink;
             return(
-              <HeaderLinks tabIndex={0}  key={index} href={item.href} onClick={item.lastChild ? _handleClick : _onClick}>
-                <Item to={item.lastChild ? '/homepagez' : `/${item.name}`}  type={'dropdown'} href={item.href} tabIndex={-1}>
+              <HeaderLinks tabIndex={0}  key={index} href={item.href} onClick={item.lastChild ? _handleClick : _onClick} active={active === item.name}>
+                <Item to={item.lastChild ? '/homepagez' : `/${item.name}`}  type={'dropdown'} href={item.href} tabIndex={-1} active={active === item.name}>
                   {item.name}
                 </Item>
               </HeaderLinks>)

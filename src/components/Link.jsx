@@ -22,17 +22,20 @@ const StyledLink = styled(Link)`
   font-weight: bold;
   font-size: 20px;
   outline: none;
-  &:hover {
-  	cursor: pointer;
-  	background-color: lightgray;
-    border-radius: 6px;
-  }
+  ${({ active }) => !active && `
+    &:hover {
+      cursor: pointer;
+      background-color: lightgray;
+      border-radius: 6px;
+    }
+
+    `};
 `;
 
 const AnchorLink = props => {
 	const { children } = props;
 	return(
-		<StyledLink {...props}>
+		<StyledLink {...props} active={props.active}>
 		{children}
 		</StyledLink>
 	)

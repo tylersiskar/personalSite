@@ -52,23 +52,23 @@ class App extends React.Component {
     switch(route) {
       case 'personal':
         return( <React.Fragment>
-					<Header />
+					<Header active={route} />
 					<PersonalPage {...this.props}/>
 				</React.Fragment>);
       case 'development':
         return( <React.Fragment>
-					<Header sideNavData={developmentData}/>
+					<Header active={route} sideNavData={developmentData}/>
 					<DevelopmentPage {...this.props}/>
 				</React.Fragment>);
       case 'hobbies':
         return( <React.Fragment>
-					<Header />
+					<Header  active={route}/>
 					<HobbiesPage {...this.props}/>
 				</React.Fragment>);
       case 'homepage':
       default:
         return( <React.Fragment>
-					<Header />
+					<Header  active={route}/>
 					<HomePage {...this.props}/>
 				</React.Fragment>);
 		}
