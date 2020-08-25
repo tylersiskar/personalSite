@@ -53,8 +53,6 @@ const Content = styled.div`
 
 `;
 
-
-
 const TestHomePage = props => {
 
 	let content1 = `Hello! My name is Tyler Siskar, welcome to my site.`;
@@ -62,9 +60,9 @@ const TestHomePage = props => {
 		return(
 				<Home>
 					<LeftMain>
-					<StyledLink to="/personal"> personal </StyledLink>
-					<StyledLink to="/development"> development </StyledLink>
-					<StyledLink to="/hobbies"> hobbies </StyledLink>
+						<StyledLink to="/personal"> personal </StyledLink>
+						<StyledLink to="/development"> development </StyledLink>
+						<StyledLink to="/hobbies"> hobbies </StyledLink>
 					</LeftMain>
 					<RightMain>
 						<Content>
