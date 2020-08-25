@@ -13,7 +13,12 @@ const defaultProps = {
 const SideNavWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  min-width: 300px;
+  min-width: 200px;
+  opacity: 0;
+  ${({ active }) => active && `
+    opacity: 1;
+    transition: opacity 2s linear;
+  `}
   min-height: 100vh;
   position: absolute;
   top: 86px;
@@ -58,7 +63,7 @@ const SideNav = props => {
   }
 
 	return(
-		<SideNavWrapper>
+		<SideNavWrapper active={props.active}>
       {data && data.map((item, index) => {
         return(
           <Fragment>

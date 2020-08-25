@@ -6,7 +6,6 @@ import AnchorLink from './Link';
 import LogoMenu from './LogoMenu';
 import MenuNav from './MenuNav';
 import Button from './Button';
-import SideNav from './SideNav';
 import colors from '../colors/colors';
 
 const propTypes = {
@@ -118,7 +117,6 @@ const Header = props => {
 	return(
     <Head>
       {viewNav && <MenuNav visible={viewNav} onClick={_onClose}/>}
-      {sideNavData && <SideNav data={sideNavData}/>}
   		<StyledHeader>
         <Logo/>
         <List>

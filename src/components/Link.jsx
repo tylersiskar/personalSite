@@ -28,8 +28,7 @@ const StyledLink = styled(Link)`
       background-color: lightgray;
       border-radius: 6px;
     }
-
-    `};
+  `};
 `;
 
 const AnchorLink = props => {
