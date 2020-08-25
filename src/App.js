@@ -4,10 +4,11 @@ import { Route,
          Redirect }             from "react-router-dom";
 
 import HomePage from './pages/HomePage';
+import TestHomePage from './pages/TestHomePage';
 import PersonalPage from './pages/PersonalPage';
 import HobbiesPage from './pages/HobbiesPage';
 import DevelopmentPage from './pages/DevelopmentPage';
-import { Header } from './components';
+import { Header, TestHeader } from './components';
 
 const developmentData =  [
   {
@@ -68,8 +69,8 @@ class App extends React.Component {
       case 'homepage':
       default:
         return( <React.Fragment>
-					<Header  active={route}/>
-					<HomePage {...this.props}/>
+					<TestHeader active={route}/>
+					<TestHomePage {...this.props}/>
 				</React.Fragment>);
 		}
 

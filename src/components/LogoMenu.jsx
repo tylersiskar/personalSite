@@ -54,9 +54,13 @@ const StyledLink = styled.a`
   }
 `;
 
+const StyledList = styled.ul`
+  display: flex;
+`;
+
 const LogoMenu = props => {
   return(
-<ul>
+<StyledList>
  { logoData.map((item, index) => {
      return (
        <StyledLink key={index} href={logoData[index].href}>
@@ -66,7 +70,7 @@ const LogoMenu = props => {
        </StyledLink>  
        )
    })}
-  </ul>
+  </StyledList>
   )
 };
 

@@ -14,7 +14,6 @@ const Hobbies = styled.div`
 	background-color: ${colors.beauBlue};
 	font-weight: 800;
   font-family: Helvetica;
-  
 	font-size: 48px;
 	text-align: center;
 `;
