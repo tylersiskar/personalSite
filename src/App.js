@@ -3,12 +3,11 @@ import { Route,
          Switch,
          Redirect }             from "react-router-dom";
 
-import HomePage from './pages/HomePage';
 import TestHomePage from './pages/TestHomePage';
-import PersonalPage from './pages/PersonalPage';
-import HobbiesPage from './pages/HobbiesPage';
-import DevelopmentPage from './pages/DevelopmentPage';
-import { Header, TestHeader } from './components';
+import TestPersonalPage from './pages/TestPersonalPage';
+import TestHobbiesPage from './pages/TestHobbiesPage';
+import TestDevelopmentPage from './pages/TestDevelopmentPage';
+import { TestHeader } from './components';
 
 const developmentData =  [
   {
@@ -53,23 +52,23 @@ class App extends React.Component {
     switch(route) {
       case 'personal':
         return( <React.Fragment>
-					<Header active={route} />
-					<PersonalPage {...this.props}/>
+					<TestHeader active={route} />
+					<TestPersonalPage {...this.props}/>
 				</React.Fragment>);
       case 'development':
         return( <React.Fragment>
-					<Header active={route} sideNavData={developmentData}/>
-					<DevelopmentPage {...this.props}/>
+					<TestHeader active={route} sideNavData={developmentData}/>
+					<TestDevelopmentPage {...this.props}/>
 				</React.Fragment>);
       case 'hobbies':
         return( <React.Fragment>
-					<Header  active={route}/>
-					<HobbiesPage {...this.props}/>
+					<TestHeader  active={route}/>
+					<TestHobbiesPage {...this.props}/>
 				</React.Fragment>);
       case 'homepage':
       default:
         return( <React.Fragment>
-					<TestHeader active={route}/>
+					<TestHeader />
 					<TestHomePage {...this.props}/>
 				</React.Fragment>);
 		}

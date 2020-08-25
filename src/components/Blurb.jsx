@@ -30,9 +30,8 @@ const BlurbContainer = styled.div`
 	min-height: 100px;
 	padding: 16px;
 	font-family: Helvetica;
-	
 	font-size: ${({ fontSize }) => fontSize}px;
-	margin-bottom: 12px;
+	margin: 12px;
   	box-shadow: lightgray 0px 5px 10px;
 `;
 

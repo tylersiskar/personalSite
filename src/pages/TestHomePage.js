@@ -1,10 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Blurb, Image } from '../components';
-
 import { Link } from 'react-router-dom';
 import colors from '../colors/colors';
-import background from '../colors/background.jpg';
 
 const Home = styled.main`
 	height: 100vh;
@@ -30,12 +27,7 @@ const RightMain = styled.div`
 	background-color: white;
 	flex-direction: column;
 	justify-content: center;
-`;
 
-const MiddleRow = styled.div`
-	display: flex;
-	width: 100%;
-	justify-content: flex-end;
 `;
 
 const StyledLink = styled(Link)`
@@ -45,10 +37,10 @@ const StyledLink = styled(Link)`
 	position: relative;
 	padding-left: 44px;
 	left: 0;
+	transition: left .35s ease;
 	&:hover {
 		opacity: 0.7;
 		left: 32px;
-		transition: left .35s linear;
 	}
 `;
 
@@ -57,6 +49,7 @@ const Content = styled.div`
 	font-size: 44px;
 	width: 60%;
 	padding-left: 44px;
+	padding-bottom: 32px;
 
 `;
 
@@ -64,9 +57,8 @@ const Content = styled.div`
 
 const TestHomePage = props => {
 
-	let content1 = `Hello! My name is Tyler Siskar, welcome to my page!`;
-	let content2 = 'I am a React Developer who is in the process of making his own website.';
-	let content3 = 'In the header, there are links to other sections where you\'ll learn more about me. In the top right you can access my social media on Facebook or Twitter. Enjoy!';
+	let content1 = `Hello! My name is Tyler Siskar, welcome to my site.`;
+	let content2 = 'Click the links on the left to learn more about me!';
 		return(
 				<Home>
 					<LeftMain>
@@ -77,6 +69,9 @@ const TestHomePage = props => {
 					<RightMain>
 						<Content>
 						{content1}
+						</Content>
+						<Content>
+						{content2}
 						</Content>
 					</RightMain>
 				</Home>

@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import Logo from './Logo';
+import { Link } from 'react-router-dom';
 import LogoMenu from './LogoMenu';
 import colors from '../colors/colors';
 
@@ -12,25 +12,6 @@ const propTypes = {
 const defaultProps = {
   onClick: () => {}
 };
-
-
-
-const headerLinks = [
-  {
-    name: 'personal',
-  },
-  {
-    name: 'development',
-  },
-  {
-    name: 'hobbies',
-  },
-  {
-    name: 'more',
-    lastChild: true
-  }
-];
-
 
 const Head = styled.header`
   display: flex;
@@ -45,10 +26,15 @@ const LeftHeader = styled.div`
   background-color: ${colors.forestGreen};
   position: relative;
   width: 50%;
+  transition: width .35s ease;
+  ${({ active }) => active && `
+    width: 25%;
+  `};
   top: 0;
   z-index: 999;
   font-family: Helvetica;
   text-transform: lowercase;
+  font-weight: bold;
   font-size: 64px;
   color: white;
   padding-left: 44px;
@@ -59,18 +45,35 @@ const LogoWrapper = styled.div`
   padding-right: 32px;
 `;
 
-const TestHeader = props => {
-  
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: white;
+`;
+
+
+class TestHeader extends Component {
+  state = {
+    mounted: false
+  }
+  componentDidMount() {
+    setTimeout(() => this.setState({ mounted: true }), 10);
+  }
+  render() {
+
 	return(
     <Head>
-  		<LeftHeader>
-      Tyler siskar.
+  		<LeftHeader active={this.props.active && this.state.mounted}>
+        <StyledLink to='/homepagez'>
+        Tyler siskar.
+        </StyledLink>
   		</LeftHeader>
       <LogoWrapper>
-      <LogoMenu />
+        <LogoMenu />
       </LogoWrapper>
     </Head>
 	)
+}
 };
 
 TestHeader.propTypes = propTypes;
