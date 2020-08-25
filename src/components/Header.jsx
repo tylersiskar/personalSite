@@ -95,7 +95,7 @@ const List = styled.ul`
 
 
 const Header = props => {
-  const { sideNavData, active } = props;
+  const { active } = props;
   const [ viewNav, setViewNav ] = useState(false); 
 
   function _handleClick(e) {
