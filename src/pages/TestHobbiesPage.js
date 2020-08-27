@@ -95,7 +95,7 @@ class TestDevelopmentPage extends Component {
 								I'm a huge Marvel fan, I've seen all the movies multiple times. Interstellar is also one of my favorite movies.
 							</Blurb>
 							<Blurb title="Music" fontSize={20} backgroundColor={colors.nyanza} >
-								Most of my music interest lies in hip-hop/rap music, but I have been listening to more pop lately. Favorite artists: J Cole, Kendrick Lamar, Drake. Lately I've listened to Harry Styles' and Justin Bieber's latest albums. 
+								Most of my music interest lies in hip-hop/rap music, but I have been listening to more pop recently. Favorite artists: J Cole, Kendrick Lamar, Drake. Lately I've listened to Harry Styles' and Justin Bieber's newest albums. 
 							</Blurb>
 						</Content>
 				 		<StyledImage src={logo} />
