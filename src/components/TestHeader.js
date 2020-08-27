@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import LogoMenu from './LogoMenu';
 import colors from '../colors/colors';
+import { Title } from './Typography';
 
 const propTypes = {
   onClick: PropTypes.func,
@@ -32,10 +33,6 @@ const LeftHeader = styled.div`
   `};
   top: 0;
   z-index: 999;
-  font-family: Helvetica;
-  text-transform: lowercase;
-  font-weight: bold;
-  font-size: 64px;
   color: white;
   padding-left: 44px;
   box-sizing: border-box;
@@ -65,7 +62,9 @@ class TestHeader extends Component {
     <Head>
   		<LeftHeader active={this.props.active && this.state.mounted}>
         <StyledLink to='/homepagez'>
+        <Title bold>
         Tyler siskar.
+        </Title>
         </StyledLink>
   		</LeftHeader>
       <LogoWrapper>

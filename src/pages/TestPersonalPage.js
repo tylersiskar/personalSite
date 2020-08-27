@@ -41,7 +41,7 @@ const RightMain = styled.div`
 `;
 
 const StyledLink = styled(Link)`
-	color: ${({ yes }) => yes ? 'lightgray' : 'white'};
+	color: ${({ active }) => active ? 'lightgray' : 'white'};
 	font-size: 44px;
 	text-decoration: none;
 	position: relative;
@@ -81,7 +81,7 @@ class TestPersonalPage extends Component {
 		return(
 				<Home>
 					<LeftMain mount={this.state.mounted}>
-					<StyledLink yes to="/personal"> personal </StyledLink>
+					<StyledLink active to="/personal"> personal </StyledLink>
 					<StyledLink to="/development"> development </StyledLink>
 					<StyledLink to="/hobbies"> hobbies </StyledLink>
 					</LeftMain>
