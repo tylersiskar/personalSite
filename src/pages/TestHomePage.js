@@ -60,7 +60,7 @@ const TestHomePage = props => {
 	let content2 = 'Click the links on the left to learn more about me!';
 		return(
 				<Home>
-					<img style={{ position: 'absolute', bottom: '20%', left: '35%', width: '25%', zIndex: 1}} src={me} />
+					<img style={{ position: 'absolute', bottom: '20%', left: '35%', width: '25%', zIndex: 1}} alt="" src={me} />
 					<LeftMain>
 						<StyledLink to="/personal"> personal </StyledLink>
 						<StyledLink to="/development"> development </StyledLink>

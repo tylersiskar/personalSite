@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import colors from '../../../colors/colors';
 
 const propTypes = {
 	size: PropTypes.oneOf(['small', 'medium', 'large']),
@@ -24,7 +23,7 @@ const TitleComponent = styled.span`
 `;
 
 const Title = props => {
-	const { size, bold, children, color } = props;
+	const { size, children } = props;
 
 	function _determineFontSize(size) {
 		if( typeof size === 'number' ) return size;
