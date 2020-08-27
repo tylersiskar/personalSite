@@ -43,7 +43,7 @@ class App extends React.Component {
 		      <div>
 		        <Switch>
 		          <Route 
-		            path="/homepagez" 
+		            path="/homepage" 
 		            component={() => this._renderScreen('homepage')}/>
 		          <Route 
 		            path="/personal" 
@@ -54,7 +54,7 @@ class App extends React.Component {
 		          <Route 
 		            path="/hobbies" 
 		            component={() => this._renderScreen('hobbies')}/>
-		   		  <Redirect to="/homepagez"/>
+		   		  <Redirect to="/homepage"/>
 		        </Switch>
 		      </div>
 
