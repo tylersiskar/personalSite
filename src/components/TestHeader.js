@@ -51,19 +51,19 @@ const StyledLink = styled(Link)`
 
 class TestHeader extends Component {
   state = {
-    mounted: false
+    mounted: false,
+    name: 'tyler siskar.'
   }
   componentDidMount() {
     setTimeout(() => this.setState({ mounted: true }), 10);
   }
   render() {
-
 	return(
     <Head>
   		<LeftHeader active={this.props.active && this.state.mounted}>
-        <StyledLink to='/homepagez'>
+        <StyledLink to='/homepagez' onMouseOver={() => this.setState({ name: 'tyler siskar!'})} onMouseLeave={() => this.setState({ name: 'tyler siskar.'})}>
         <Title bold>
-        Tyler siskar.
+        {this.state.name}
         </Title>
         </StyledLink>
   		</LeftHeader>
