@@ -19,7 +19,6 @@ const BodyComponent = styled.span`
 	font-family: Helvetica;
 	font-size: ${({ size }) => size}px;
 	font-weight: ${({ bold }) => bold ? 'bold' : '450'};
-	text-transform: lowercase;
 	color: ${({ color }) => color};
 `;
 
@@ -30,12 +29,12 @@ const Body = props => {
 		if( typeof size === 'number' ) return size;
 		switch(size) {
 			case "small":
-				return 12;
-			case "medium":
 				return 16;
+			case "medium":
+				return 20;
 			case "large":
 			default:
-				return 20;
+				return 24;
 		}
 	}
 

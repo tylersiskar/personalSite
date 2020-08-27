@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import colors from '../colors/colors';
+import me from '../images/me.jpg';
 
 const Home = styled.main`
 	height: 100vh;
@@ -48,7 +49,7 @@ const Content = styled.div`
 	color: ${colors.forestGreen};
 	font-size: 44px;
 	width: 60%;
-	padding-left: 44px;
+	padding-left: 30%;
 	padding-bottom: 32px;
 
 `;
@@ -59,6 +60,7 @@ const TestHomePage = props => {
 	let content2 = 'Click the links on the left to learn more about me!';
 		return(
 				<Home>
+					<img style={{ position: 'absolute', bottom: '20%', left: '35%', width: '25%', zIndex: 1}} src={me} />
 					<LeftMain>
 						<StyledLink to="/personal"> personal </StyledLink>
 						<StyledLink to="/development"> development </StyledLink>

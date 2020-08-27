@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import colors from '../colors/colors';
+import { Body } from './Typography';
 
 const propTypes = {
 	children: PropTypes.node,
@@ -35,18 +36,15 @@ const BlurbContainer = styled.div`
   	box-shadow: lightgray 0px 5px 10px;
 `;
 
-const TitleContent = styled.span`
-	font-size: ${({ fontSize }) => fontSize + 4}px;
-	font-weight: bold;
-`;
-
 const Blurb = props => {
 		const { children, text, fontSize, fontColor, backgroundColor, title } = props;
 		return(
+			<Fragment>
 			<BlurbContainer color={fontColor} fontSize={fontSize} backgroundColor={backgroundColor}>
-			{title && <TitleContent fontSize={fontSize}> {title} </TitleContent>}
+			{title && <Body size="large" color={colors.forestGreen} bold> {title} </Body>}
 			{text ? text : children}
 			</BlurbContainer>
+			</Fragment>
 		)
 };
 

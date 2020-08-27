@@ -90,7 +90,7 @@ class TestPersonalPage extends Component {
 						<Blurb title="Hometown" fontSize={20} backgroundColor={colors.beauBlue}>
 						I currently live in Clarence Center, New York and have lived in the WNY area my entire life.
 						</Blurb>
-						<Blurb title="Education" fontSize={20} backgroundColor={colors.nyanza}>
+						<Blurb title="Education" fontSize={20} backgroundColor={colors.nyanza} seeMore>
 						 I went to Clarence High School and the University at Buffalo for undergrad, where I completed a degree in Computational Physics with a Mathematics minor. 
 						 </Blurb>
 						</Content>
