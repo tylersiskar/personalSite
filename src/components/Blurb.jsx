@@ -26,6 +26,7 @@ const defaultProps = {
 const BlurbContainer = styled.div`
 	display: flex;
 	flex-direction: column;
+	position: relative;
 	text-align: center;
 	color: ${({ color }) => color};
 	background-color: ${({ backgroundColor }) => backgroundColor};

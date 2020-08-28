@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Blurb, LinkGroup } from '../components';
 import colors from '../colors/colors';
+import vine from '../images/vine.jpg';
 
 const Home = styled.main`
 	height: 100vh;
@@ -29,6 +30,22 @@ const RightMain = styled.div`
 	flex-direction: column;
 	justify-content: center;
 
+	background-position: center;
+	background-size: cover;
+	background-image: url(${({ src }) => src});
+	&::after {
+	  content: "";
+	  position: absolute;
+	  z-index: 1;
+	  top: 0;
+	  left: 0;
+	  pointer-events: none;
+	  background-image: linear-gradient(to top, 
+	                    rgba(255,255,255, 0), 
+	                    rgba(255,255,255, 1) 90%);
+	  width: 100%;
+	  height: 5em;
+
 `;
 
 const Content = styled.div`
@@ -36,14 +53,18 @@ const Content = styled.div`
 	font-size: 44px;
 	padding: 20px;
 	width: auto;
-	@media (min-width: 967px) {
-
+	@media (min-width: 1272px) {
 		flex-direction: row;
+	}
+	@media (min-width: 967px) and (max-width: 1272px) {
+		font-size: 32px;
+		flex-direction: row;
+		
 	}
 	@media (min-width: 320px) and (max-width: 967px) {
 		width: auto;
 		flex-direction: column;
-		font-size: 16px;
+		font-size: 20px;
 		
 	}
 
@@ -57,7 +78,7 @@ const ContactPage = props => {
 					<LeftMain>
 						<LinkGroup activeRoute="contact"/>
 					</LeftMain>
-					<RightMain>
+					<RightMain src={vine}>
 						<Content>
 						<Blurb width='75%' backgroundColor="white" borderColor={colors.forestGreen}>
 						{content1}
