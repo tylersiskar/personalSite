@@ -36,6 +36,7 @@ const LeftHeader = styled.div`
   color: white;
   padding-left: 44px;
   box-sizing: border-box;
+  min-width: 200px;
 `;
 
 const LogoWrapper = styled.div`

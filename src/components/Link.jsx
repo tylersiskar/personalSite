@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link as DomLink } from 'react-router-dom';
+import { Title } from './Typography';
 import PropTypes from 'prop-types';
 
 const propTypes = {
@@ -11,36 +12,30 @@ const defaultProps = {
 	children: undefined,
 };
 
-const StyledLink = styled(Link)`
-  display: inline-block;
-  color: black;
-  text-align: center;
-  padding: 4px 7px;
+const StyledLink = styled(DomLink)`
   text-decoration: none;
-  font-family: Helvetica;
-  
-  font-weight: bold;
-  font-size: 20px;
-  outline: none;
-  ${({ active }) => !active && `
-    &:hover {
-      cursor: pointer;
-      background-color: lightgray;
-      border-radius: 6px;
-    }
-  `};
+  position: relative;
+  padding-left: 44px;
+  left: 0;
+  transition: left .35s ease;
+  &:hover {
+    opacity: 0.7;
+    left: 32px;
+  }
 `;
 
-const AnchorLink = props => {
-	const { children } = props;
+const Link = props => {
+	const { children, active } = props;
 	return(
-		<StyledLink {...props} active={props.active}>
+		<StyledLink {...props}>
+    <Title size="xSmall" color={active ? 'lightgray' : 'white'}>
 		{children}
+    </Title>
 		</StyledLink>
 	)
 };
 
-AnchorLink.propTypes = propTypes;
-AnchorLink.defaultProps = defaultProps;
+Link.propTypes = propTypes;
+Link.defaultProps = defaultProps;
 
-export default AnchorLink;
+export default Link;

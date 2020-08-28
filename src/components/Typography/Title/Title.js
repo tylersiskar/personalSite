@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const propTypes = {
-	size: PropTypes.oneOf(['small', 'medium', 'large']),
+	size: PropTypes.oneOf(['xSmall', 'small', 'medium', 'large']),
 	bold: PropTypes.bool,
 	children: PropTypes.node,
 	color: PropTypes.string
@@ -16,10 +16,15 @@ const defaultProps = {
 
 const TitleComponent = styled.span`
 	font-family: Helvetica;
-	font-size: ${({ size }) => size}px;
 	font-weight: ${({ bold }) => bold ? 'bold' : '450'};
 	text-transform: lowercase;
 	color: ${({ color }) => color};
+	@media (min-width: 967px) {
+		font-size: ${({ size }) => size}px;
+	}
+	@media (min-width: 320px) and (max-width: 967px) {
+		font-size: ${({ size }) => size === 32 ? 24 : 32}px;
+	}
 `;
 
 const Title = props => {
@@ -28,8 +33,10 @@ const Title = props => {
 	function _determineFontSize(size) {
 		if( typeof size === 'number' ) return size;
 		switch(size) {
-			case "small":
+			case "xSmall":
 				return 32;
+			case "small":
+				return 44;
 			case "medium":
 				return 64;
 			case "large":

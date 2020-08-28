@@ -32,8 +32,17 @@ const BlurbContainer = styled.div`
 	padding: 16px;
 	font-family: Helvetica;
 	font-size: ${({ fontSize }) => fontSize}px;
-	margin: 12px;
+	margin: 0 12px 12px 0;
   	box-shadow: lightgray 0px 5px 10px;
+
+	@media (min-width: 767px) {
+		width: 50%;
+	}
+	@media (min-width: 320px) and (max-width: 767px) {
+		width: 100%;
+		margin-right: 0;
+		
+	}
 `;
 
 const Blurb = props => {

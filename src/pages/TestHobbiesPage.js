@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Blurb } from '../components';
-import { Link } from 'react-router-dom';
+import { Blurb, Link } from '../components';
 import colors from '../colors/colors';
 import logo from '../images/avengers.jpg';
 
@@ -15,6 +14,7 @@ const Home = styled.main`
 const LeftMain = styled.div`
 	display: flex;
 	position: relative;
+	min-width: 200px;
 	width: 50%;
 	transition: width .35s ease;
 	${({ mount }) => mount && `
@@ -41,33 +41,33 @@ const RightMain = styled.div`
 	align-items: center;
 `;
 
-const StyledLink = styled(Link)`
-	color: ${({ active }) => active ? 'lightgray' : 'white'};
-	font-size: 44px;
-	text-decoration: none;
-	position: relative;
-	padding-left: 44px;
-	left: 0;
-	transition: left .35s ease;
-	&:hover {
-		opacity: 0.7;
-		left: 32px;
-	}
-`;
-
-
 const Content = styled.div`
 	display: flex;
 	color: ${colors.forestGreen};
 	padding: 0 44px;
+	@media (min-width: 767px) {
+		flex-direction: row;
+	}
+	@media (min-width: 320px) and (max-width: 767px) {
+		flex-direction: column;
+		
+	}
 `;
 
-
-const StyledImage = styled.img`
-	height: 200px;
+const StyledImage = styled.div`
 	border-radius: 20px;
+	background-position: center;
+	background-size: cover;
+	background-image: url(${({ src }) => src});
+	@media (min-width: 767px) {
+		height: 50%;
+		width: 50%;
+	}
+	@media (min-width: 320px) and (max-width: 767px) {
+		width: 100%;
+		height: 100%;
+	}
 `;
-
 
 
 class TestDevelopmentPage extends Component {
@@ -82,9 +82,9 @@ class TestDevelopmentPage extends Component {
 		return(
 				<Home>
 					<LeftMain mount={this.state.mounted}>
-					<StyledLink to="/personal"> personal </StyledLink>
-					<StyledLink  to="/development"> development </StyledLink>
-					<StyledLink active to="/hobbies"> hobbies </StyledLink>
+					<Link to="/personal"> personal </Link>
+					<Link  to="/development"> development </Link>
+					<Link active to="/hobbies"> hobbies </Link>
 					</LeftMain>
 					<RightMain mount={this.state.mounted}>
 						<Content>

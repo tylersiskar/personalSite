@@ -15,6 +15,7 @@ const LeftMain = styled.div`
 	display: flex;
 	position: relative;
 	width: 50%;
+	min-width: 200px;
 	height: 100%;
 	background-color: ${colors.forestGreen};
 	flex-direction: column;
@@ -51,6 +52,13 @@ const Content = styled.div`
 	width: 60%;
 	padding-left: 30%;
 	padding-bottom: 32px;
+	@media (min-width: 767px) {
+		flex-direction: row;
+	}
+	@media (min-width: 320px) and (max-width: 767px) {
+		flex-direction: column;
+		
+	}
 
 `;
 
