@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { LinkGroup } from '../components';
+import { Blurb, LinkGroup } from '../components';
 import colors from '../colors/colors';
 
 const Home = styled.main`
@@ -34,13 +34,16 @@ const RightMain = styled.div`
 const Content = styled.div`
 	color: ${colors.forestGreen};
 	font-size: 44px;
-	width: 60%;
-	padding-left: 32px;
-	@media (min-width: 767px) {
+	padding: 20px;
+	width: auto;
+	@media (min-width: 967px) {
+
 		flex-direction: row;
 	}
-	@media (min-width: 320px) and (max-width: 767px) {
+	@media (min-width: 320px) and (max-width: 967px) {
+		width: auto;
 		flex-direction: column;
+		font-size: 16px;
 		
 	}
 
@@ -56,7 +59,9 @@ const ContactPage = props => {
 					</LeftMain>
 					<RightMain>
 						<Content>
+						<Blurb width='75%' backgroundColor="white" borderColor={colors.forestGreen}>
 						{content1}
+						</Blurb>
 						</Content>
 					</RightMain>
 				</Home>
