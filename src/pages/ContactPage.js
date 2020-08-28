@@ -36,8 +36,7 @@ const Content = styled.div`
 	color: ${colors.forestGreen};
 	font-size: 44px;
 	width: 60%;
-	padding-left: 30%;
-	padding-bottom: 32px;
+	padding-left: 32px;
 	@media (min-width: 767px) {
 		flex-direction: row;
 	}
@@ -48,22 +47,17 @@ const Content = styled.div`
 
 `;
 
-const TestHomePage = props => {
+const ContactPage = props => {
 
-	let content1 = `Hello! My name is Tyler Siskar, welcome to my site.`;
-	let content2 = 'Click the links on the left to learn more about me!';
+	let content1 = `Thank you for visiting! Suggestions? Email me at tyler.siskar@gmail.com`;
 		return(
 				<Home>
-					<img style={{ position: 'absolute', bottom: '20%', left: '35%', width: '25%', zIndex: 1}} alt="" src={me} />
 					<LeftMain>
-						<LinkGroup />
+						<LinkGroup activeRoute="contact"/>
 					</LeftMain>
 					<RightMain>
 						<Content>
 						{content1}
-						</Content>
-						<Content>
-						{content2}
 						</Content>
 					</RightMain>
 				</Home>
@@ -71,4 +65,4 @@ const TestHomePage = props => {
 };
 
 
-export default TestHomePage;
+export default ContactPage;

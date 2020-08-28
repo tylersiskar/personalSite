@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Blurb, Link } from '../components';
+import { Blurb, LinkGroup } from '../components';
 import colors from '../colors/colors';
 import logo from '../images/ubbull.jpg';
 
@@ -82,9 +82,7 @@ class TestPersonalPage extends Component {
 		return(
 				<Home>
 					<LeftMain mount={this.state.mounted}>
-					<Link active to="/personal"> personal </Link>
-					<Link to="/development"> development </Link>
-					<Link to="/hobbies"> hobbies </Link>
+					<LinkGroup activeRoute="personal" />
 					</LeftMain>
 					<RightMain mount={this.state.mounted}>
 						<Content>

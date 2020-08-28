@@ -59,9 +59,10 @@ class TestHeader extends Component {
     setTimeout(() => this.setState({ mounted: true }), 10);
   }
   render() {
+    console.log(this.props.active);
 	return(
     <Head>
-  		<LeftHeader active={this.props.active && this.state.mounted}>
+  		<LeftHeader active={this.props.active !== "homepage" && this.props.active !== "contact" && this.state.mounted}>
         <StyledLink to='/homepage' onMouseOver={() => this.setState({ name: 'tyler siskar!'})} onMouseLeave={() => this.setState({ name: 'tyler siskar.'})}>
         <Title bold>
         {this.state.name}

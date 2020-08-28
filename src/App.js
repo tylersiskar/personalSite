@@ -7,6 +7,7 @@ import TestHomePage from './pages/TestHomePage';
 import TestPersonalPage from './pages/TestPersonalPage';
 import TestHobbiesPage from './pages/TestHobbiesPage';
 import TestDevelopmentPage from './pages/TestDevelopmentPage';
+import ContactPage from './pages/ContactPage';
 import { TestHeader } from './components';
 
 class App extends React.Component {
@@ -28,10 +29,15 @@ class App extends React.Component {
 					<TestHeader  active={route}/>
 					<TestHobbiesPage {...this.props}/>
 				</React.Fragment>);
+      case 'contact':
+        return( <React.Fragment>
+					<TestHeader  active={route}/>
+					<ContactPage {...this.props}/>
+				</React.Fragment>);
       case 'homepage':
       default:
         return( <React.Fragment>
-					<TestHeader />
+					<TestHeader  active={route}/>
 					<TestHomePage {...this.props}/>
 				</React.Fragment>);
 		}
@@ -54,6 +60,9 @@ class App extends React.Component {
 		          <Route 
 		            path="/hobbies" 
 		            component={() => this._renderScreen('hobbies')}/>
+		          <Route 
+		            path="/contact" 
+		            component={() => this._renderScreen('contact')}/>
 		   		  <Redirect to="/homepage"/>
 		        </Switch>
 		      </div>
