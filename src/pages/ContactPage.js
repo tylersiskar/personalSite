@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { LinkGroup } from '../components';
 import colors from '../colors/colors';
-import me from '../images/me.jpg';
 
 const Home = styled.main`
 	height: 100vh;
