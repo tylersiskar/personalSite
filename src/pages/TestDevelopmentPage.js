@@ -74,12 +74,19 @@ const StyledImage = styled.div`
 	}
 `;
 
+
 class TestDevelopmentPage extends Component {
 	state = {
-		mounted: false
+		mounted: false,
+		showMore: false
 	}
 	componentDidMount() {
 		setTimeout(() => this.setState({ mounted: true }), 10);
+	}
+
+	_onClick = e => {
+		console.log('hi', this.state);
+		this.setState({ showMore: true})
 	}
 	render() {
 
@@ -93,7 +100,7 @@ class TestDevelopmentPage extends Component {
 							<Blurb title="Programming Languages" fontSize={20}>
 								React, React Native, Java, Python
 							</Blurb>
-							<Blurb title="Projects" fontSize={20} backgroundColor={colors.mintCream}>
+							<Blurb title="Projects" fontSize={20} backgroundColor={colors.mintCream} onClick={this._onClick}>
 								Verizon Design System, Burner Mobile App, Finta Web App, Personal Website, Budgeting App from college, Social Media App 
 							</Blurb>
 						</Content>

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Blurb, LinkGroup } from '../components';
 import colors from '../colors/colors';
-import vine from '../images/vine.jpg';
+import vine from '../images/plant.jpg';
 
 const Home = styled.main`
 	height: 100vh;

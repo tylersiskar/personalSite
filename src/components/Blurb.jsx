@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import colors from '../colors/colors';
 import { Body } from './Typography';
+import Button from './Button';
 
 const propTypes = {
 	children: PropTypes.node,
@@ -51,12 +52,13 @@ const BlurbContainer = styled.div`
 `;
 
 const Blurb = props => {
-		const { children, text, fontSize, fontColor, backgroundColor, borderColor, title, width } = props;
+		const { children, text, fontSize, fontColor, backgroundColor, borderColor, title, width, showMore } = props;
 		return(
 			<Fragment>
 			<BlurbContainer width={width} color={fontColor} fontSize={fontSize} backgroundColor={backgroundColor} borderColor={borderColor}>
 			{title && <Body size="large" color={colors.forestGreen} bold> {title} </Body>}
 			{text ? text : children}
+			{showMore && <Button onClick={props.onClick} type="dropdown" />}
 			</BlurbContainer>
 			</Fragment>
 		)

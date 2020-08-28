@@ -31,8 +31,7 @@ const ButtonBase = styled.button`
   border: none;
   &:hover {
     cursor: pointer;
-    background-color: lightgray;
-    border-radius: 6px;
+    opacity: 0.7;
   }
   &:active {
     outline: none;
