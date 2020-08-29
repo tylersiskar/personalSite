@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link as DomLink } from 'react-router-dom';
-import { Title } from './Typography';
+import { Title } from '../Typography';
 import PropTypes from 'prop-types';
 
 const propTypes = {

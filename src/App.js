@@ -2,7 +2,8 @@ import React from 'react';
 import { Route,
          Switch,
          Redirect }             from "react-router-dom";
-
+import styled from 'styled-components';
+import colors from './colors/colors';
 import TestHomePage from './pages/TestHomePage';
 import TestPersonalPage from './pages/TestPersonalPage';
 import TestHobbiesPage from './pages/TestHobbiesPage';
@@ -10,43 +11,78 @@ import TestDevelopmentPage from './pages/TestDevelopmentPage';
 import ContactPage from './pages/ContactPage';
 import { TestHeader } from './components';
 
+const HomeContactPage = styled.body`
+	background-image: linear-gradient(to right, ${colors.forestGreen} 50%, white 50%);
+	position: absolute;
+	bottom: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+`;
+const OtherPage = styled.body`
+	background-image: linear-gradient(to right, ${colors.forestGreen} 25%, white 25%);
+	position: absolute;
+	bottom: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+`;
+
+const links = [ 
+	{
+		route: 'about',
+		to: '/personal'
+	},
+	{
+		route: 'development',
+		to: '/development'
+	},
+	{
+		route: 'hobbies',
+		to: '/hobbies'
+	},
+	{
+		route: 'contact',
+		to: '/contact'
+	}
+];
+
 class App extends React.Component {
 
  _renderScreen = (route) => {
     switch(route) {
       case 'personal':
-        return( <React.Fragment>
+        return( <OtherPage>
 					<TestHeader active={route} />
-					<TestPersonalPage {...this.props}/>
-				</React.Fragment>);
+					<TestPersonalPage {...this.props} links={links}/>
+				</OtherPage>);
       case 'development':
-        return( <React.Fragment>
+        return( <OtherPage>
 					<TestHeader active={route}/>
-					<TestDevelopmentPage {...this.props}/>
-				</React.Fragment>);
+					<TestDevelopmentPage {...this.props} links={links}/>
+				</OtherPage>);
       case 'hobbies':
-        return( <React.Fragment>
+        return( <OtherPage>
 					<TestHeader  active={route}/>
-					<TestHobbiesPage {...this.props}/>
-				</React.Fragment>);
+					<TestHobbiesPage {...this.props} links={links}/>
+				</OtherPage>);
       case 'contact':
-        return( <React.Fragment>
+        return( <HomeContactPage>
 					<TestHeader  active={route}/>
-					<ContactPage {...this.props}/>
-				</React.Fragment>);
+					<ContactPage {...this.props} links={links}/>
+				</HomeContactPage>);
       case 'homepage':
       default:
-        return( <React.Fragment>
+        return( <HomeContactPage>
 					<TestHeader  active={route}/>
-					<TestHomePage {...this.props}/>
-				</React.Fragment>);
+					<TestHomePage {...this.props} links={links}/>
+				</HomeContactPage>);
 		}
 
   }
 
 		render() {
 			  return (
-		      <div>
 		        <Switch>
 		          <Route 
 		            path="/homepage" 
@@ -65,7 +101,6 @@ class App extends React.Component {
 		            component={() => this._renderScreen('contact')}/>
 		   		  <Redirect to="/homepage"/>
 		        </Switch>
-		      </div>
 
 	  );
 	}

@@ -20,24 +20,29 @@ const ButtonBase = styled.button`
   color: ${({ textColor }) => textColor};
   outline: none;
   text-align: center;
-  padding: 4px 7px;
   text-decoration: none;
   font-family: Helvetica;
-  
+  cursor: pointer;
+  padding: 0;
   font-weight: bold;
   font-size: 20px;
   font-stretch: 100%;
   background-color: transparent;
   border: none;
-  &:hover {
-    cursor: pointer;
-    opacity: 0.7;
-  }
+  border-radius: 16px;
   &:active {
     outline: none;
   }
+  &:hover
+    span:after {
+    cursor: pointer;
+    top: 5px;
+  }
   span:after {
     display: inline-block;
+    position: relative;
+    transition: top 0.3s ease;
+    top: 0px;
     content: "";
     margin-left: 10px;
     height: 8px;
@@ -62,17 +67,16 @@ const CloseButton = styled.button`
 `;
 
 const StyledSpan = styled.span`
-  padding: 0 7px 1px;
 `;
   
 const Button = props => {
-	const { children, type } = props;
+	const { children, type, text } = props;
 
   if (type === 'dropdown') {
     return (
   		<ButtonBase {...props} textColor={props.textColor}>
         <StyledSpan >
-    		{children}
+    		{text ? text : children}
         </StyledSpan>
   		</ButtonBase>
     )

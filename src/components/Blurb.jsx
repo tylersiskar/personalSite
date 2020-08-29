@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import colors from '../colors/colors';
@@ -27,20 +27,20 @@ const defaultProps = {
 const BlurbContainer = styled.div`
 	display: flex;
 	flex-direction: column;
+	z-index: 2;
 	position: relative;
 	text-align: center;
 	color: ${({ color }) => color};
 	background-color: ${({ backgroundColor }) => backgroundColor};
 	border: ${({ borderColor }) => borderColor ? `3px solid ${borderColor}` : 'none'};
 	border-radius: 10px;
-	width: ${({ width }) => width};
 	min-height: 100px;
 	padding: 16px;
 	font-family: Helvetica;
 	font-size: ${({ fontSize }) => fontSize}px;
 	margin: 0 12px 12px 0;
   	box-shadow: lightgray 0px 5px 10px;
-
+  	opacity: ${({ opacity }) => opacity ? opacity : 0.9};
 	@media (min-width: 767px) {
 		width: ${({ width }) => width};
 	}
@@ -50,17 +50,35 @@ const BlurbContainer = styled.div`
 		
 	}
 `;
+const Wrapper = styled.div`
+	display: flex;
+	flex-direction: column;
+	width: ${({ width }) => width};
+`;
 
 const Blurb = props => {
-		const { children, text, fontSize, fontColor, backgroundColor, borderColor, title, width, showMore } = props;
+		const { 
+			children, 
+			text, 
+			fontSize, 
+			fontColor, 
+			backgroundColor, 
+			borderColor, 
+			title, 
+			width, 
+			showMore, 
+			buttonText,
+			opacity
+			} = props;
 		return(
-			<Fragment>
-			<BlurbContainer width={width} color={fontColor} fontSize={fontSize} backgroundColor={backgroundColor} borderColor={borderColor}>
-			{title && <Body size="large" color={colors.forestGreen} bold> {title} </Body>}
-			{text ? text : children}
-			{showMore && <Button onClick={props.onClick} type="dropdown" />}
-			</BlurbContainer>
-			</Fragment>
+			<Wrapper width={width}>
+				<BlurbContainer  opacity={opacity} color={fontColor} fontSize={fontSize} backgroundColor={backgroundColor} borderColor={borderColor}>
+				{title && <Body size="large" color={colors.forestGreen} bold> {title} </Body>}
+				{text ? text : children}
+				<div style={{height: '8px', width: '100%'}}/>
+				{showMore && <Button type="dropdown" text={buttonText}/>}
+				</BlurbContainer>
+			</Wrapper>
 		)
 };
 

@@ -17,13 +17,14 @@ const LinkContainer = styled.div`
 `;
 
 const LinkGroup = props => {
-		const { activeRoute } = props;
+		const { activeRoute, links } = props;
 		return(
 			<LinkContainer>
-				<Link active={activeRoute === 'personal'} to="/personal"> personal </Link>
-				<Link active={activeRoute === 'development'} to="/development"> development </Link>
-				<Link active={activeRoute === 'hobbies'} to="/hobbies"> hobbies </Link>
-				<Link active={activeRoute === 'contact'} to="/contact"> contact </Link>
+			{links.map((item, index) => {
+				return(
+					<Link key={index} active={activeRoute === item.route} to={item.to}> {item.route} </Link>
+					)
+			})}
 			</LinkContainer>
 		)
 };

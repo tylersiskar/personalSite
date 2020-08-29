@@ -7,7 +7,8 @@ const colors = {
 	nyanza: '#E0EEC6',
 	gold: '#F4E285',
 	darkGreen: '#243E36',
-	darkGray: 'darkslategray'
+	darkGray: 'darkslategray',
+	white: 'white'
 };
 
 export default colors;

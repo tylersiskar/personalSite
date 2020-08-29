@@ -1,14 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import { LinkGroup } from '../components';
+import { Blurb } from '../components';
+import { LinkGroup } from '../components/Links';
 import colors from '../colors/colors';
+import vine from '../images/plant.jpg';
 import me from '../images/me.jpg';
 
-const Home = styled.main`
-	height: 100vh;
+const Home = styled.div`
+	height: 100%;
 	position: relative;
 	display: flex;
-
 `;
 
 const LeftMain = styled.div`
@@ -26,9 +27,23 @@ const RightMain = styled.div`
 	position: relative;
 	width: 50%;
 	height: 100%;
-	background-color: white;
 	flex-direction: column;
 	justify-content: center;
+	background-position: center;
+	background-size: cover;
+	background-image: url(${({ src }) => src});
+	&::after {
+	  content: "";
+	  position: absolute;
+	  z-index: 1;
+	  top: 0;
+	  left: 0;
+	  pointer-events: none;
+	  background-image: linear-gradient(to top, 
+	                    rgba(255,255,255, 0), 
+	                    rgba(255,255,255, 1) 90%);
+	  width: 100%;
+	  height: 5em;
 
 `;
 
@@ -70,14 +85,18 @@ const TestHomePage = props => {
 				<Home>
 					<StyledImage alt="" src={me} />
 					<LeftMain>
-						<LinkGroup />
+						<LinkGroup links={props.links} />
 					</LeftMain>
-					<RightMain>
+					<RightMain src={vine}>
 						<Content>
+						<Blurb backgroundColor={colors.white} borderColor={colors.forestGreen} width="100%" >
 						{content1}
+						</Blurb>
 						</Content>
 						<Content>
+						<Blurb backgroundColor={colors.white} borderColor={colors.forestGreen}  width='100%'>
 						{content2}
+						</Blurb>
 						</Content>
 					</RightMain>
 				</Home>

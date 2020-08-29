@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Blurb, LinkGroup } from '../components';
+import { Blurb } from '../components';
+import { LinkGroup } from '../components/Links';
 import colors from '../colors/colors';
 import vine from '../images/plant.jpg';
 
-const Home = styled.main`
-	height: 100vh;
+const Home = styled.div`
+	height: 100%;
+	overflow-y: scroll;
 	position: relative;
 	display: flex;
 
@@ -76,11 +78,11 @@ const ContactPage = props => {
 		return(
 				<Home>
 					<LeftMain>
-						<LinkGroup activeRoute="contact"/>
+						<LinkGroup activeRoute="contact" links={props.links} />
 					</LeftMain>
 					<RightMain src={vine}>
 						<Content>
-						<Blurb width='75%' backgroundColor="white" borderColor={colors.forestGreen}>
+						<Blurb width='75%' backgroundColor="white" borderColor={colors.forestGreen} >
 						{content1}
 						</Blurb>
 						</Content>

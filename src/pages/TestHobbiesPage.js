@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Blurb, LinkGroup } from '../components';
+import { LinkGroup } from '../components/Links';
 import colors from '../colors/colors';
-import logo from '../images/avengers.jpg';
+import vine from '../images/plant.jpg';
+import ironman from '../images/ironman.jpg';
+import music from '../images/music.jpeg';
+import bills from '../images/bills.png';
+import { Card } from '../components/Cards';
 
-const Home = styled.main`
-	height: 100vh;
+
+const Home = styled.div`
 	position: relative;
 	display: flex;
-
+	height: 100%;
+	overflow-y: scroll;
 `;
 
 const LeftMain = styled.div`
@@ -27,48 +32,40 @@ const LeftMain = styled.div`
 `;
 
 const RightMain = styled.div`
-	display: flex;
 	position: relative;
+	padding-top: 32px;
 	width: 50%;
 	transition: width .35s ease;
 	${({ mount }) => mount && `
 		width: 75%;
 	`};
 	height: 100%;
-	background-color: white;
-	flex-direction: column;
-	justify-content: space-around;
-	align-items: center;
-`;
-
-const Content = styled.div`
-	display: flex;
-	color: ${colors.forestGreen};
-	padding: 0 44px;
-	@media (min-width: 767px) {
-		flex-direction: row;
-	}
-	@media (min-width: 320px) and (max-width: 767px) {
-		flex-direction: column;
-		
-	}
-`;
-
-const StyledImage = styled.div`
-	border-radius: 20px;
+	overflow: auto;
 	background-position: center;
 	background-size: cover;
 	background-image: url(${({ src }) => src});
-	@media (min-width: 767px) {
-		height: 50%;
-		width: 50%;
-	}
-	@media (min-width: 320px) and (max-width: 767px) {
-		width: 100%;
-		height: 100%;
-	}
+	&::after {
+	  content: "";
+	  position: absolute;
+	  z-index: 1;
+	  top: 0;
+	  left: 0;
+	  pointer-events: none;
+	  background-image: linear-gradient(to top, 
+	                    rgba(255,255,255, 0), 
+	                    rgba(255,255,255, 1) 90%);
+	  width: 100%;
+	  height: 4em;
 `;
 
+const Content = styled.div`
+	padding: 0 44px;
+	height: 100%;
+	@media (min-width: 320px) and (max-width: 767px) {
+		padding: 0 20px;
+		width: 100%;
+	}
+`;
 
 class TestDevelopmentPage extends Component {
 	state = {
@@ -82,21 +79,14 @@ class TestDevelopmentPage extends Component {
 		return(
 				<Home>
 					<LeftMain mount={this.state.mounted}>
-						<LinkGroup activeRoute="hobbies" />
+						<LinkGroup activeRoute="hobbies" links={this.props.links} />
 					</LeftMain>
-					<RightMain mount={this.state.mounted}>
+					<RightMain src={vine} mount={this.state.mounted}>
 						<Content>
-							<Blurb title="Sports" fontSize={20} backgroundColor={colors.powderBlue}>
-								I'm a lifelong Bills fan, and am excited about the upcoming season! I enjoy playing recreational basketball, golf, and baseball. 
-							</Blurb>
-							<Blurb title="Movies" fontSize={20} backgroundColor={colors.gold}>
-								I'm a huge Marvel fan, I've seen all the movies multiple times. Interstellar is also one of my favorite movies.
-							</Blurb>
-							<Blurb title="Music" fontSize={20} backgroundColor={colors.nyanza} >
-								Most of my music interest lies in hip-hop/rap music, but I have been listening to more pop recently. Favorite artists: J Cole, Kendrick Lamar, Drake. Lately I've listened to Harry Styles' and Justin Bieber's newest albums. 
-							</Blurb>
+							<Card title="Sports" content="I'm a lifelong Bills fan, and am excited about the upcoming season! I enjoy playing recreational basketball, golf, and baseball. " image={bills}/>
+							<Card title="Movies" content="I'm a huge Marvel fan, I've seen all the movies multiple times. Interstellar is also one of my favorite movies." image={ironman}/>
+							<Card title="Music" content="Most of my music interest lies in hip-hop/rap music, but I have been listening to more pop recently. Favorite artists: J Cole, Kendrick Lamar, Drake. Lately I've listened to Harry Styles' and Justin Bieber's newest albums." image={music}/>
 						</Content>
-				 		<StyledImage src={logo} />
 					</RightMain>
 				</Home>
 		)

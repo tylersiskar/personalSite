@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Blurb, LinkGroup } from '../components';
+import { LinkGroup } from '../components/Links';
 import colors from '../colors/colors';
-import logo from '../images/ubbull.jpg';
+import plant from '../images/plant.jpg';
+import buffalo from '../images/buffalo.jpg';
+import ubbull from '../images/ubbull.jpg';
+import { Card } from '../components/Cards';
 
-const Home = styled.main`
-	height: 100vh;
+const Home = styled.div`
+	height: 100%;
 	position: relative;
 	display: flex;
+	overflow-y: scroll;
 
 `;
 
@@ -26,46 +30,38 @@ const LeftMain = styled.div`
 `;
 
 const RightMain = styled.div`
-	display: flex;
 	position: relative;
+	padding-top: 32px;
 	width: 50%;
 	transition: width .35s ease;
 	${({ mount }) => mount && `
 		width: 75%;
 	`};
 	height: 100%;
-	background-color: white;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-around;
-`;
-
-const Content = styled.div`
-	display: flex;
-	color: ${colors.forestGreen};
-	padding: 0 44px;
-	@media (min-width: 767px) {
-		flex-direction: row;
-	}
-	@media (min-width: 320px) and (max-width: 767px) {
-		flex-direction: column;
-		padding: 0 20px;
-	}
-`;
-
-
-const StyledImage = styled.div`
-	border-radius: 20px;
+	overflow: auto;
 	background-position: center;
 	background-size: cover;
 	background-image: url(${({ src }) => src});
-	@media (min-width: 767px) {
-		height: 50%;
-		width: 50%;
-	}
+	&::after {
+	  content: "";
+	  position: absolute;
+	  z-index: 1;
+	  top: 0;
+	  left: 0;
+	  pointer-events: none;
+	  background-image: linear-gradient(to top, 
+	                    rgba(255,255,255, 0), 
+	                    rgba(255,255,255, 1) 90%);
+	  width: 100%;
+	  height: 4em;
+`;
+
+const Content = styled.div`
+	padding: 0 44px;
+	height: 100%;
 	@media (min-width: 320px) and (max-width: 767px) {
+		padding: 0 20px;
 		width: 100%;
-		height: 100%;
 	}
 `;
 
@@ -82,18 +78,13 @@ class TestPersonalPage extends Component {
 		return(
 				<Home>
 					<LeftMain mount={this.state.mounted}>
-					<LinkGroup activeRoute="personal" />
+					<LinkGroup activeRoute="about" links={this.props.links} />
 					</LeftMain>
-					<RightMain mount={this.state.mounted}>
+					<RightMain src={plant} mount={this.state.mounted}>
 						<Content>
-						<Blurb title="Hometown" fontSize={20} backgroundColor={colors.beauBlue}>
-						I currently live in Clarence Center, New York and have lived in the WNY area my entire life.
-						</Blurb>
-						<Blurb title="Education" fontSize={20} backgroundColor={colors.nyanza} seeMore>
-						 I went to Clarence High School and the University at Buffalo for undergrad, where I completed a degree in Computational Physics with a Mathematics minor. 
-						 </Blurb>
+							<Card title="Hometown" content="I currently live in Clarence Center, New York and have lived in the WNY area my entire life." image={buffalo}/>
+							<Card title="Education" content="I went to Clarence High School and the University at Buffalo for undergrad, where I completed a degree in Computational Physics with a Mathematics minor. " image={ubbull}/>
 						</Content>
-				 		<StyledImage src={logo} />
 					</RightMain>
 				</Home>
 		)

@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Blurb, LinkGroup } from '../components';
+import { LinkGroup } from '../components/Links';
 import colors from '../colors/colors';
-import logo from '../images/react.png';
+import plant from '../images/plant.jpg';
+import code from '../images/code.jpg';
+import react from '../images/react.png';
+import { Card } from '../components/Cards';
 
-const Home = styled.main`
-	height: 100vh;
+const Home = styled.div`
 	position: relative;
 	display: flex;
-
+	height: 100%;
+	overflow-y: scroll;
 `;
 
 const LeftMain = styled.div`
@@ -20,60 +23,46 @@ const LeftMain = styled.div`
 	${({ mount }) => mount && `
 		width: 25%;
 	`};
-	height: 100%;
-	background-color: ${colors.forestGreen};
 	flex-direction: column;
-
+	background-color: ${colors.forestGreen};
 `;
 
+
 const RightMain = styled.div`
-	display: flex;
 	position: relative;
+	padding-top: 32px;
 	width: 50%;
 	transition: width .35s ease;
 	${({ mount }) => mount && `
 		width: 75%;
 	`};
 	height: 100%;
-	background-color: white;
-	flex-direction: column;
-	justify-content: space-around;
-	align-items: center;
-`;
-
-
-const Content = styled.div`
-	display: flex;
-	color: ${colors.forestGreen};
-	padding: 0 44px;
-	@media (min-width: 767px) {
-		flex-direction: row;
-	}
-	@media (min-width: 320px) and (max-width: 767px) {
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 0 20px;
-		
-	}
-`;
-
-
-const StyledImage = styled.div`
-	border-radius: 20px;
+	overflow: auto;
 	background-position: center;
 	background-size: cover;
 	background-image: url(${({ src }) => src});
-	@media (min-width: 767px) {
-		height: 50%;
-		width: 50%;
-	}
-	@media (min-width: 320px) and (max-width: 767px) {
-		width: 100%;
-		height: 100%;
-	}
+	&::after {
+	  content: "";
+	  position: absolute;
+	  z-index: 1;
+	  top: 0;
+	  left: 0;
+	  pointer-events: none;
+	  background-image: linear-gradient(to top, 
+	                    rgba(255,255,255, 0), 
+	                    rgba(255,255,255, 1) 90%);
+	  width: 100%;
+	  height: 4em;
 `;
 
+const Content = styled.div`
+	padding: 0 44px;
+	height: 100%;
+	@media (min-width: 320px) and (max-width: 767px) {
+		padding: 0 20px;
+		width: 100%;
+	}
+`;
 
 class TestDevelopmentPage extends Component {
 	state = {
@@ -93,18 +82,13 @@ class TestDevelopmentPage extends Component {
 		return(
 				<Home>
 					<LeftMain mount={this.state.mounted}>
-						<LinkGroup activeRoute="development" />
+						<LinkGroup activeRoute="development" links={this.props.links} />
 					</LeftMain>
-					<RightMain mount={this.state.mounted}>
+					<RightMain mount={this.state.mounted} src={plant}>
 						<Content>
-							<Blurb title="Programming Languages" fontSize={20}>
-								React, React Native, Java, Python
-							</Blurb>
-							<Blurb title="Projects" fontSize={20} backgroundColor={colors.mintCream} onClick={this._onClick}>
-								Verizon Design System, Burner Mobile App, Finta Web App, Personal Website, Budgeting App from college, Social Media App 
-							</Blurb>
+						<Card title="programming languages" content="React, React Native, Java, Python" image={react}/>
+						<Card title="projects" content="Verizon Design System, Burner Mobile App, Finta Web App, Personal Website, Budgeting App from college, Social Media App " image={code}/>
 						</Content>
-				 		<StyledImage src={logo} />
 					</RightMain>
 				</Home>
 		)
