@@ -10,6 +10,7 @@ const Home = styled.div`
 	height: 100%;
 	position: relative;
 	display: flex;
+	overflow: hidden;
 `;
 
 const LeftMain = styled.div`

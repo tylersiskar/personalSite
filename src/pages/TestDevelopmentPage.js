@@ -11,7 +11,7 @@ const Home = styled.div`
 	position: relative;
 	display: flex;
 	height: 100%;
-	overflow-y: scroll;
+	overflow: hidden;
 `;
 
 const LeftMain = styled.div`
@@ -64,6 +64,11 @@ const Content = styled.div`
 	}
 `;
 
+const CardWrapper = styled.span`
+	display: flex;
+	padding-bottom: 224px;
+`;
+
 class TestDevelopmentPage extends Component {
 	state = {
 		mounted: false,
@@ -86,8 +91,12 @@ class TestDevelopmentPage extends Component {
 					</LeftMain>
 					<RightMain mount={this.state.mounted} src={plant}>
 						<Content>
-						<Card title="programming languages" content="React, React Native, Java, Python" image={react}/>
-						<Card title="projects" content="Verizon Design System, Burner Mobile App, Finta Web App, Personal Website, Budgeting App from college, Social Media App " image={code}/>
+							<CardWrapper>
+								<Card title="programming languages" content="React, React Native, Java, Python" image={react}/>
+							</CardWrapper>
+							<CardWrapper>
+								<Card title="projects" content="Verizon Design System, Burner Mobile App, Finta Web App, Personal Website, Budgeting App from college, Social Media App " image={code}/>
+							</CardWrapper>
 						</Content>
 					</RightMain>
 				</Home>

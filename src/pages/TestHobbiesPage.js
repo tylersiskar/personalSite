@@ -8,12 +8,11 @@ import music from '../images/music.jpeg';
 import bills from '../images/bills.png';
 import { Card } from '../components/Cards';
 
-
 const Home = styled.div`
 	position: relative;
 	display: flex;
 	height: 100%;
-	overflow-y: scroll;
+	overflow: hidden;
 `;
 
 const LeftMain = styled.div`
@@ -67,6 +66,11 @@ const Content = styled.div`
 	}
 `;
 
+const CardWrapper = styled.span`
+	display: flex;
+	padding-bottom: 224px;
+`;
+
 class TestDevelopmentPage extends Component {
 	state = {
 		mounted: false
@@ -83,9 +87,15 @@ class TestDevelopmentPage extends Component {
 					</LeftMain>
 					<RightMain src={vine} mount={this.state.mounted}>
 						<Content>
-							<Card title="Sports" content="I'm a lifelong Bills fan, and am excited about the upcoming season! I enjoy playing recreational basketball, golf, and baseball. " image={bills}/>
-							<Card title="Movies" content="I'm a huge Marvel fan, I've seen all the movies multiple times. Interstellar is also one of my favorite movies." image={ironman}/>
-							<Card title="Music" content="Most of my music interest lies in hip-hop/rap music, but I have been listening to more pop recently. Favorite artists: J Cole, Kendrick Lamar, Drake. Lately I've listened to Harry Styles' and Justin Bieber's newest albums." image={music}/>
+							<CardWrapper>
+								<Card title="Sports" content="I'm a lifelong Bills fan, and am excited about the upcoming season! I enjoy playing recreational basketball, golf, and baseball. " image={bills}/>
+							</CardWrapper>
+							<CardWrapper>
+								<Card title="Movies" content="I'm a huge Marvel fan, I've seen all the movies multiple times. Interstellar is also one of my favorite movies." image={ironman}/>
+							</CardWrapper>
+							<CardWrapper>
+								<Card title="Music" content="Most of my music interest lies in hip-hop/rap music, but I have been listening to more pop recently. Favorite artists: J Cole, Kendrick Lamar, Drake. Lately I've listened to Harry Styles' and Justin Bieber's newest albums." image={music}/>
+							</CardWrapper>
 						</Content>
 					</RightMain>
 				</Home>

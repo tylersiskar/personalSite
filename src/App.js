@@ -11,21 +11,20 @@ import TestDevelopmentPage from './pages/TestDevelopmentPage';
 import ContactPage from './pages/ContactPage';
 import { TestHeader } from './components';
 
-const HomeContactPage = styled.body`
-	background-image: linear-gradient(to right, ${colors.forestGreen} 50%, white 50%);
+const Page = styled.body`
+	background-image: 
+	${({ page }) => page === 'homepage' || page === 'contact' 
+		? 
+		`linear-gradient(to right, ${colors.forestGreen} 50%, white 50%)`
+		: 
+		`linear-gradient(to right, ${colors.forestGreen} 25%, white 25%)`
+	};
 	position: absolute;
 	bottom: 0;
 	top: 0;
 	left: 0;
 	right: 0;
-`;
-const OtherPage = styled.body`
-	background-image: linear-gradient(to right, ${colors.forestGreen} 25%, white 25%);
-	position: absolute;
-	bottom: 0;
-	top: 0;
-	left: 0;
-	right: 0;
+	overflow: hidden;
 `;
 
 const links = [ 
@@ -52,31 +51,31 @@ class App extends React.Component {
  _renderScreen = (route) => {
     switch(route) {
       case 'personal':
-        return( <OtherPage>
+        return( <Page page={route}>
 					<TestHeader active={route} />
 					<TestPersonalPage {...this.props} links={links}/>
-				</OtherPage>);
+				</Page>);
       case 'development':
-        return( <OtherPage>
+        return( <Page page={route}>
 					<TestHeader active={route}/>
 					<TestDevelopmentPage {...this.props} links={links}/>
-				</OtherPage>);
+				</Page>);
       case 'hobbies':
-        return( <OtherPage>
+        return( <Page page={route}>
 					<TestHeader  active={route}/>
 					<TestHobbiesPage {...this.props} links={links}/>
-				</OtherPage>);
+				</Page>);
       case 'contact':
-        return( <HomeContactPage>
+        return( <Page page={route}>
 					<TestHeader  active={route}/>
 					<ContactPage {...this.props} links={links}/>
-				</HomeContactPage>);
+				</Page>);
       case 'homepage':
       default:
-        return( <HomeContactPage>
+        return( <Page page={route}>
 					<TestHeader  active={route}/>
 					<TestHomePage {...this.props} links={links}/>
-				</HomeContactPage>);
+				</Page>);
 		}
 
   }

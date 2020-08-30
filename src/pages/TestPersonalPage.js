@@ -11,8 +11,7 @@ const Home = styled.div`
 	height: 100%;
 	position: relative;
 	display: flex;
-	overflow-y: scroll;
-
+	overflow: hidden;
 `;
 
 const LeftMain = styled.div`
@@ -65,6 +64,11 @@ const Content = styled.div`
 	}
 `;
 
+const CardWrapper = styled.span`
+	display: flex;
+	padding-bottom: 224px;
+`;
+
 class TestPersonalPage extends Component {
 	state = {
 		mounted: false
@@ -82,8 +86,12 @@ class TestPersonalPage extends Component {
 					</LeftMain>
 					<RightMain src={plant} mount={this.state.mounted}>
 						<Content>
-							<Card title="Hometown" content="I currently live in Clarence Center, New York and have lived in the WNY area my entire life." image={buffalo}/>
-							<Card title="Education" content="I went to Clarence High School and the University at Buffalo for undergrad, where I completed a degree in Computational Physics with a Mathematics minor. " image={ubbull}/>
+							<CardWrapper>
+								<Card title="Hometown" content="I currently live in Clarence Center, New York and have lived in the WNY area my entire life." image={buffalo}/>
+							</CardWrapper>
+							<CardWrapper>
+								<Card title="Education" content="I went to Clarence High School and the University at Buffalo for undergrad, where I completed a degree in Computational Physics with a Mathematics minor. " image={ubbull}/>
+							</CardWrapper>
 						</Content>
 					</RightMain>
 				</Home>

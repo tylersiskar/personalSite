@@ -59,7 +59,6 @@ class TestHeader extends Component {
     setTimeout(() => this.setState({ mounted: true }), 10);
   }
   render() {
-    console.log(this.props.active);
 	return(
     <Head>
   		<LeftHeader active={this.props.active !== "homepage" && this.props.active !== "contact" && this.state.mounted}>

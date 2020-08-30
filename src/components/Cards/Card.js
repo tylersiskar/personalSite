@@ -19,7 +19,6 @@ const PanelWrapper = styled.div`
 	display: flex;
 	width: 100%;
 	flex-direction: column;
-	height: 100%;
 `;
 
 const TitleWrapper = styled.div`
