@@ -1,18 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Title, Body } from '../Typography';
+import { Title } from '../Typography';
 import colors from '../../colors/colors';
-
+import ItemDescription from '../Lists/ItemDescription';
 const propTypes = {
 	title:  PropTypes.string,
-	content: PropTypes.string,
+	content: PropTypes.array,
 	image: PropTypes.string,
 };
 
 const defaultProps = {
 	title: 'Title Content',
-	content: 'Lorem ipsum dolor sit amet'
 };
 
 const PanelWrapper = styled.div`
@@ -30,7 +29,7 @@ const TitleWrapper = styled.div`
 const CardContainer = styled.div`
 	display: flex;
 	border-radius: 20px;
-	min-height: 300px;
+	min-height: 350px;
 	background-color: ${colors.darkGray};
 	opacity: 0.9;
 	padding: 20px;
@@ -41,6 +40,8 @@ const TextWrapper = styled.div`
 	display: flex;
 	padding-right: 12px;
 	width: 100%;
+	flex-direction: column;
+	justify-content: space-around;
 `;
 
 const ImageWrapper = styled.div`
@@ -59,7 +60,10 @@ const Card = props => {
 			</TitleWrapper>
 			<CardContainer>
 				<TextWrapper>
-					<Body size="large" color={colors.forestGreen}> {content} </Body>
+				{content && content.map((body, index) => {
+					return(
+					<ItemDescription color="lightgray" item={body.header} description={body.description}/>
+				)})}
 				</TextWrapper>
 				<ImageWrapper src={image} />
 			</CardContainer>

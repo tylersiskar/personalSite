@@ -3,8 +3,6 @@ import styled from 'styled-components';
 import { LinkGroup } from '../components/Links';
 import colors from '../colors/colors';
 import plant from '../images/plant.jpg';
-import code from '../images/code.jpg';
-import react from '../images/react.png';
 import { Card } from '../components/Cards';
 
 const Home = styled.div`
@@ -53,6 +51,7 @@ const RightMain = styled.div`
 	                    rgba(255,255,255, 1) 90%);
 	  width: 100%;
 	  height: 4em;
+	}
 `;
 
 const Content = styled.div`
@@ -71,18 +70,13 @@ const CardWrapper = styled.span`
 
 class TestDevelopmentPage extends Component {
 	state = {
-		mounted: false,
-		showMore: false
+		mounted: false
 	}
 	componentDidMount() {
 		setTimeout(() => this.setState({ mounted: true }), 10);
 	}
-
-	_onClick = e => {
-		console.log('hi', this.state);
-		this.setState({ showMore: true})
-	}
 	render() {
+		const { cards } = this.props;
 
 		return(
 				<Home>
@@ -91,12 +85,13 @@ class TestDevelopmentPage extends Component {
 					</LeftMain>
 					<RightMain mount={this.state.mounted} src={plant}>
 						<Content>
-							<CardWrapper>
-								<Card title="programming languages" content="React, React Native, Java, Python" image={react}/>
-							</CardWrapper>
-							<CardWrapper>
-								<Card title="projects" content="Verizon Design System, Burner Mobile App, Finta Web App, Personal Website, Budgeting App from college, Social Media App " image={code}/>
-							</CardWrapper>
+							{cards && cards.map((card, index) => {
+								return(
+								<CardWrapper>
+									<Card title={card.title} content={card.content} image={card.image} />
+								</CardWrapper>
+								)
+							})}
 						</Content>
 					</RightMain>
 				</Home>

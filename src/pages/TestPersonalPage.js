@@ -3,8 +3,6 @@ import styled from 'styled-components';
 import { LinkGroup } from '../components/Links';
 import colors from '../colors/colors';
 import plant from '../images/plant.jpg';
-import buffalo from '../images/buffalo.jpg';
-import ubbull from '../images/ubbull.jpg';
 import { Card } from '../components/Cards';
 
 const Home = styled.div`
@@ -53,6 +51,7 @@ const RightMain = styled.div`
 	                    rgba(255,255,255, 1) 90%);
 	  width: 100%;
 	  height: 4em;
+	}
 `;
 
 const Content = styled.div`
@@ -79,6 +78,7 @@ class TestPersonalPage extends Component {
 	}
 
 	render() {
+		const { cards } = this.props; 
 		return(
 				<Home>
 					<LeftMain mount={this.state.mounted}>
@@ -86,12 +86,13 @@ class TestPersonalPage extends Component {
 					</LeftMain>
 					<RightMain src={plant} mount={this.state.mounted}>
 						<Content>
-							<CardWrapper>
-								<Card title="Hometown" content="I currently live in Clarence Center, New York and have lived in the WNY area my entire life." image={buffalo}/>
-							</CardWrapper>
-							<CardWrapper>
-								<Card title="Education" content="I went to Clarence High School and the University at Buffalo for undergrad, where I completed a degree in Computational Physics with a Mathematics minor. " image={ubbull}/>
-							</CardWrapper>
+							{cards && cards.map((card, index) => {
+								return(
+								<CardWrapper>
+									<Card title={card.title} content={card.content} image={card.image} />
+								</CardWrapper>
+								)
+							})}
 						</Content>
 					</RightMain>
 				</Home>

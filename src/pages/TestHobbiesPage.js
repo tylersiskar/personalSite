@@ -3,9 +3,6 @@ import styled from 'styled-components';
 import { LinkGroup } from '../components/Links';
 import colors from '../colors/colors';
 import vine from '../images/plant.jpg';
-import ironman from '../images/ironman.jpg';
-import music from '../images/music.jpeg';
-import bills from '../images/bills.png';
 import { Card } from '../components/Cards';
 
 const Home = styled.div`
@@ -55,6 +52,7 @@ const RightMain = styled.div`
 	                    rgba(255,255,255, 1) 90%);
 	  width: 100%;
 	  height: 4em;
+	}
 `;
 
 const Content = styled.div`
@@ -79,7 +77,7 @@ class TestDevelopmentPage extends Component {
 		setTimeout(() => this.setState({ mounted: true }), 10);
 	}
 	render() {
-
+		const { cards } = this.props;
 		return(
 				<Home>
 					<LeftMain mount={this.state.mounted}>
@@ -87,15 +85,13 @@ class TestDevelopmentPage extends Component {
 					</LeftMain>
 					<RightMain src={vine} mount={this.state.mounted}>
 						<Content>
-							<CardWrapper>
-								<Card title="Sports" content="I'm a lifelong Bills fan, and am excited about the upcoming season! I enjoy playing recreational basketball, golf, and baseball. " image={bills}/>
-							</CardWrapper>
-							<CardWrapper>
-								<Card title="Movies" content="I'm a huge Marvel fan, I've seen all the movies multiple times. Interstellar is also one of my favorite movies." image={ironman}/>
-							</CardWrapper>
-							<CardWrapper>
-								<Card title="Music" content="Most of my music interest lies in hip-hop/rap music, but I have been listening to more pop recently. Favorite artists: J Cole, Kendrick Lamar, Drake. Lately I've listened to Harry Styles' and Justin Bieber's newest albums." image={music}/>
-							</CardWrapper>
+							{cards && cards.map((card, index) => {
+								return(
+								<CardWrapper>
+									<Card title={card.title} content={card.content} image={card.image} />
+								</CardWrapper>
+								)
+							})}
 						</Content>
 					</RightMain>
 				</Home>

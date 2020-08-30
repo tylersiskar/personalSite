@@ -44,7 +44,8 @@ const RightMain = styled.div`
 	                    rgba(255,255,255, 0), 
 	                    rgba(255,255,255, 1) 90%);
 	  width: 100%;
-	  height: 5em;
+	  height: 4em;
+	}
 
 `;
 
