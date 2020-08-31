@@ -25,6 +25,12 @@ const TitleComponent = styled.span`
 	@media (min-width: 320px) and (max-width: 967px) {
 		font-size: ${({ size }) => size === 32 ? 24 : 32}px;
 	}
+	@media (max-width: 1590px) {
+		font-size: ${({ logo, size }) => logo ? 44 : size}px;
+	}
+	@media (max-width: 1150px) {
+		font-size: ${({ logo, size }) => logo ? 32 : size}px;
+	}
 `;
 
 const Title = props => {
@@ -46,7 +52,7 @@ const Title = props => {
 	}
 
 	return (
-		<TitleComponent {...props} size={_determineFontSize(size)}>
+		<TitleComponent {...props} logo={props.logo}size={_determineFontSize(size)}>
 		{children}
 		</TitleComponent>
 		)

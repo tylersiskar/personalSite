@@ -63,7 +63,7 @@ class TestHeader extends Component {
     <Head>
   		<LeftHeader active={this.props.active !== "homepage" && this.props.active !== "contact" && this.state.mounted}>
         <StyledLink to='/homepage' onMouseOver={() => this.setState({ name: 'tyler siskar!'})} onMouseLeave={() => this.setState({ name: 'tyler siskar.'})}>
-        <Title bold>
+        <Title logo bold>
         {this.state.name}
         </Title>
         </StyledLink>

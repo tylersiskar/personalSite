@@ -18,7 +18,7 @@ import ironman from './images/ironman.jpg';
 import music from './images/music.jpeg';
 import bills from './images/bills.png';
 
-const Page = styled.body`
+const Page = styled.div`
 	background-image: 
 	${({ page }) => page === 'homepage' || page === 'contact' 
 		? 

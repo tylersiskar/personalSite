@@ -87,7 +87,7 @@ class TestDevelopmentPage extends Component {
 						<Content>
 							{cards && cards.map((card, index) => {
 								return(
-								<CardWrapper>
+								<CardWrapper key={card.title}>
 									<Card title={card.title} content={card.content} image={card.image} />
 								</CardWrapper>
 								)

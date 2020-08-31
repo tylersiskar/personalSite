@@ -62,7 +62,7 @@ const Card = props => {
 				<TextWrapper>
 				{content && content.map((body, index) => {
 					return(
-					<ItemDescription color="lightgray" item={body.header} description={body.description}/>
+					<ItemDescription key={body.header} color="lightgray" item={body.header} description={body.description}/>
 				)})}
 				</TextWrapper>
 				<ImageWrapper src={image} />
