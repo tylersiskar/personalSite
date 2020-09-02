@@ -1,37 +1,65 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Blurb } from '../components';
 import { LinkGroup } from '../components/Links';
 import colors from '../colors/colors';
+import plant from '../images/plant.jpg';
+import { Button } from '../components';
+import { Blurb } from '../components';
 import vine from '../images/plant.jpg';
 
+
 const Home = styled.div`
-	height: 100%;
-	overflow-y: scroll;
 	position: relative;
 	display: flex;
-
+	height: 100%;
+	overflow: hidden;
+	@media (min-width: 320px) and (max-width: 967px) {
+		height: 100%;
+		overflow: auto;
+		background-position: center;
+		background-size: cover;
+		background-image: url(${({ src }) => src});
+	}
 `;
 
 const LeftMain = styled.div`
 	display: flex;
 	position: relative;
-	width: 50%;
 	min-width: 200px;
-	height: 100%;
-	background-color: ${colors.forestGreen};
+	width: 50%;
 	flex-direction: column;
+	background-color: ${colors.forestGreen};
+	@media (min-width: 320px) and (max-width: 967px) {
+		position:absolute;
+		z-index: 5;
+		left: ${({ showLinks }) => showLinks ? 0 : -50}%;
+	}
+	@media (min-width: 967px) {
+		position: relative;
+	}
 `;
 
-const RightMain = styled.div`
-	display: flex;
+const OpenButton = styled(Button)`
 	position: relative;
+	border-radius: 0px;
+	width: 50px;
+	height: 50px;
+	background-image: 	linear-gradient(to bottom, ${colors.forestGreen} 0%, white 90%);
+	left: ${({ showLinks }) => showLinks ? 200 : 0}px;
+	z-index: 2;
+	transform: rotate(${({ showLinks }) => showLinks ? 90 : -90}deg);
+	@media (min-width: 967px) {
+		display: none;
+	}
+`;
+
+
+const RightMain = styled.div`
+	position: relative;
+	padding-top: 32px;
 	width: 50%;
 	height: 100%;
-	background-color: white;
-	flex-direction: column;
-	justify-content: center;
-
+	overflow: auto;
 	background-position: center;
 	background-size: cover;
 	background-image: url(${({ src }) => src});
@@ -46,9 +74,15 @@ const RightMain = styled.div`
 	                    rgba(255,255,255, 0), 
 	                    rgba(255,255,255, 1) 90%);
 	  width: 100%;
-	  height: 5em;
-
+	  height: 4em;
+	}
+	@media (min-width: 320px) and (max-width: 967px) {
+		background-image: none;
+		overflow: visible;
+		width: 100%;
+	}
 `;
+
 
 const Content = styled.div`
 	color: ${colors.forestGreen};
@@ -72,14 +106,18 @@ const Content = styled.div`
 
 `;
 
-const ContactPage = props => {
-
-	let content1 = `Thank you for visiting! Suggestions? Email me at tyler.siskar@gmail.com`;
-		return(
-				<Home>
-					<LeftMain>
-						<LinkGroup activeRoute="contact" links={props.links} />
+class ContactPage extends Component {
+	state = {
+		showLinks: false
+	}
+	render() {
+		let content1 = `Thank you for visiting! Suggestions? Email me at tyler.siskar@gmail.com`;
+			return(
+				<Home src={plant}>
+					<LeftMain showLinks={this.state.showLinks} mount={this.state.mounted}>
+						<LinkGroup activeRoute="about" links={this.props.links} />
 					</LeftMain>
+					<OpenButton onClick={() => this.setState({ showLinks: !this.state.showLinks})} showLinks={this.state.showLinks} textColor={colors.darkGray}/> 
 					<RightMain src={vine}>
 						<Content>
 						<Blurb width='75%' backgroundColor="white" borderColor={colors.forestGreen} >
@@ -89,6 +127,7 @@ const ContactPage = props => {
 					</RightMain>
 				</Home>
 		)
+	}
 };
 
 

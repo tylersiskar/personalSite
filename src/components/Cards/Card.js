@@ -34,6 +34,10 @@ const CardContainer = styled.div`
 	opacity: 0.9;
 	padding: 20px;
 	flex-basis: 50%;
+	@media (min-width: 320px) and (max-width: 967px) {
+		flex-direction: column;
+		flex: 1 1 100%;
+	}
 `;
 
 const TextWrapper = styled.div`
@@ -49,6 +53,9 @@ const ImageWrapper = styled.div`
 	background-position: center;
 	background-size: cover;
 	width: 100%;
+	@media (min-width: 320px) and (max-width: 967px) {
+		min-height: 250px
+	}
 `;
 
 const Card = props => {

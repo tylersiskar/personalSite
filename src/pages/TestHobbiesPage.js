@@ -2,14 +2,22 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { LinkGroup } from '../components/Links';
 import colors from '../colors/colors';
-import vine from '../images/plant.jpg';
+import plant from '../images/plant.jpg';
 import { Card } from '../components/Cards';
+import { Button } from '../components';
 
 const Home = styled.div`
 	position: relative;
 	display: flex;
 	height: 100%;
 	overflow: hidden;
+	@media (min-width: 320px) and (max-width: 967px) {
+		height: 100%;
+		overflow: auto;
+		background-position: center;
+		background-size: cover;
+		background-image: url(${({ src }) => src});
+	}
 `;
 
 const LeftMain = styled.div`
@@ -21,11 +29,32 @@ const LeftMain = styled.div`
 	${({ mount }) => mount && `
 		width: 25%;
 	`};
-	height: 100%;
-	background-color: ${colors.forestGreen};
 	flex-direction: column;
-
+	background-color: ${colors.forestGreen};
+	@media (min-width: 320px) and (max-width: 967px) {
+		position:absolute;
+		z-index: 5;
+		left: ${({ showLinks }) => showLinks ? 0 : -200}px;
+	}
+	@media (min-width: 967px) {
+		position: relative;
+	}
 `;
+
+const OpenButton = styled(Button)`
+	position: relative;
+	border-radius: 0px;
+	width: 50px;
+	height: 50px;
+	background-image: 	linear-gradient(to bottom, ${colors.forestGreen} 0%, white 90%);
+	left: ${({ showLinks }) => showLinks ? 200 : 0}px;
+	z-index: 2;
+	transform: rotate(${({ showLinks }) => showLinks ? 90 : -90}deg);
+	@media (min-width: 967px) {
+		display: none;
+	}
+`;
+
 
 const RightMain = styled.div`
 	position: relative;
@@ -53,13 +82,18 @@ const RightMain = styled.div`
 	  width: 100%;
 	  height: 4em;
 	}
+	@media (min-width: 320px) and (max-width: 967px) {
+		background-image: none;
+		overflow: visible;
+		width: 100%;
+	}
 `;
 
 const Content = styled.div`
 	padding: 0 44px;
 	height: 100%;
 	@media (min-width: 320px) and (max-width: 767px) {
-		padding: 0 20px;
+		padding: 0px;
 		width: 100%;
 	}
 `;
@@ -69,21 +103,24 @@ const CardWrapper = styled.span`
 	padding-bottom: 224px;
 `;
 
-class TestDevelopmentPage extends Component {
+class TestHobbiesPage extends Component {
 	state = {
-		mounted: false
+		mounted: false,
+		showLinks: false
 	}
 	componentDidMount() {
 		setTimeout(() => this.setState({ mounted: true }), 10);
 	}
 	render() {
 		const { cards } = this.props;
+
 		return(
-				<Home>
-					<LeftMain mount={this.state.mounted}>
+				<Home src={plant}>
+					<LeftMain showLinks={this.state.showLinks} mount={this.state.mounted}>
 						<LinkGroup activeRoute="hobbies" links={this.props.links} />
 					</LeftMain>
-					<RightMain src={vine} mount={this.state.mounted}>
+				<OpenButton onClick={() => this.setState({ showLinks: !this.state.showLinks})} showLinks={this.state.showLinks} textColor={colors.darkGray}/> 
+					<RightMain mount={this.state.mounted} src={plant}>
 						<Content>
 							{cards && cards.map((card, index) => {
 								return(
@@ -100,4 +137,4 @@ class TestDevelopmentPage extends Component {
 };
 
 
-export default TestDevelopmentPage;
+export default TestHobbiesPage;

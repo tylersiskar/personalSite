@@ -62,6 +62,7 @@ const Content = styled.div`
 	@media (min-width: 320px) and (max-width: 767px) {
 		flex-direction: column;
 		font-size: 24px;
+		padding-left: 12px;
 	}
 `;
 

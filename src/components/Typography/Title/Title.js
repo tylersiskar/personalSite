@@ -23,13 +23,10 @@ const TitleComponent = styled.span`
 		font-size: ${({ size }) => size}px;
 	}
 	@media (min-width: 320px) and (max-width: 967px) {
-		font-size: ${({ size }) => size === 32 ? 24 : 32}px;
+		font-size: ${({ size }) => 24}px;
 	}
-	@media (max-width: 1590px) {
+	@media (min-width: 1150px) {
 		font-size: ${({ logo, size }) => logo ? 44 : size}px;
-	}
-	@media (max-width: 1150px) {
-		font-size: ${({ logo, size }) => logo ? 32 : size}px;
 	}
 `;
 
