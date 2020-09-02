@@ -115,7 +115,7 @@ class ContactPage extends Component {
 			return(
 				<Home src={plant}>
 					<LeftMain showLinks={this.state.showLinks} mount={this.state.mounted}>
-						<LinkGroup activeRoute="about" links={this.props.links} />
+						<LinkGroup activeRoute="contact" links={this.props.links} />
 					</LeftMain>
 					<OpenButton onClick={() => this.setState({ showLinks: !this.state.showLinks})} showLinks={this.state.showLinks} textColor={colors.darkGray}/> 
 					<RightMain src={vine}>
