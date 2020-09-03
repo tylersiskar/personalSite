@@ -59,7 +59,7 @@ const ImageWrapper = styled.div`
 `;
 
 const Card = props => {
-	const { title, content, image } = props;
+	const { title, content, image, children } = props;
 	return (
 		<PanelWrapper>
 			<TitleWrapper>
@@ -67,9 +67,9 @@ const Card = props => {
 			</TitleWrapper>
 			<CardContainer>
 				<TextWrapper>
-				{content && content.map((body, index) => {
+				{content.map((body, index) => {
 					return(
-					<ItemDescription key={body.header} color="lightgray" item={body.header} description={body.description}/>
+					<ItemDescription key={body.header} color="lightgray" item={body.header} href={body.href} link={body.link} description={body.description}/>
 				)})}
 				</TextWrapper>
 				<ImageWrapper src={image} />

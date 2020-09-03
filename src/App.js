@@ -15,6 +15,7 @@ import react from './images/react.png';
 import buffalo from './images/buffalo.jpg';
 import ubbull from './images/ubbull.jpg';
 import ironman from './images/ironman.jpg';
+import amsterdam from './images/amsterdam.jpg';
 import music from './images/music.jpeg';
 import bills from './images/bills.png';
 
@@ -137,6 +138,8 @@ const personalContent = [
 	}
 ];
 
+const travelString = "After graduating from college, I went on a trip to Europe with a few friends, where we backpacked through 12 cities in 30 days. Watch a video of that trip ";
+
 const hobbiesContent = [
 	{
 		title: 'sports',
@@ -185,6 +188,26 @@ const hobbiesContent = [
 			}	
 		],
 		image: music
+	},
+	{
+		title: 'travel',
+		content: [
+			{
+				header: "Europe",
+				description: travelString,
+				href: "https://www.youtube.com/watch?v=1zCL-0_mA90&feature=youtu.be&fbclid=IwAR0G1NA-GTNC3LUPsMfQfeSfqJUmJMTkzsz3GT4YCnJNhQznYW6NOe0WIQs",
+				link: "here"
+			},
+			{
+				header: "Colombia",
+				description: "I visited Colombia for 3 weeks this past winter",
+			},
+			{
+				header: "Study Abroad",
+				description: "In Summer 2016 I particiapted in a 6 week study abroad program in France",
+			},
+		],
+		image: amsterdam
 	}
 ];
 class App extends React.Component {
