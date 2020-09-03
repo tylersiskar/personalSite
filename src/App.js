@@ -204,7 +204,7 @@ const hobbiesContent = [
 			},
 			{
 				header: "Study Abroad",
-				description: "In Summer 2016 I particiapted in a 6 week study abroad program in France",
+				description: "In Summer 2016 I participated in a 6 week study abroad program in France",
 			},
 		],
 		image: amsterdam
