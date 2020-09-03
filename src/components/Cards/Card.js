@@ -59,7 +59,7 @@ const ImageWrapper = styled.div`
 `;
 
 const Card = props => {
-	const { title, content, image, children } = props;
+	const { title, content, image } = props;
 	return (
 		<PanelWrapper>
 			<TitleWrapper>
