@@ -110,7 +110,7 @@ class TestDevelopmentPage extends Component {
 		showLinks: false
 	}
 	componentDidMount() {
-		setTimeout(() => this.setState({ mounted: true }), 10);
+		setTimeout(() => this.setState({ mounted: true }), 100);
 	}
 	render() {
 		const { cards } = this.props;
