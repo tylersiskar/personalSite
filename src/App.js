@@ -17,7 +17,7 @@ import ubbull from './images/ubbull.jpg';
 import ironman from './images/ironman.jpg';
 import amsterdam from './images/amsterdam.jpg';
 import music from './images/music.jpeg';
-import bills from './images/bills.png';
+import golf from './images/golf.jpg';
 
 const Page = styled.div`
 	background-image: 
@@ -155,7 +155,7 @@ const hobbiesContent = [
 			}
 
 		],
-		image: bills
+		image: golf
 	},
 	{
 		title: 'movies',
