@@ -125,7 +125,7 @@ class TestHobbiesPage extends Component {
 							{cards && cards.map((card, index) => {
 								return(
 								<CardWrapper key={card.title}>
-									<Card title={card.title} content={card.content} image={card.image} />
+									<Card title={card.title} content={card.content} image={card.image} spotify href="https://www.youtube.com/watch?v=1zCL-0_mA90&feature=youtu.be&fbclid=IwAR0G1NA-GTNC3LUPsMfQfeSfqJUmJMTkzsz3GT4YCnJNhQznYW6NOe0WIQs" />
 								</CardWrapper>
 								)
 							})}

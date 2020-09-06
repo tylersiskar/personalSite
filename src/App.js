@@ -15,8 +15,6 @@ import react from './images/react.png';
 import buffalo from './images/buffalo.jpg';
 import ubbull from './images/ubbull.jpg';
 import ironman from './images/ironman.jpg';
-import amsterdam from './images/amsterdam.jpg';
-import music from './images/music.jpeg';
 import golf from './images/golf.jpg';
 
 const Page = styled.div`
@@ -138,7 +136,7 @@ const personalContent = [
 	}
 ];
 
-const travelString = "After graduating from college, I went on a trip to Europe with a few friends, where we backpacked through 12 cities in 30 days. Watch a video of that trip ";
+const travelString = "After graduating from college, I went on a trip to Europe with a few friends, where we backpacked through 12 cities in 30 days. Watch a video of that trip here";
 
 const hobbiesContent = [
 	{
@@ -176,7 +174,7 @@ const hobbiesContent = [
 		content: [
 			{
 				header: 'hip-hop/rap',
-				description: 'Most of my music interest lies in hip-hop/rap music. Favorite artists: J Cole, Kendrick Lamar, and Drake.'
+				description: 'Most of my music interest lies in hip-hop/rap music. Favorite artists: J Cole, Kendrick Lamar, and Mac Miller.'
 			},
 			{
 				header: 'alternative',
@@ -186,8 +184,7 @@ const hobbiesContent = [
 				header: 'other genres',
 				description: 'pop, punk rock, instrumentals'
 			}	
-		],
-		image: music
+		]
 	},
 	{
 		title: 'travel',
@@ -195,8 +192,6 @@ const hobbiesContent = [
 			{
 				header: "Europe",
 				description: travelString,
-				href: "https://www.youtube.com/watch?v=1zCL-0_mA90&feature=youtu.be&fbclid=IwAR0G1NA-GTNC3LUPsMfQfeSfqJUmJMTkzsz3GT4YCnJNhQznYW6NOe0WIQs",
-				link: "here"
 			},
 			{
 				header: "Colombia",
@@ -206,8 +201,7 @@ const hobbiesContent = [
 				header: "Study Abroad",
 				description: "In Summer 2016 I participated in a 6 week study abroad program in France",
 			},
-		],
-		image: amsterdam
+		]
 	}
 ];
 class App extends React.Component {

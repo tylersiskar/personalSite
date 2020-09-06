@@ -4,6 +4,9 @@ import styled from 'styled-components';
 import { Title } from '../Typography';
 import colors from '../../colors/colors';
 import ItemDescription from '../Lists/ItemDescription';
+import SpotifyPlayer from 'react-spotify-player';
+import ReactPlayer from 'react-player';
+
 const propTypes = {
 	title:  PropTypes.string,
 	content: PropTypes.array,
@@ -49,10 +52,16 @@ const TextWrapper = styled.div`
 `;
 
 const ImageWrapper = styled.div`
+	display: flex;
 	background-image: url(${({ src }) => src});
 	background-position: center;
 	background-size: cover;
 	width: 100%;
+	* {
+		width: 100%;
+		max-width: 600px;
+		height: auto;
+	}
 	@media (min-width: 320px) and (max-width: 967px) {
 		min-height: 250px
 	}
@@ -60,21 +69,40 @@ const ImageWrapper = styled.div`
 
 const Card = props => {
 	const { title, content, image } = props;
+
 	return (
-		<PanelWrapper>
-			<TitleWrapper>
-				<Title size="small" color={colors.forestGreen}> {title} </Title>
-			</TitleWrapper>
-			<CardContainer>
-				<TextWrapper>
-				{content.map((body, index) => {
-					return(
-					<ItemDescription key={body.header} color="lightgray" item={body.header} href={body.href} link={body.link} description={body.description}/>
-				)})}
-				</TextWrapper>
-				<ImageWrapper src={image} />
-			</CardContainer>
-		</PanelWrapper>
+			<PanelWrapper>
+				<TitleWrapper>
+					<Title size="small" color={colors.forestGreen}> {title} </Title>
+				</TitleWrapper>
+				<CardContainer>
+					<TextWrapper>
+					{content.map((body, index) => {
+						return(
+						<ItemDescription key={body.header} color="lightgray" item={body.header} href={body.href} link={body.link} description={body.description}/>
+					)})}
+					</TextWrapper>
+					<ImageWrapper src={image}> 
+					{title === 'music' && props.spotify && 
+						<SpotifyPlayer
+						  uri="spotify:playlist:01R22o8KUjMWc6xTH3aWGL"
+						  size={{height: '100%', width: '100%'}}
+						  />
+					}
+
+					{title === 'travel' && 
+						<ReactPlayer
+						  url="https://www.youtube.com/watch?v=1zCL-0_mA90&feature=youtu.be&fbclid=IwAR0G1NA-GTNC3LUPsMfQfeSfqJUmJMTkzsz3GT4YCnJNhQznYW6NOe0WIQs"
+						  light
+						  playing
+						  controls
+						  width="100%"
+						  height="auto"
+						  />
+					}
+					</ImageWrapper>
+				</CardContainer>
+			</PanelWrapper>
 		)
 }
 

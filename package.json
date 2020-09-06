@@ -9,8 +9,10 @@
     "history": "^4.10.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-player": "^2.6.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
+    "react-spotify-player": "^1.0.4",
     "styled-components": "^5.1.0"
   },
   "scripts": {
