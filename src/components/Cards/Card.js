@@ -97,7 +97,7 @@ const Card = props => {
 						  playing
 						  controls
 						  width="100%"
-						  height="auto"
+						  height="100%"
 						  />
 					}
 					</ImageWrapper>
