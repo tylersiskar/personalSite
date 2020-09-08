@@ -60,7 +60,6 @@ const ImageWrapper = styled.div`
 	* {
 		width: 100%;
 		max-width: 600px;
-		height: auto;
 	}
 	@media (min-width: 320px) and (max-width: 967px) {
 		min-height: 250px
