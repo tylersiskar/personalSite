@@ -25,7 +25,7 @@ const LeftMain = styled.div`
 	position: relative;
 	min-width: 200px;
 	width: 50%;
-	transition: width .35s ease;
+	transition: width .25s ease;
 	${({ mount }) => mount && `
 		width: 25%;
 	`};
@@ -60,7 +60,7 @@ const RightMain = styled.div`
 	position: relative;
 	padding-top: 32px;
 	width: 50%;
-	transition: width .35s ease;
+	transition: width .25s ease;
 	${({ mount }) => mount && `
 		width: 75%;
 	`};
@@ -109,7 +109,7 @@ class TestHobbiesPage extends Component {
 		showLinks: false
 	}
 	componentDidMount() {
-		setTimeout(() => this.setState({ mounted: true }), 100);
+		setTimeout(() => this.setState({ mounted: true }), 10);
 	}
 	render() {
 		const { cards } = this.props;

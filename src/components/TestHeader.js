@@ -27,7 +27,7 @@ const LeftHeader = styled.div`
   background-color: ${colors.forestGreen};
   position: relative;
   width: 50%;
-  transition: width .35s ease;
+  transition: width .25s ease;
   ${({ active }) => active && `
     width: 25%;
   `};
@@ -56,7 +56,7 @@ class TestHeader extends Component {
     name: 'tyler siskar.'
   }
   componentDidMount() {
-    setTimeout(() => this.setState({ mounted: true }), 100);
+    setTimeout(() => this.setState({ mounted: true }), 10);
   }
   render() {
 	return(
