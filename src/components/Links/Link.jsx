@@ -15,12 +15,15 @@ const defaultProps = {
 const StyledLink = styled(DomLink)`
   text-decoration: none;
   position: relative;
+  display: inline-flex;
+  box-sizing: border-box;
+  width: fit-content;
   padding-left: 44px;
   left: 0;
-  transition: left .35s ease;
+  transition: padding-left .35s ease;
   &:hover {
     opacity: 0.7;
-    left: 32px;
+    padding-left: 76px;
   }
 `;
 
