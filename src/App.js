@@ -206,6 +206,12 @@ const hobbiesContent = [
 	}
 ];
 class App extends React.Component {
+  constructor(props){
+    super(props);
+  }
+  componentDidMount(){
+    AOS.init();
+  }
 
  _renderScreen = (route) => {
     switch(route) {
@@ -240,7 +246,6 @@ class App extends React.Component {
   }
 
 		render() {
-			AOS.init();
 			  return (
 		        <Switch>
 		          <Route 

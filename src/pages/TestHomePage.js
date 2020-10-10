@@ -84,35 +84,35 @@ const StyledImage = styled.img`
 const TestHomePage = props => {
 	let content1 = `Hello! My name is Tyler Siskar, welcome to my site.`;
 	let content2 = 'Click the links on the left to learn more about me!';
-		return(
-				<Home>
-					<StyledImage 
-					data-aos="slide-up"
-					data-aos-offset="200"
-			    data-aos-delay="50"
-			    data-aos-duration="500"
-			    data-aos-easing="ease-in-out"
-			    data-aos-mirror="true"
-			    data-aos-once="false"
-			    data-aos-anchor-placement="top-center"
-									    alt="" src={me} />
-					<LeftMain>
-						<LinkGroup links={props.links} />
-					</LeftMain>
-					<RightMain src={vine}>
-						<Content>
-							<Blurb backgroundColor={colors.white} borderColor={colors.forestGreen} width="100%" >
-							{content1}
-							</Blurb>
-						</Content>
-						<Content>
-							<Blurb backgroundColor={colors.white} borderColor={colors.forestGreen}  width='100%'>
-							{content2}
-							</Blurb>
-						</Content>
-					</RightMain>
-				</Home>
-		)
+	return(
+		<Home>
+			<StyledImage 
+			data-aos="slide-up"
+			data-aos-offset="200"
+		    data-aos-delay="50"
+		    data-aos-duration="500"
+		    data-aos-easing="ease-in-out"
+		    data-aos-mirror="true"
+		    data-aos-once="false"
+		    data-aos-anchor-placement="top-center"
+		    alt="" src={me} />
+			<LeftMain>
+				<LinkGroup links={props.links} />
+			</LeftMain>
+			<RightMain src={vine}>
+				<Content>
+					<Blurb backgroundColor={colors.white} borderColor={colors.forestGreen} width="100%" >
+					{content1}
+					</Blurb>
+				</Content>
+				<Content>
+					<Blurb backgroundColor={colors.white} borderColor={colors.forestGreen}  width='100%'>
+					{content2}
+					</Blurb>
+				</Content>
+			</RightMain>
+		</Home>
+	)
 };
 
 
