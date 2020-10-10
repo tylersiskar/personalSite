@@ -5,6 +5,7 @@ import { LinkGroup } from '../components/Links';
 import colors from '../colors/colors';
 import vine from '../images/plant.jpg';
 import me from '../images/me.jpg';
+import 'aos/dist/aos.css';
 
 const Home = styled.div`
 	height: 100%;
@@ -81,25 +82,33 @@ const StyledImage = styled.img`
 `;
 
 const TestHomePage = props => {
-
 	let content1 = `Hello! My name is Tyler Siskar, welcome to my site.`;
 	let content2 = 'Click the links on the left to learn more about me!';
 		return(
 				<Home>
-					<StyledImage alt="" src={me} />
+					<StyledImage 
+					data-aos="slide-up"
+					data-aos-offset="200"
+			    data-aos-delay="50"
+			    data-aos-duration="500"
+			    data-aos-easing="ease-in-out"
+			    data-aos-mirror="true"
+			    data-aos-once="false"
+			    data-aos-anchor-placement="top-center"
+									    alt="" src={me} />
 					<LeftMain>
 						<LinkGroup links={props.links} />
 					</LeftMain>
 					<RightMain src={vine}>
 						<Content>
-						<Blurb backgroundColor={colors.white} borderColor={colors.forestGreen} width="100%" >
-						{content1}
-						</Blurb>
+							<Blurb backgroundColor={colors.white} borderColor={colors.forestGreen} width="100%" >
+							{content1}
+							</Blurb>
 						</Content>
 						<Content>
-						<Blurb backgroundColor={colors.white} borderColor={colors.forestGreen}  width='100%'>
-						{content2}
-						</Blurb>
+							<Blurb backgroundColor={colors.white} borderColor={colors.forestGreen}  width='100%'>
+							{content2}
+							</Blurb>
 						</Content>
 					</RightMain>
 				</Home>

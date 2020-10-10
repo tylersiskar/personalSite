@@ -16,7 +16,8 @@ import buffalo from './images/buffalo.jpg';
 import ubbull from './images/ubbull.jpg';
 import ironman from './images/ironman.jpg';
 import golf from './images/golf.jpg';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const Page = styled.div`
 	background-image: 
 	${({ page }) => page === 'homepage' || page === 'contact' 
@@ -239,6 +240,7 @@ class App extends React.Component {
   }
 
 		render() {
+			AOS.init();
 			  return (
 		        <Switch>
 		          <Route 
