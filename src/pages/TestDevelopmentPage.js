@@ -5,6 +5,7 @@ import colors from '../colors/colors';
 import plant from '../images/plant.jpg';
 import { Card } from '../components/Cards';
 import { Button } from '../components';
+import 'aos/dist/aos.css';
 
 const Home = styled.div`
 	position: relative;
@@ -122,7 +123,15 @@ class TestDevelopmentPage extends Component {
 					</LeftMain>
 				<OpenButton onClick={() => this.setState({ showLinks: !this.state.showLinks})} showLinks={this.state.showLinks} textColor={colors.darkGray}/> 
 					<RightMain mount={this.state.mounted} src={plant}>
-						<Content>
+						<Content 
+						    data-aos="fade-up"
+						    data-aos-offset="200"
+						    data-aos-delay="50"
+						    data-aos-duration="500"
+						    data-aos-easing="ease-in-out"
+						    data-aos-mirror="true"
+						    data-aos-once="false"
+						    data-aos-anchor-placement="top-center">
 							{cards && cards.map((card, index) => {
 								return(
 								<CardWrapper key={card.title}>
