@@ -11,7 +11,7 @@ import TestDevelopmentPage from './pages/TestDevelopmentPage';
 import ContactPage from './pages/ContactPage';
 import { TestHeader } from './components';
 import code from './images/code.jpg';
-import react from './images/react.png';
+import react from './images/mac.jpg';
 import buffalo from './images/buffalo.jpg';
 import ubbull from './images/ubbull.jpg';
 import ironman from './images/ironman.jpg';
