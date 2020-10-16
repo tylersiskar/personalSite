@@ -84,7 +84,7 @@ const Card = props => {
 					<ImageWrapper src={image}> 
 					{title === 'music' && props.spotify && 
 						<SpotifyPlayer
-						  uri="spotify:playlist:37i9dQZF1Ejfjb9yrcmDmf"
+						  uri="spotify:playlist:37i9dQZF1Epzhr1Bm8NQPD"
 						  size={{height: '100%', width: '100%'}}
 						  />
 					}
