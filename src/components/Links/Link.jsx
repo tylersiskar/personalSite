@@ -25,6 +25,13 @@ const StyledLink = styled(DomLink)`
     opacity: 0.7;
     padding-left: 76px;
   }
+  @media screen and (max-width: 767px) {
+    padding-left: 20px;
+    &:hover {
+      opacity: 0.7;
+      padding-left: 44px;
+    }
+  }
 `;
 
 const Link = props => {

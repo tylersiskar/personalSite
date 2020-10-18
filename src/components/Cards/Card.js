@@ -68,11 +68,12 @@ const ImageWrapper = styled.div`
 
 const Card = props => {
 	const { title, content, image } = props;
+	console.log(props.background);
 
 	return (
 			<PanelWrapper>
 				<TitleWrapper>
-					<Title size="small" color={props.background ? props.background : colors.forestGreen}> {title} </Title>
+					<Title size="small" color={props.background ? props.background === colors.orange ? colors.white : props.background :  colors.forestGreen}> {title} </Title>
 				</TitleWrapper>
 				<CardContainer background={props.background}>
 					<TextWrapper>

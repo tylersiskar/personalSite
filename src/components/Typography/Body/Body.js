@@ -27,6 +27,8 @@ const Body = props => {
 	function _determineFontSize(size) {
 		if( typeof size === 'number' ) return size;
 		switch(size) {
+			case "xLarge":
+				return 44;
 			case "small":
 				return 16;
 			case "medium":

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { LinkGroup } from '../components/Links';
+import { Body } from '../components/Typography';
 import colors from '../colors/colors';
-import { Button, Blurb, ColorDial } from '../components';
+import { Blurb, ColorDial } from '../components';
 
 const Home = styled.div`
 	position: relative;
@@ -20,7 +21,7 @@ const Home = styled.div`
 
 const LeftMain = styled.div`
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	position: relative;
 	min-width: 200px;
 	width: 50%;
@@ -29,27 +30,14 @@ const LeftMain = styled.div`
 	@media (min-width: 320px) and (max-width: 967px) {
 		position:absolute;
 		z-index: 5;
+		align-items: center;
 		left: ${({ showLinks }) => showLinks ? 0 : -50}%;
 	}
 	@media (min-width: 967px) {
 		position: relative;
 	}
-`;
 
-const OpenButton = styled(Button)`
-	position: relative;
-	border-radius: 0px;
-	width: 50px;
-	height: 50px;
-	background-image: 	linear-gradient(to bottom, ${({ background }) => background} 0%, white 90%);
-	left: ${({ showLinks }) => showLinks ? 200 : 0}px;
-	z-index: 2;
-	transform: rotate(${({ showLinks }) => showLinks ? 90 : -90}deg);
-	@media (min-width: 967px) {
-		display: none;
-	}
 `;
-
 
 const RightMain = styled.div`
 	position: relative;
@@ -107,7 +95,23 @@ const LinkGroupContainer = styled.span`
 	align-items: flex-start;
 	justify-content: flex-start;
 	width: 100%;
-	padding-bottom: 50px;
+	padding-bottom: 20px;
+`;
+
+const StyledA = styled.a`
+	&:hover {
+		color: ${({ background }) => background};
+	}
+`;
+const DialContainer = styled.span`
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	width: 100%;
+	padding-left: 44px;
+	@media screen and (max-width: 767px) {
+		padding-left: 20px;
+	}
 `;
 
 class ContactPage extends Component {
@@ -120,7 +124,7 @@ class ContactPage extends Component {
 	}
 
 	render() {
-		let content1 = `Thank you for visiting! Suggestions? Email me at tyler.siskar@gmail.com`;
+		let content1 = `Thank you for visiting! Contact me `;
 			return(
 				<Home src={this.props.src}>
 					<LeftMain 
@@ -130,13 +134,14 @@ class ContactPage extends Component {
 						<LinkGroupContainer>
 							 <LinkGroup activeRoute="contact" links={this.props.links} />
 						</LinkGroupContainer>
-						<ColorDial background={this.props.background} colorDial={this.props.colors} onClick={this._onClickColor}/>
+						<DialContainer>
+							<ColorDial background={this.props.background} colorDial={this.props.colors} onClick={this._onClickColor}/>
+						</DialContainer>
 					</LeftMain>
-					<OpenButton onClick={() => this.setState({ showLinks: !this.state.showLinks})} showLinks={this.state.showLinks} textColor={colors.darkGray} background={this.props.background}/> 
 					<RightMain src={this.props.src}>
 						<Content>
 						<Blurb width='75%' backgroundColor="white" borderColor={this.props.background} fontColor={this.props.background}>
-						{content1}
+						<Body size="xLarge" color={this.props.background}>{content1}<StyledA background={this.props.background} href="mailto:tyler.siskar@gmail.com">here</StyledA></Body>
 						</Blurb>
 						</Content>
 					</RightMain>

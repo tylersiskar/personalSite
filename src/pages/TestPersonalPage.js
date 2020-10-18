@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { LinkGroup } from '../components/Links';
-import colors from '../colors/colors';
 import { Card } from '../components/Cards';
-import { Button, ColorDial } from '../components';
+import { ColorDial } from '../components';
 import 'aos/dist/aos.css';
 
 const Home = styled.div`
@@ -22,7 +21,7 @@ const Home = styled.div`
 
 const LeftMain = styled.div`
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	position: relative;
 	min-width: 200px;
 	width: 50%;
@@ -34,28 +33,16 @@ const LeftMain = styled.div`
 	background-color: ${({ background }) => background};
 	@media (min-width: 320px) and (max-width: 967px) {
 		position:absolute;
+		align-items: center;
 		z-index: 5;
-		left: ${({ showLinks }) => showLinks ? 0 : -200}px;
+		padding: ${({ showLinks }) => showLinks && 24}px;
+		top: ${({ showLinks }) => showLinks ? 0 : -200}px;
+		right: ${({ showLinks }) => showLinks ? 0 : -200}px;
 	}
 	@media (min-width: 967px) {
 		position: relative;
 	}
 `;
-
-const OpenButton = styled(Button)`
-	position: relative;
-	border-radius: 0px;
-	width: 50px;
-	height: 50px;
-	background-image: 	linear-gradient(to bottom, ${({ background }) => background} 0%, white 90%);
-	left: ${({ showLinks }) => showLinks ? 200 : 0}px;
-	z-index: 2;
-	transform: rotate(${({ showLinks }) => showLinks ? 90 : -90}deg);
-	@media (min-width: 967px) {
-		display: none;
-	}
-`;
-
 
 const RightMain = styled.div`
 	position: relative;
@@ -109,13 +96,23 @@ const LinkGroupContainer = styled.span`
 	align-items: flex-start;
 	justify-content: flex-start;
 	width: 100%;
-	padding-bottom: 50px;
+	padding-bottom: 20px;
 `;
 
+const DialContainer = styled.span`
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	width: 100%;
+	padding-left: 44px;
+	@media screen and (max-width: 767px) {
+		padding-left: 20px;
+	}
+`;
 class TestPersonalPage extends Component {
 	state = {
 		mounted: false,
-		showLinks: false
+		showLinks: this.props.showMobileNav
 	}
 	componentDidMount() {
 		setTimeout(() => this.setState({ mounted: true }), 10);
@@ -132,11 +129,12 @@ class TestPersonalPage extends Component {
 				<Home src={src}>
 					<LeftMain showLinks={this.state.showLinks} mount={this.state.mounted} background={this.props.background}>
 						<LinkGroupContainer>
-							<LinkGroup activeRoute="about" links={this.props.links} />
+							<LinkGroup activeRoute={this.props.activeRoute} links={this.props.links} />
 						</LinkGroupContainer>
-						<ColorDial background={this.props.background} colorDial={this.props.colors} onClick={this._onClickColor}/>
+						<DialContainer>
+							<ColorDial background={this.props.background} colorDial={this.props.colors} onClick={this._onClickColor}/>
+						</DialContainer>
 					</LeftMain>
-				<OpenButton onClick={() => this.setState({ showLinks: !this.state.showLinks})} showLinks={this.state.showLinks} textColor={colors.darkGray} background={this.props.background}/> 
 					<RightMain mount={this.state.mounted} src={src}>
 						<Content 
 						    data-aos="fade-up"
@@ -150,7 +148,7 @@ class TestPersonalPage extends Component {
 							{cards && cards.map((card, index) => {
 								return(
 								<CardWrapper key={card.title}>
-									<Card title={card.title} content={card.content} image={card.image} background={this.props.cardBackground}/>
+									<Card title={card.title} content={card.content} image={card.image} background={this.props.cardBackground} spotify={card.spotify} href={card.href}/>
 								</CardWrapper>
 								)
 							})}

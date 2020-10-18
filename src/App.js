@@ -6,8 +6,6 @@ import styled from 'styled-components';
 import colors from './colors/colors';
 import TestHomePage from './pages/TestHomePage';
 import TestPersonalPage from './pages/TestPersonalPage';
-import TestHobbiesPage from './pages/TestHobbiesPage';
-import TestDevelopmentPage from './pages/TestDevelopmentPage';
 import ContactPage from './pages/ContactPage';
 import { TestHeader } from './components';
 import code from './images/code.jpg';
@@ -18,6 +16,7 @@ import ironman from './images/ironman.jpg';
 import golf from './images/golf.jpg';
 import plant from './images/plant.jpg';
 import blue from './images/bluepaint.jpg';
+import coffee from './images/coffee.jpg';
 import AOS from 'aos';
 
 import 'aos/dist/aos.css';
@@ -41,6 +40,7 @@ const Page = styled.div`
 const colorDial = [
 	colors.forestGreen,
 	colors.beauBlue,
+	colors.gold
 ];
 
 const links = [ 
@@ -194,7 +194,8 @@ const hobbiesContent = [
 				header: 'other genres',
 				description: 'pop, punk rock, instrumentals'
 			}	
-		]
+		],
+		spotify: true
 	},
 	{
 		title: 'travel',
@@ -211,12 +212,14 @@ const hobbiesContent = [
 				header: "Study Abroad",
 				description: "In Summer 2016 I participated in a 6 week study abroad program in France",
 			},
-		]
+		],
+		href:"https://www.youtube.com/watch?v=1zCL-0_mA90&feature=youtu.be&fbclid=IwAR0G1NA-GTNC3LUPsMfQfeSfqJUmJMTkzsz3GT4YCnJNhQznYW6NOe0WIQs" 
 	}
 ];
 class App extends React.Component {
   state = {
-  	background: colors.forestGreen
+  	background: colors.forestGreen,
+  	showMobileNav: false
   }
   componentDidMount(){
     AOS.init();
@@ -226,6 +229,47 @@ class App extends React.Component {
   	this.setState({background: background});
   }
 
+  _chooseCardContent = (page) => {
+  	switch (page) {
+  		case "development":
+  			return developmentContent;
+  		case "about":
+  			return personalContent;
+  		case "hobbies":
+  		default:
+  			return hobbiesContent;
+  	}
+  }
+
+  _chooseBackground = () => {
+  	const { background } = this.state;
+  	switch (background) {
+  		case colors.beauBlue:
+  			return blue;
+  		case colors.forestGreen:
+  			return plant;
+  		case colors.gold:
+  		default:
+  			return coffee;
+  	}
+  }
+
+_chooseColor = () => {
+	switch(this.state.background) {
+		case colors.gold:
+			return colors.orange;
+		case colors.beauBlue:
+			return colors.oxfordBlue;
+		case colors.forestGreen:
+		default:
+			return colors.darkGray;
+	}
+}
+
+_showMobileNav = (showNav) => {
+	this.setState({ showMobileNav: showNav });
+	return null;
+}
  _renderScreen = (route) => {
     switch(route) {
       case 'personal':
@@ -234,57 +278,75 @@ class App extends React.Component {
         		color={this.state.background}>
 					<TestHeader 
 						active={route} 
-						background={this.state.background}/>
+						background={this.state.background}
+						links={links}
+						colors={colorDial}
+						onClickColor={this._changeColor}/>
 					<TestPersonalPage 
 						{...this.props} 
-						src={this.state.background === colors.beauBlue ? blue : plant}
-						cardBackground={this.state.background === colors.beauBlue ? colors.oxfordBlue : colors.darkGray}
+						activeRoute="about"
+						src={this._chooseBackground()}
+						cardBackground={this._chooseColor()}
 						background={this.state.background} 
 						colors={colorDial} 
-						cards={personalContent} 
+						cards={this._chooseCardContent("about")} 
 						links={links}
 						onClickColor={this._changeColor}
 						/>
 				</Page>);
       case 'development':
-        return( <Page page={route}>
+        return( <Page page={route}
+        		color={this.state.background}>
 					<TestHeader 
 						active={route} 
-						background={this.state.background}/>
-					<TestDevelopmentPage 
+						background={this.state.background}
+						links={links}
+						colors={colorDial}
+						onClickColor={this._changeColor} />
+					<TestPersonalPage 
 						{...this.props} 
-						src={this.state.background === colors.beauBlue ? blue : plant}
-						cardBackground={this.state.background === colors.beauBlue ? colors.oxfordBlue : colors.darkGray}
+						activeRoute="development"
+						src={this._chooseBackground()}
+						cardBackground={this._chooseColor()}
 						background={this.state.background} 
 						colors={colorDial} 
-						cards={developmentContent} 
+						cards={this._chooseCardContent("development")} 
 						links={links} 
 						onClickColor={this._changeColor}
 						/>
 				</Page>);
       case 'hobbies':
-        return( <Page page={route}>
+        return( <Page page={route}
+        		color={this.state.background}>
 					<TestHeader  
 						active={route} 
-						background={this.state.background}/>
-					<TestHobbiesPage 
+						background={this.state.background}
+						links={links}
+						colors={colorDial}
+						onClickColor={this._changeColor}/>
+					<TestPersonalPage 
 						{...this.props} 
-						src={this.state.background === colors.beauBlue ? blue : plant}
-						cardBackground={this.state.background === colors.beauBlue ? colors.oxfordBlue : colors.darkGray}
+						activeRoute="hobbies"
+						src={this._chooseBackground()}
+						cardBackground={this._chooseColor()}
 						background={this.state.background} 
 						colors={colorDial} 
-						cards={hobbiesContent} 
+						cards={this._chooseCardContent("hobbies")} 
 						links={links}
 						onClickColor={this._changeColor}
 						/>
 				</Page>);
       case 'contact':
-        return( <Page page={route}>
+        return( <Page page={route}
+        		color={this.state.background}>
 					<TestHeader  
 						active={route} 
-						background={this.state.background}/>
+						background={this.state.background}
+						links={links}
+						colors={colorDial}
+						onClickColor={this._changeColor}/>
 					<ContactPage {...this.props} 
-						src={this.state.background === colors.beauBlue ? blue : plant}
+						src={this._chooseBackground()}
 						background={this.state.background} 
 						colors={colorDial} 
 						links={links}
@@ -293,11 +355,15 @@ class App extends React.Component {
 				</Page>);
       case 'homepage':
       default:
-        return( <Page page={route}>
-					<TestHeader  active={route} background={this.state.background}/>
+        return( <Page page={route}
+        		color={this.state.background}>
+					<TestHeader  active={route} background={this.state.background}
+						links={links}
+						colors={colorDial}
+						onClickColor={this._changeColor}/>
 					<TestHomePage 
 						{...this.props} 
-						src={this.state.background === colors.beauBlue ? blue : plant}
+						src={this._chooseBackground()}
 						background={this.state.background} 
 						colors={colorDial}
 						links={links} 

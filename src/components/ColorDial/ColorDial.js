@@ -9,8 +9,8 @@ const DialWrapper = styled.span`
 	align-items: center;
 	color: white;
 	justify-content: center;
-	width: 150px;
 	height: 44px;
+	padding: 0 16px;
 	border-radius: 5px;
 	background-color: ${({ color }) => color};
 	opacity: 1;
@@ -34,9 +34,19 @@ const ColorDial = props => {
 		}
 		else _onClick();
 	}
-
+	function _chooseColor () {
+		switch(props.background) {
+			case colors.gold:
+				return colors.orange;
+			case colors.beauBlue:
+				return colors.oxfordBlue;
+			case colors.forestGreen:
+			default:
+				return colors.darkGray;
+		}
+	}
 	return (
-		<DialWrapper color={props.background === colors.beauBlue ? colors.oxfordBlue : colors.darkGray} onClick={_onClick}>
+		<DialWrapper color={_chooseColor()} onClick={_onClick}>
 		 <Body bold> Change Theme </Body>
 		 </DialWrapper>
 	)

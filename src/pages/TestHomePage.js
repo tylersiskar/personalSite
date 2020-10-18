@@ -5,6 +5,7 @@ import { LinkGroup } from '../components/Links';
 import colors from '../colors/colors';
 import me from '../images/me.jpg';
 import meBlue from '../images/meblue.jpg';
+import meYellow from '../images/mesunset.jpg';
 import 'aos/dist/aos.css';
 
 const Home = styled.div`
@@ -71,14 +72,17 @@ const StyledImage = styled.img`
 	z-index: 1;
 	position: absolute; 
 	bottom: 20%;
+	border-radius: 5px;
+		min-height: 200px;
+	box-shadow: 1px 2px 3px rgba(0,0,0,.5);	
 	@media (min-width: 767px) {
-		min-height: 300px;
 		left: 35%;
 		width: 25%;
 	}
-	@media (min-width: 320px) and (max-width: 767px) {
+	@media (max-width: 767px) {
 		width: 50%;
 		left: 0;
+		top: 25%;
 	}
 `;
 
@@ -96,6 +100,9 @@ const DialContainer = styled.span`
 	justify-content: flex-start;
 	width: 100%;
 	padding-left: 44px;
+	@media screen and (max-width: 767px) {
+		padding-left: 20px;
+	}
 `;
 
 
@@ -105,6 +112,18 @@ const TestHomePage = props => {
 	const { background } = props;
 	function _onClickColor(background) {
 		props.onClickColor(background);
+	}
+
+	function _chooseColor() {
+		switch(props.background) {
+			case colors.gold:
+				return meYellow;
+			case colors.beauBlue:
+				return meBlue;
+			case colors.forestGreen:
+			default:
+				return me;
+		}
 	}
 	return(
 		<Home>
@@ -117,7 +136,7 @@ const TestHomePage = props => {
 			    data-aos-mirror="true"
 			    data-aos-once="false"
 			    data-aos-position="center"
-		    	alt="" src={props.background === colors.beauBlue ? meBlue : me} />
+		    	alt="" src={_chooseColor()} />
 			<LeftMain background={props.background}>
 				<LinkGroupContainer>
 					<LinkGroup links={props.links} />
