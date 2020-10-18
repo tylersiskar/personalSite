@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Blurb } from '../components';
+import { Blurb, ColorDial } from '../components';
 import { LinkGroup } from '../components/Links';
 import colors from '../colors/colors';
-import vine from '../images/plant.jpg';
 import me from '../images/me.jpg';
+import meBlue from '../images/meblue.jpg';
 import 'aos/dist/aos.css';
 
 const Home = styled.div`
@@ -20,8 +20,9 @@ const LeftMain = styled.div`
 	width: 50%;
 	min-width: 200px;
 	height: 100%;
-	background-color: ${colors.forestGreen};
+	background-color: ${({ background }) => background};
 	flex-direction: column;
+	align-items: flex-start;
 `;
 
 const RightMain = styled.div`
@@ -51,7 +52,6 @@ const RightMain = styled.div`
 `;
 
 const Content = styled.div`
-	color: ${colors.forestGreen};
 	font-size: 44px;
 	width: 60%;
 	padding-left: 30%;
@@ -69,9 +69,10 @@ const Content = styled.div`
 
 const StyledImage = styled.img`
 	z-index: 1;
-		position: absolute; 
-		bottom: 20%;
+	position: absolute; 
+	bottom: 20%;
 	@media (min-width: 767px) {
+		min-height: 300px;
 		left: 35%;
 		width: 25%;
 	}
@@ -81,9 +82,30 @@ const StyledImage = styled.img`
 	}
 `;
 
+const LinkGroupContainer = styled.span`
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	width: 100%;
+	padding-bottom: 20px;
+`;
+
+const DialContainer = styled.span`
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	width: 100%;
+	padding-left: 44px;
+`;
+
+
 const TestHomePage = props => {
 	let content1 = `Hello! My name is Tyler Siskar, welcome to my site.`;
 	let content2 = 'Click the links on the left to learn more about me!';
+	const { background } = props;
+	function _onClickColor(background) {
+		props.onClickColor(background);
+	}
 	return(
 		<Home>
 			<StyledImage 
@@ -94,18 +116,24 @@ const TestHomePage = props => {
 			    data-aos-easing="ease-in-out"
 			    data-aos-mirror="true"
 			    data-aos-once="false"
-		    	alt="" src={me} />
-			<LeftMain>
-				<LinkGroup links={props.links} />
+			    data-aos-position="center"
+		    	alt="" src={props.background === colors.beauBlue ? meBlue : me} />
+			<LeftMain background={props.background}>
+				<LinkGroupContainer>
+					<LinkGroup links={props.links} />
+				</LinkGroupContainer>
+				<DialContainer>
+				<ColorDial background={props.background} colorDial={props.colors} onClick={_onClickColor}/>
+				</DialContainer>
 			</LeftMain>
-			<RightMain src={vine}>
+			<RightMain src={props.src}>
 				<Content>
-					<Blurb backgroundColor={colors.white} borderColor={colors.forestGreen} width="100%" >
+					<Blurb backgroundColor={colors.white} fontColor={background} borderColor={background} width="100%" >
 					{content1}
 					</Blurb>
 				</Content>
 				<Content>
-					<Blurb backgroundColor={colors.white} borderColor={colors.forestGreen}  width='100%'>
+					<Blurb backgroundColor={colors.white} fontColor={background} borderColor={background}  width='100%'>
 					{content2}
 					</Blurb>
 				</Content>

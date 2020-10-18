@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { LinkGroup } from '../components/Links';
 import colors from '../colors/colors';
-import plant from '../images/plant.jpg';
 import { Card } from '../components/Cards';
-import { Button } from '../components';
+import { Button, ColorDial } from '../components';
 import 'aos/dist/aos.css';
 
 const Home = styled.div`
@@ -27,11 +26,12 @@ const LeftMain = styled.div`
 	min-width: 200px;
 	width: 50%;
 	transition: width .25s ease;
+	align-items: center;
 	${({ mount }) => mount && `
 		width: 25%;
 	`};
 	flex-direction: column;
-	background-color: ${colors.forestGreen};
+	background-color: ${({ background }) => background};
 	@media (min-width: 320px) and (max-width: 967px) {
 		position:absolute;
 		z-index: 5;
@@ -48,7 +48,7 @@ const OpenButton = styled(Button)`
 	border-radius: 0px;
 	width: 50px;
 	height: 50px;
-	background-image: 	linear-gradient(to bottom, ${colors.forestGreen} 0%, white 90%);
+	background-image: 	linear-gradient(to bottom, ${({ background }) => background} 0%, white 90%);
 	left: ${({ showLinks }) => showLinks ? 200 : 0}px;
 	z-index: 2;
 	transform: rotate(${({ showLinks }) => showLinks ? 90 : -90}deg);
@@ -105,6 +105,15 @@ const CardWrapper = styled.span`
 	padding-bottom: 224px;
 `;
 
+const LinkGroupContainer = styled.span`
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	width: 100%;
+	padding-bottom: 50px;
+`;
+
+
 class TestDevelopmentPage extends Component {
 	state = {
 		mounted: false,
@@ -113,16 +122,24 @@ class TestDevelopmentPage extends Component {
 	componentDidMount() {
 		setTimeout(() => this.setState({ mounted: true }), 10);
 	}
+
+	_onClickColor = (background) => {
+		this.props.onClickColor(background);
+	}
+
 	render() {
-		const { cards } = this.props;
+		const { cards, src } = this.props;
 
 		return(
-				<Home src={plant}>
-					<LeftMain showLinks={this.state.showLinks} mount={this.state.mounted}>
+				<Home src={src}>
+					<LeftMain showLinks={this.state.showLinks} mount={this.state.mounted} background={this.props.background}>
+						<LinkGroupContainer>
 						<LinkGroup activeRoute="development" links={this.props.links} />
+						</LinkGroupContainer>
+						<ColorDial background={this.props.background} colorDial={this.props.colors} onClick={this._onClickColor}/>
 					</LeftMain>
-				<OpenButton onClick={() => this.setState({ showLinks: !this.state.showLinks})} showLinks={this.state.showLinks} textColor={colors.darkGray}/> 
-					<RightMain mount={this.state.mounted} src={plant}>
+				<OpenButton onClick={() => this.setState({ showLinks: !this.state.showLinks})} showLinks={this.state.showLinks} textColor={colors.darkGray} background={this.props.background}/> 
+					<RightMain mount={this.state.mounted} src={src}>
 						<Content 
 						    data-aos="fade-up"
 						    data-aos-offset="200"
@@ -135,7 +152,7 @@ class TestDevelopmentPage extends Component {
 							{cards && cards.map((card, index) => {
 								return(
 								<CardWrapper key={card.title}>
-									<Card title={card.title} content={card.content} image={card.image} />
+									<Card title={card.title} content={card.content} background={this.props.cardBackground} image={card.image} />
 								</CardWrapper>
 								)
 							})}

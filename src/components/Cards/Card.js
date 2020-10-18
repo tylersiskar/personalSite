@@ -33,7 +33,7 @@ const CardContainer = styled.div`
 	display: flex;
 	border-radius: 20px;
 	min-height: 350px;
-	background-color: ${colors.darkGray};
+	background-color: ${({ background }) => background ? background : colors.darkGray};
 	opacity: 0.9;
 	padding: 20px;
 	flex-basis: 50%;
@@ -72,9 +72,9 @@ const Card = props => {
 	return (
 			<PanelWrapper>
 				<TitleWrapper>
-					<Title size="small" color={colors.forestGreen}> {title} </Title>
+					<Title size="small" color={props.background ? props.background : colors.forestGreen}> {title} </Title>
 				</TitleWrapper>
-				<CardContainer>
+				<CardContainer background={props.background}>
 					<TextWrapper>
 					{content.map((body, index) => {
 						return(

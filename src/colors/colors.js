@@ -1,5 +1,5 @@
 const colors = {
-	beauBlue: '#C4D7F2',
+	beauBlue: '#8DA9C4',
 	mintCream: 'mintcream',
 	powderBlue: '#AFDEDC',
 	morningBlue: '#91A8A4',
@@ -8,7 +8,8 @@ const colors = {
 	gold: '#F4E285',
 	darkGreen: '#243E36',
 	darkGray: 'darkslategray',
-	white: 'white'
+	white: 'white',
+	oxfordBlue: '#0B2545'
 };
 
 export default colors;

@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import colors from '../colors/colors';
 
 const propTypes = {
 	children: PropTypes.node
@@ -67,7 +66,7 @@ const LogoMenu = props => {
      return (
        <StyledLink key={index} href={logoData[index].href}>
          <svg xmlns="http://www.w3.org/2000/svg"  version="1.0" x="0px" y="0px" width="20" height="20" viewBox={index === 2 ? "0 0 24 24" : "0 0 200 200"}>    
-           <path d={logoData[index].path.d} fill={colors.forestGreen}/>
+           <path d={logoData[index].path.d} fill={props.color}/>
          </svg>
        </StyledLink>  
        )

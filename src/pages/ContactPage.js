@@ -2,11 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { LinkGroup } from '../components/Links';
 import colors from '../colors/colors';
-import plant from '../images/plant.jpg';
-import { Button } from '../components';
-import { Blurb } from '../components';
-import vine from '../images/plant.jpg';
-
+import { Button, Blurb, ColorDial } from '../components';
 
 const Home = styled.div`
 	position: relative;
@@ -24,11 +20,12 @@ const Home = styled.div`
 
 const LeftMain = styled.div`
 	display: flex;
+	align-items: center;
 	position: relative;
 	min-width: 200px;
 	width: 50%;
 	flex-direction: column;
-	background-color: ${colors.forestGreen};
+	background-color: ${({ background }) => background};
 	@media (min-width: 320px) and (max-width: 967px) {
 		position:absolute;
 		z-index: 5;
@@ -44,7 +41,7 @@ const OpenButton = styled(Button)`
 	border-radius: 0px;
 	width: 50px;
 	height: 50px;
-	background-image: 	linear-gradient(to bottom, ${colors.forestGreen} 0%, white 90%);
+	background-image: 	linear-gradient(to bottom, ${({ background }) => background} 0%, white 90%);
 	left: ${({ showLinks }) => showLinks ? 200 : 0}px;
 	z-index: 2;
 	transform: rotate(${({ showLinks }) => showLinks ? 90 : -90}deg);
@@ -101,26 +98,44 @@ const Content = styled.div`
 		width: auto;
 		flex-direction: column;
 		font-size: 20px;
-		
 	}
+`;
 
+
+const LinkGroupContainer = styled.span`
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	width: 100%;
+	padding-bottom: 50px;
 `;
 
 class ContactPage extends Component {
 	state = {
 		showLinks: false
 	}
+
+	_onClickColor = (background) => {
+		this.props.onClickColor(background);
+	}
+
 	render() {
 		let content1 = `Thank you for visiting! Suggestions? Email me at tyler.siskar@gmail.com`;
 			return(
-				<Home src={plant}>
-					<LeftMain showLinks={this.state.showLinks} mount={this.state.mounted}>
-						<LinkGroup activeRoute="contact" links={this.props.links} />
+				<Home src={this.props.src}>
+					<LeftMain 
+						showLinks={this.state.showLinks} 
+						mount={this.state.mounted}
+						background={this.props.background} >
+						<LinkGroupContainer>
+							 <LinkGroup activeRoute="contact" links={this.props.links} />
+						</LinkGroupContainer>
+						<ColorDial background={this.props.background} colorDial={this.props.colors} onClick={this._onClickColor}/>
 					</LeftMain>
-					<OpenButton onClick={() => this.setState({ showLinks: !this.state.showLinks})} showLinks={this.state.showLinks} textColor={colors.darkGray}/> 
-					<RightMain src={vine}>
+					<OpenButton onClick={() => this.setState({ showLinks: !this.state.showLinks})} showLinks={this.state.showLinks} textColor={colors.darkGray} background={this.props.background}/> 
+					<RightMain src={this.props.src}>
 						<Content>
-						<Blurb width='75%' backgroundColor="white" borderColor={colors.forestGreen} >
+						<Blurb width='75%' backgroundColor="white" borderColor={this.props.background} fontColor={this.props.background}>
 						{content1}
 						</Blurb>
 						</Content>

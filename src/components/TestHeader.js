@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import LogoMenu from './LogoMenu';
-import colors from '../colors/colors';
 import { Title } from './Typography';
 
 const propTypes = {
@@ -24,7 +23,7 @@ const Head = styled.header`
 
 const LeftHeader = styled.div`
   display: flex;
-  background-color: ${colors.forestGreen};
+  background-color: ${({ background }) => background};
   position: relative;
   width: 50%;
   transition: width .25s ease;
@@ -61,7 +60,10 @@ class TestHeader extends Component {
   render() {
 	return(
     <Head>
-  		<LeftHeader active={this.props.active !== "homepage" && this.props.active !== "contact" && this.props.active !== "travel" && this.state.mounted}>
+  		<LeftHeader 
+          background={this.props.background}
+          active={this.props.active !== "homepage" && this.props.active !== "contact" && this.props.active !== "travel" && this.state.mounted}
+          >
         <StyledLink to='/homepage' onMouseOver={() => this.setState({ name: 'tyler siskar!'})} onMouseLeave={() => this.setState({ name: 'tyler siskar.'})}>
         <Title logo bold>
         {this.state.name}
@@ -69,7 +71,7 @@ class TestHeader extends Component {
         </StyledLink>
   		</LeftHeader>
       <LogoWrapper>
-        <LogoMenu />
+        <LogoMenu color={this.props.background}/>
       </LogoWrapper>
     </Head>
 	)
