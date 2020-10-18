@@ -83,8 +83,11 @@ const HamburgerButton = styled.button`
 
 const Line = styled.span`
   height: 2px;
+  min-width: 12px;
   width: 100%;
-  background: white;
+  background-color: white;
+  display: flex;
+  position: relative;
 `;
 
 
