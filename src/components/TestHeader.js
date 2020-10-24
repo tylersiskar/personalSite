@@ -169,17 +169,17 @@ class TestHeader extends Component {
             </Title>
           </StyledLink>
     		</LeftHeader>
-        <LogoWrapper show={active === 'homepage' || active === 'contact'}>
+        <LogoWrapper show={active === 'homepage'}>
           <LogoMenu color={background}/>
         </LogoWrapper>
-        <RightHeader>
           {active !== 'homepage' && 
+        <RightHeader>
           <HamburgerButton color={background} onClick={this._onButtonClick}>
             <Line />
             <Line />
             <Line />
-          </HamburgerButton>}
-        </RightHeader>
+          </HamburgerButton>
+        </RightHeader>}
       </Head>
       <SideNav showNav={this.state.showNav} background={background}>
         <FlexRow>
