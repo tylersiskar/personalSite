@@ -57,6 +57,7 @@ const StyledLink = styled.a`
 
 const StyledList = styled.ul`
   display: flex;
+  margin: 0;
 `;
 
 const LogoMenu = props => {

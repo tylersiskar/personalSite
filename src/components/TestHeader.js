@@ -46,9 +46,11 @@ const LeftHeader = styled.div`
 
 const LogoWrapper = styled.div`
   padding-right: 32px;
-  @media screen and (max-width: 767px) {
-    display: none;
-  }
+  ${({ show }) => !show && `
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
+  `};
 `;
 
 const RightHeader = styled.div`
@@ -112,11 +114,13 @@ const DialContainer = styled.span`
 const SideNav = styled.span`
   display: flex;
   background-color: ${({ background }) => background};
+  padding-right: 16px;
   flex-direction: column;
   height: 0;
   transition: height .35s ease;
   ${({ showNav }) => showNav && `
     height: 175px;
+    padding: 16px 16px 16px 0;
   `};
 `;
 
@@ -125,6 +129,12 @@ const FlexCol = styled.span`
   flex-direction: column;
   position: relative;
 `;
+
+const FlexRow = styled.span`
+  display: flex;
+  padding-bottom: 16px;
+`;
+
 class TestHeader extends Component {
   state = {
     mounted: false,
@@ -172,9 +182,12 @@ class TestHeader extends Component {
         </RightHeader>
       </Head>
       <SideNav showNav={this.state.showNav} background={background}>
+        <FlexRow>
           <LinkGroupContainer>
             <LinkGroup activeRoute={active} links={this.props.links} />
           </LinkGroupContainer>
+        <LogoMenu color="white"/>
+        </FlexRow>
           <DialContainer>
             <ColorDial background={this.props.background} colorDial={this.props.colors} onClick={this._onClickColor}/>
           </DialContainer>

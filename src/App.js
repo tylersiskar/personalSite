@@ -46,7 +46,7 @@ const colorDial = [
 const links = [ 
 	{
 		route: 'about',
-		to: '/personal'
+		to: '/about'
 	},
 	{
 		route: 'development',
@@ -272,7 +272,7 @@ _showMobileNav = (showNav) => {
 }
  _renderScreen = (route) => {
     switch(route) {
-      case 'personal':
+      case 'about':
         return( <Page 
         		page={route} 
         		color={this.state.background}>
@@ -378,18 +378,23 @@ _showMobileNav = (showNav) => {
 			  return (
 		        <Switch>
 		          <Route 
+		          	exact
 		            path="/homepage" 
 		            component={() => this._renderScreen('homepage')}/>
 		          <Route 
-		            path="/personal" 
-		            component={() => this._renderScreen('personal')}/>
+		          	exact
+		            path="/about" 
+		            component={() => this._renderScreen('about')}/>
 		          <Route 
+		          	exact
 		            path="/development" 
 		            component={() => this._renderScreen('development')}/>
 		          <Route 
+		          	exact
 		            path="/hobbies" 
 		            component={() => this._renderScreen('hobbies')}/>
 		          <Route 
+		          	exact
 		            path="/contact" 
 		            component={() => this._renderScreen('contact')}/>
 		   		  <Redirect to="/homepage"/>
