@@ -8,8 +8,12 @@ app.get('/ping', function (req, res) {
  return res.send('pong');
 });
 
-app.get('*', function (req, res) {
+app.get('/*', function (req, res) {
+	// console.log('hi', req, res);
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-app.listen(process.env.PORT || 8080);
+app.listen(process.env.PORT || 8080, '0.0.0.0', function(err) {
+	console.log(app, 'app');
+  console.log("Started listening on %s", app.url);
+});
