@@ -56,7 +56,7 @@ const Content = styled.div`
 	font-size: 44px;
 	width: 60%;
 	padding-left: 30%;
-	font-family: Helvetica;
+	font-family: Jura;
 	padding-bottom: 32px;
 	@media (min-width: 767px) {
 		flex-direction: row;

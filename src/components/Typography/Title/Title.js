@@ -15,7 +15,7 @@ const defaultProps = {
 }
 
 const TitleComponent = styled.span`
-	font-family: Helvetica;
+	font-family: Jura;
 	font-weight: ${({ bold }) => bold ? 'bold' : '450'};
 	text-transform: lowercase;
 	color: ${({ color }) => color};

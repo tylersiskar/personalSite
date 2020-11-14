@@ -36,7 +36,7 @@ const BlurbContainer = styled.div`
 	border-radius: 10px;
 	min-height: 100px;
 	padding: 16px;
-	font-family: Helvetica;
+	font-family: Jura;
 	font-size: ${({ fontSize }) => fontSize}px;
 	margin: 0 12px 12px 0;
   	box-shadow: lightgray 0px 5px 10px;

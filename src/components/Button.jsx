@@ -21,7 +21,7 @@ const ButtonBase = styled.button`
   outline: none;
   text-align: center;
   text-decoration: none;
-  font-family: Helvetica;
+  font-family: Jura;
   cursor: pointer;
   padding: 0;
   font-weight: bold;
