@@ -369,8 +369,9 @@ _showMobileNav = (showNav) => {
 				</Page>);
       case 'homepage':
       default:
-        return( <Page page={route}
-        		color={this.state.background}>
+        return( <Page 
+	        		page={route}
+	        		color={this.state.background}>
 					<TestHeader  active={route} background={this.state.background}
 						links={links}
 						colors={colorDial}

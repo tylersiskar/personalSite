@@ -11,13 +11,16 @@ const DialWrapper = styled.span`
 	justify-content: center;
 	height: 44px;
 	padding: 0 16px;
-	border-radius: 5px;
+	border-radius: 24px;
 	background-color: ${({ color }) => color};
 	opacity: 1;
 	transition: all 0.35s ease;
+	border: 2px solid ${({ color }) => color};
 	&:hover {
 		cursor: pointer;
-		opacity: 0.8;
+		color: ${({ color }) => color};
+		background-color: white;
+		border: 2px solid ${({ color }) => color};
 	}
 `;
 
@@ -47,7 +50,7 @@ const ColorDial = props => {
 	}
 	return (
 		<DialWrapper color={_chooseColor()} onClick={_onClick}>
-		 <Body bold> Change Theme </Body>
+		 <Body bold color={null}> Change Theme </Body>
 		 </DialWrapper>
 	)
 };
