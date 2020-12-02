@@ -414,7 +414,11 @@ _showMobileNav = (showNav) => {
 		          	exact
 		            path="/contact" 
 		            component={() => this._renderScreen('contact')}/>
-		   		  <Redirect to="/"/>
+		   		  <Redirect from="/hobbies" to "/hobbies"/>
+		   		  <Redirect from="/about" to "/about"/>
+		   		  <Redirect from="/contact" to "/contact"/>
+		   		  <Redirect from="/" to "/"/>
+		   		  <Redirect from="/development" to "/development"/>
 		        </Switch>
 
 	  );
