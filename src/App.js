@@ -396,7 +396,7 @@ _showMobileNav = (showNav) => {
 		        <Switch>
 		          <Route 
 		          	exact
-		            path="/homepage" 
+		            path="/" 
 		            component={() => this._renderScreen('homepage')}/>
 		          <Route 
 		          	exact
@@ -414,7 +414,7 @@ _showMobileNav = (showNav) => {
 		          	exact
 		            path="/contact" 
 		            component={() => this._renderScreen('contact')}/>
-		   		  <Redirect to="/homepage"/>
+		   		  <Redirect to="/"/>
 		        </Switch>
 
 	  );
