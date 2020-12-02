@@ -122,6 +122,9 @@ const SideNav = styled.span`
     height: 175px;
     padding: 16px 16px 16px 0;
   `};
+  @media (min-width: 767px) {
+    display: none;
+  }
 `;
 
 const FlexCol = styled.span`
