@@ -107,11 +107,10 @@ const DialContainer = styled.span`
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  width: 100%;
-  padding-left: 44px;
-  @media screen and (max-width: 767px) {
-    padding-left: 20px;
+  @media (max-width: 767px) {
+    justify-content: center;
   }
+  width: 100%;
 `;
 
 const SideNav = styled.span`
