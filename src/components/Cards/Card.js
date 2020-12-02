@@ -68,7 +68,6 @@ const ImageWrapper = styled.div`
 
 const Card = props => {
 	const { title, content, image } = props;
-	console.log(props.background);
 
 	return (
 			<PanelWrapper>

@@ -46,6 +46,9 @@ const LeftHeader = styled.div`
 
 const LogoWrapper = styled.div`
   padding-right: 32px;
+    @media screen and (max-width: 767px) {
+      padding-right: 16px;
+    }
   ${({ show }) => !show && `
     @media screen and (max-width: 767px) {
       display: none;
@@ -175,7 +178,7 @@ class TestHeader extends Component {
         <LogoWrapper show={active === 'homepage'}>
           <LogoMenu color={background}/>
         </LogoWrapper>
-          {active !== 'homepage' && 
+      {active !== 'homepage' && 
         <RightHeader>
           <HamburgerButton color={background} onClick={this._onButtonClick}>
             <Line />

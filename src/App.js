@@ -372,7 +372,9 @@ _showMobileNav = (showNav) => {
         return( <Page 
 	        		page={route}
 	        		color={this.state.background}>
-					<TestHeader  active={route} background={this.state.background}
+					<TestHeader  
+						active={route} 
+						background={this.state.background}
 						links={links}
 						colors={colorDial}
 						onClickColor={this._changeColor}/>
