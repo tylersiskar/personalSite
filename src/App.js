@@ -414,11 +414,11 @@ _showMobileNav = (showNav) => {
 		          	exact
 		            path="/contact" 
 		            component={() => this._renderScreen('contact')}/>
-		   		  <Redirect from="/hobbies" to "/hobbies"/>
-		   		  <Redirect from="/about" to "/about"/>
-		   		  <Redirect from="/contact" to "/contact"/>
-		   		  <Redirect from="/" to "/"/>
-		   		  <Redirect from="/development" to "/development"/>
+		   		  <Redirect exact from="/hobbies" to "/hobbies"/>
+		   		  <Redirect exact from="/about" to "/about"/>
+		   		  <Redirect exact from="/contact" to "/contact"/>
+		   		  <Redirect exact from="/" to "/"/>
+		   		  <Redirect exact from="/development" to "/development"/>
 		        </Switch>
 
 	  );
