@@ -107,8 +107,7 @@ const DialContainer = styled.span`
 
 
 const TestHomePage = props => {
-	let content1 = `Hello! My name is Tyler Siskar, welcome to my site.`;
-	let content2 = 'Click the links on the left to learn more about me!';
+	let content1 = `Hello, I am Tyler Siskar, a web and mobile developer.`;
 	const { background } = props;
 	function _onClickColor(background) {
 		props.onClickColor(background);
@@ -149,11 +148,6 @@ const TestHomePage = props => {
 				<Content>
 					<Blurb backgroundColor={colors.white} fontColor={background} borderColor={background} width="100%" >
 					{content1}
-					</Blurb>
-				</Content>
-				<Content>
-					<Blurb backgroundColor={colors.white} fontColor={background} borderColor={background}  width='100%'>
-					{content2}
 					</Blurb>
 				</Content>
 			</RightMain>
