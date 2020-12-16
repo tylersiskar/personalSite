@@ -23,9 +23,6 @@ const TitleComponent = styled.span`
 	@media screen and (max-width: 1024px) {
 		font-size: ${({ mobileSize }) => mobileSize}px;
 	}
-	@media (min-width: 1150px) {
-		font-size: ${({ logo, size }) => logo ? 44 : size}px;
-	}
 `;
 
 const Title = props => {
