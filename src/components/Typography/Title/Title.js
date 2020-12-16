@@ -19,11 +19,9 @@ const TitleComponent = styled.span`
 	font-weight: ${({ bold }) => bold ? '800' : '450'};
 	text-transform: lowercase;
 	color: ${({ color }) => color};
-	@media (min-width: 967px) {
-		font-size: ${({ size }) => size}px;
-	}
-	@media (min-width: 320px) and (max-width: 967px) {
-		font-size: ${({ size }) => 24}px;
+	font-size: ${({ size }) => size}px;
+	@media screen and (max-width: 1024px) {
+		font-size: ${({ mobileSize }) => mobileSize}px;
 	}
 	@media (min-width: 1150px) {
 		font-size: ${({ logo, size }) => logo ? 44 : size}px;
@@ -48,8 +46,23 @@ const Title = props => {
 		}
 	}
 
+	function _determineMobileSize(size) {
+		if( typeof size === 'number' ) return size;
+		switch(size) {
+			case "xSmall":
+				return 24;
+			case "small":
+				return 32;
+			case "medium":
+				return 48;
+			case "large":
+			default:
+				return 96;
+		}
+	}
+
 	return (
-		<TitleComponent {...props} logo={props.logo}size={_determineFontSize(size)}>
+		<TitleComponent {...props} logo={props.logo} mobileSize={_determineMobileSize(size)} size={_determineFontSize(size)}>
 		{children}
 		</TitleComponent>
 		)

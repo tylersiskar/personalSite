@@ -40,7 +40,7 @@ const LeftHeader = styled.div`
   box-sizing: border-box;
   min-width: 200px;
   @media screen and (max-width: 767px) {
-    padding-left: 20px;
+    padding-left: 16px;
   }
 `;
 
@@ -169,7 +169,7 @@ class TestHeader extends Component {
             active={active !== "homepage" && active !== "contact" && active !== "travel" && this.state.mounted}
             >
           <StyledLink to='/homepage' onMouseOver={() => this.setState({ name: 'tyler siskar!'})} onMouseLeave={() => this.setState({ name: 'tyler siskar.'})}>
-            <Title logo bold>
+            <Title size="small" logo bold>
             {this.state.name}
             </Title>
           </StyledLink>

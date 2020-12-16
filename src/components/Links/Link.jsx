@@ -26,7 +26,7 @@ const StyledLink = styled(DomLink)`
     padding-left: 76px;
   }
   @media screen and (max-width: 767px) {
-    padding-left: 20px;
+    padding-left: 16px;
     &:hover {
       opacity: 0.7;
       padding-left: 44px;
