@@ -20,6 +20,7 @@ const DialWrapper = styled.span`
 	border: 1px solid ${({ color }) => color};
 	@media screen and (max-width: 767px) {
 		width: 100%;
+		padding: 0 8px;
 	}
 `;
 
