@@ -12,7 +12,8 @@ const Home = styled.div`
 	overflow: hidden;
 	@media (min-width: 320px) and (max-width: 967px) {
 		height: 100%;
-		overflow: auto;
+		overflow-y: scroll;
+		overflow-x: hidden;
 		background-position: center;
 		background-size: cover;
 		background-image: url(${({ src }) => src});
