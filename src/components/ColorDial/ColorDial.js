@@ -18,6 +18,9 @@ const DialWrapper = styled.span`
 	opacity: 1;
 	transition: all 0.35s ease;
 	border: 1px solid ${({ color }) => color};
+	@media screen and (max-width: 767px) {
+		width: 100%;
+	}
 `;
 
 const ColorSwatch = styled.span`
