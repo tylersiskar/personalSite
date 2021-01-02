@@ -38,6 +38,9 @@ const SwatchGroupWrapper = styled.span`
 	display: flex;
 	padding-top: 24px;
 	box-sizing: border-box;
+	@media screen and (max-width: 767px) {
+		display: none;
+	}
 `;
 
 

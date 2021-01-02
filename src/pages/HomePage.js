@@ -105,6 +105,9 @@ const DialContainer = styled.span`
 	@media screen and (max-width: 767px) {
 		padding-left: 16px;
 	}
+	@media screen and (max-width: 544px) {
+		padding-left: 0;
+	}
 `;
 
 
