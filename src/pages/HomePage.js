@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Blurb, ColorDial } from '../components';
+import { Blurb, ColorDial, Body } from '../components';
 import { LinkGroup } from '../components/Links';
 import colors from '../colors/colors';
 import me from '../images/me.jpg';
 import meBlue from '../images/meblue.jpg';
+import meBlack from '../images/grey.jpg';
 import meYellow from '../images/mesunset.jpg';
 import 'aos/dist/aos.css';
 
@@ -96,6 +97,7 @@ const LinkGroupContainer = styled.span`
 
 const DialContainer = styled.span`
 	display: flex;
+	position: relative;
 	align-items: flex-start;
 	justify-content: flex-start;
 	width: 100%;
@@ -106,9 +108,16 @@ const DialContainer = styled.span`
 `;
 
 
-const TestHomePage = props => {
+const StyledA = styled.a`
+	&:hover {
+		color: ${({ background }) => background};
+	}
+`;
+
+const HomePage = props => {
 	let content1 = `Hello, I am Tyler Siskar, a web and mobile developer.`;
-	const { background } = props;
+	let content2 = `Thank you for visiting! Contact me `;
+	const { background, contact} = props;
 	function _onClickColor(background) {
 		props.onClickColor(background);
 	}
@@ -119,6 +128,8 @@ const TestHomePage = props => {
 				return meYellow;
 			case colors.beauBlue:
 				return meBlue;
+			case colors.black:
+				return meBlack;
 			case colors.forestGreen:
 			default:
 				return me;
@@ -141,13 +152,20 @@ const TestHomePage = props => {
 					<LinkGroup links={props.links} />
 				</LinkGroupContainer>
 				<DialContainer>
-				<ColorDial background={props.background} colorDial={props.colors} onClick={_onClickColor}/>
+					<ColorDial background={props.background} colorDial={props.colors} onClick={_onClickColor}/>
 				</DialContainer>
 			</LeftMain>
 			<RightMain src={props.src}>
 				<Content>
 					<Blurb backgroundColor={colors.white} fontColor={background} borderColor={background} width="100%" >
-					{content1}
+					{contact ? 
+						<Body size="xLarge" color={background}>
+						{content2}
+							<StyledA background={background} href="mailto:tyler.siskar@gmail.com">
+							here
+							</StyledA>
+						</Body> 
+						: content1}
 					</Blurb>
 				</Content>
 			</RightMain>
@@ -156,4 +174,4 @@ const TestHomePage = props => {
 };
 
 
-export default TestHomePage;
+export default HomePage;

@@ -3,6 +3,10 @@ import styled from 'styled-components';
 import { LinkGroup } from '../components/Links';
 import { Body } from '../components/Typography';
 import colors from '../colors/colors';
+import me from '../images/me.jpg';
+import meBlue from '../images/meblue.jpg';
+import meBlack from '../images/grey.jpg';
+import meYellow from '../images/mesunset.jpg';
 import { Blurb, ColorDial } from '../components';
 
 const Home = styled.div`
@@ -19,6 +23,23 @@ const Home = styled.div`
 	}
 `;
 
+const StyledImage = styled.img`
+	z-index: 1;
+	position: absolute; 
+	bottom: 20%;
+	border-radius: 5px;
+		min-height: 200px;
+	box-shadow: 1px 2px 3px rgba(0,0,0,.5);	
+	@media (min-width: 767px) {
+		left: 35%;
+		width: 25%;
+	}
+	@media (max-width: 767px) {
+		width: 50%;
+		left: 0;
+		top: 35%;
+	}
+`;
 const LeftMain = styled.div`
 	display: flex;
 	align-items: flex-start;
@@ -39,12 +60,14 @@ const LeftMain = styled.div`
 
 `;
 
+
 const RightMain = styled.div`
+	display: flex;
 	position: relative;
-	padding-top: 32px;
 	width: 50%;
 	height: 100%;
-	overflow: auto;
+	flex-direction: column;
+	justify-content: center;
 	background-position: center;
 	background-size: cover;
 	background-image: url(${({ src }) => src});
@@ -61,34 +84,24 @@ const RightMain = styled.div`
 	  width: 100%;
 	  height: 4em;
 	}
-	@media (min-width: 320px) and (max-width: 967px) {
-		background-image: none;
-		overflow: visible;
-		width: 100%;
-	}
-`;
 
+`;
 
 const Content = styled.div`
-	color: ${colors.forestGreen};
 	font-size: 44px;
-	padding: 20px;
-	width: auto;
-	@media (min-width: 1272px) {
+	width: 60%;
+	padding-left: 30%;
+	font-family: Jura;
+	padding-bottom: 32px;
+	@media (min-width: 767px) {
 		flex-direction: row;
 	}
-	@media (min-width: 967px) and (max-width: 1272px) {
-		font-size: 32px;
-		flex-direction: row;
-		
-	}
-	@media (min-width: 320px) and (max-width: 967px) {
-		width: auto;
+	@media (min-width: 320px) and (max-width: 767px) {
 		flex-direction: column;
-		font-size: 20px;
+		font-size: 24px;
+		padding-left: 12px;
 	}
 `;
-
 
 const LinkGroupContainer = styled.span`
 	display: flex;
@@ -122,11 +135,35 @@ class ContactPage extends Component {
 	_onClickColor = (background) => {
 		this.props.onClickColor(background);
 	}
+	_chooseColor = () => {
+		switch(this.props.background) {
+			case colors.gold:
+				return meYellow;
+			case colors.beauBlue:
+				return meBlue;
+			case colors.black:
+				return meBlack;
+			case colors.forestGreen:
+			default:
+				return me;
+		}
+	}
 
 	render() {
 		let content1 = `Thank you for visiting! Contact me `;
+
 			return(
 				<Home src={this.props.src}>
+					<StyledImage 
+					    data-aos="fade-up"
+					    data-aos-offset="200"
+					    data-aos-delay="50"
+					    data-aos-duration="500"
+					    data-aos-easing="ease-in-out"
+					    data-aos-mirror="true"
+					    data-aos-once="false"
+					    data-aos-position="center"
+				    	alt="" src={this._chooseColor()} />
 					<LeftMain 
 						showLinks={this.state.showLinks} 
 						mount={this.state.mounted}

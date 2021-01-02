@@ -67,14 +67,26 @@ const ImageWrapper = styled.div`
 `;
 
 const Card = props => {
-	const { title, content, image } = props;
+	const { title, content, image, background } = props;
+
+	function determineTitleColor() {
+		if(background) {
+			if(background === colors.orange) {
+				return colors.white;
+			} else {
+				return background;
+			}
+		} else {
+			return colors.forestGreen;
+		}
+	}
 
 	return (
 			<PanelWrapper>
 				<TitleWrapper>
-					<Title size="small" color={props.background ? props.background === colors.orange ? colors.white : props.background :  colors.forestGreen}> {title} </Title>
+					<Title size="small" color={determineTitleColor()}> {title} </Title>
 				</TitleWrapper>
-				<CardContainer background={props.background}>
+				<CardContainer background={determineTitleColor()}>
 					<TextWrapper>
 					{content.map((body, index) => {
 						return(

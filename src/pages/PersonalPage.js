@@ -105,11 +105,12 @@ const DialContainer = styled.span`
 	justify-content: flex-start;
 	width: 100%;
 	padding-left: 44px;
+	box-sizing: border-box;
 	@media screen and (max-width: 767px) {
 		padding-left: 20px;
 	}
 `;
-class TestPersonalPage extends Component {
+class PersonalPage extends Component {
 	state = {
 		mounted: false,
 		showLinks: this.props.showMobileNav
@@ -160,4 +161,4 @@ class TestPersonalPage extends Component {
 };
 
 
-export default TestPersonalPage;
+export default PersonalPage;

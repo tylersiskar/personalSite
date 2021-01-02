@@ -140,7 +140,7 @@ const FlexRow = styled.span`
   padding-bottom: 16px;
 `;
 
-class TestHeader extends Component {
+class Header extends Component {
   state = {
     mounted: false,
     name: 'tyler siskar.',
@@ -177,7 +177,7 @@ class TestHeader extends Component {
         <LogoWrapper show={active === 'homepage'}>
           <LogoMenu color={background}/>
         </LogoWrapper>
-      {active !== 'homepage' && 
+      {active !== 'homepage' && active !== "contact" && 
         <RightHeader>
           <HamburgerButton color={background} onClick={this._onButtonClick}>
             <Line />
@@ -203,7 +203,7 @@ class TestHeader extends Component {
   }
 };
 
-TestHeader.propTypes = propTypes;
-TestHeader.defaultProps = defaultProps;
+Header.propTypes = propTypes;
+Header.defaultProps = defaultProps;
 
-export default TestHeader;
+export default Header;

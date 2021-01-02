@@ -10,7 +10,8 @@ const colors = {
 	darkGray: 'darkslategray',
 	white: 'white',
 	oxfordBlue: '#0B2545',
-	orange: '#AC631D'
+	orange: '#AC631D',
+	black: 'black'
 };
 
 export default colors;

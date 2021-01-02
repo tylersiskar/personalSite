@@ -15,7 +15,7 @@ const defaultProps = {
 }
 
 const BodyComponent = styled.span`
-	font-family: ${({ fontFamily }) => fontFamily ? fontFamily : 'Helvetica'};
+	font-family: ${({ fontFamily }) => fontFamily ? fontFamily : 'Jura'};
 	font-size: ${({ size }) => size}px;
 	font-weight: ${({ bold }) => bold ? 'bold' : '450'};
 	color: ${({ color }) => color};

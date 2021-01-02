@@ -4,10 +4,9 @@ import { Route,
          Redirect }             from "react-router-dom";
 import styled from 'styled-components';
 import colors from './colors/colors';
-import TestHomePage from './pages/TestHomePage';
-import TestPersonalPage from './pages/TestPersonalPage';
-import ContactPage from './pages/ContactPage';
-import { TestHeader } from './components';
+import HomePage from './pages/HomePage';
+import PersonalPage from './pages/PersonalPage';
+import { Header } from './components';
 import code from './images/code.jpg';
 import react from './images/mac.jpg';
 import buffalo from './images/buffalo.jpg';
@@ -17,6 +16,7 @@ import golf from './images/golf.jpg';
 import plant from './images/plant.jpg';
 import blue from './images/bluepaint.jpg';
 import coffee from './images/coffee.jpg';
+import black from './images/black.jpg';
 import AOS from 'aos';
 
 import 'aos/dist/aos.css';
@@ -40,7 +40,8 @@ const Page = styled.div`
 const colorDial = [
 	colors.forestGreen,
 	colors.beauBlue,
-	colors.gold
+	colors.gold,
+	colors.black
 ];
 
 const links = [ 
@@ -262,6 +263,8 @@ class App extends React.Component {
   			return blue;
   		case colors.forestGreen:
   			return plant;
+  		case colors.black:
+  			return black;
   		case colors.gold:
   		default:
   			return coffee;
@@ -274,6 +277,8 @@ _chooseColor = () => {
 			return colors.orange;
 		case colors.beauBlue:
 			return colors.oxfordBlue;
+		case colors.black:
+			return colors.black;
 		case colors.forestGreen:
 		default:
 			return colors.darkGray;
@@ -290,13 +295,13 @@ _showMobileNav = (showNav) => {
         return( <Page 
         		page={route} 
         		color={this.state.background}>
-					<TestHeader 
+					<Header 
 						active={route} 
 						background={this.state.background}
 						links={links}
 						colors={colorDial}
 						onClickColor={this._changeColor}/>
-					<TestPersonalPage 
+					<PersonalPage 
 						{...this.props} 
 						activeRoute="about"
 						src={this._chooseBackground()}
@@ -311,13 +316,13 @@ _showMobileNav = (showNav) => {
       case 'development':
         return( <Page page={route}
         		color={this.state.background}>
-					<TestHeader 
+					<Header 
 						active={route} 
 						background={this.state.background}
 						links={links}
 						colors={colorDial}
 						onClickColor={this._changeColor} />
-					<TestPersonalPage 
+					<PersonalPage 
 						{...this.props} 
 						activeRoute="development"
 						src={this._chooseBackground()}
@@ -332,13 +337,13 @@ _showMobileNav = (showNav) => {
       case 'hobbies':
         return( <Page page={route}
         		color={this.state.background}>
-					<TestHeader  
+					<Header  
 						active={route} 
 						background={this.state.background}
 						links={links}
 						colors={colorDial}
 						onClickColor={this._changeColor}/>
-					<TestPersonalPage 
+					<PersonalPage 
 						{...this.props} 
 						activeRoute="hobbies"
 						src={this._chooseBackground()}
@@ -353,18 +358,19 @@ _showMobileNav = (showNav) => {
       case 'contact':
         return( <Page page={route}
         		color={this.state.background}>
-					<TestHeader  
+					<Header  
 						active={route} 
 						background={this.state.background}
 						links={links}
 						colors={colorDial}
 						onClickColor={this._changeColor}/>
-					<ContactPage {...this.props} 
+					<HomePage {...this.props} 
 						src={this._chooseBackground()}
 						background={this.state.background} 
 						colors={colorDial} 
 						links={links}
 						onClickColor={this._changeColor}
+						contact
 						/>
 				</Page>);
       case 'homepage':
@@ -372,13 +378,13 @@ _showMobileNav = (showNav) => {
         return( <Page 
 	        		page={route}
 	        		color={this.state.background}>
-					<TestHeader  
+					<Header  
 						active={route} 
 						background={this.state.background}
 						links={links}
 						colors={colorDial}
 						onClickColor={this._changeColor}/>
-					<TestHomePage 
+					<HomePage 
 						{...this.props} 
 						src={this._chooseBackground()}
 						background={this.state.background} 
