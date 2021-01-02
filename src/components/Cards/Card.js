@@ -86,7 +86,7 @@ const Card = props => {
 				<TitleWrapper>
 					<Title size="small" color={determineTitleColor()}> {title} </Title>
 				</TitleWrapper>
-				<CardContainer background={determineTitleColor()}>
+				<CardContainer background={background}>
 					<TextWrapper>
 					{content.map((body, index) => {
 						return(
