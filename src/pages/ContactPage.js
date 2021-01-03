@@ -125,6 +125,10 @@ const DialContainer = styled.span`
 	@media screen and (max-width: 767px) {
 		padding-left: 20px;
 	}
+	@media screen and (max-width: 544px) {
+		padding-left: 0;
+		justify-content: center;
+	}
 `;
 
 class ContactPage extends Component {

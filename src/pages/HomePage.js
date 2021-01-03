@@ -107,6 +107,7 @@ const DialContainer = styled.span`
 	}
 	@media screen and (max-width: 544px) {
 		padding-left: 0;
+		justify-content: center;
 	}
 `;
 
