@@ -73,7 +73,7 @@ const Resume = props => {
 const LogoMenu = props => {
   return(
 <StyledList>
- { logoData.map((item, index) => {
+ {logoData.map((item, index) => {
      return (
        <StyledLink key={index} href={logoData[index].href} target="_blank">
          <svg xmlns="http://www.w3.org/2000/svg"  version="1.0" x="0px" y="0px" width="20" height="20" viewBox={index === 1 || index === 2 ? "0 0 24 24" : "0 0 200 200"}>    
@@ -82,9 +82,9 @@ const LogoMenu = props => {
        </StyledLink>  
        )
    })}
- <StyledLink href={Pdf} target="_blank">
- <Resume {...props} />
- </StyledLink>
+   <StyledLink href={Pdf} target="_blank">
+    <Resume {...props} />
+   </StyledLink>
   </StyledList>
   )
 };
