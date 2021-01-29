@@ -31,6 +31,7 @@ const TitleWrapper = styled.div`
 
 const CardContainer = styled.div`
 	display: flex;
+	flex: 1;
 	border-radius: 20px;
 	min-height: 350px;
 	background-color: ${({ background }) => background ? background : colors.darkGray};
