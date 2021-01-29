@@ -70,11 +70,11 @@ const developmentContent = [
 		[
 			{
 				header: 'React',
-				description: 'Used in the developing of personal website, Verizon Design System, and Finta web application.'
+				description: 'Used in the developing of Verizon Design System component library, personal websites, and Finta web application.'
 			},
 			{
 				header: 'React Native',
-				description: 'Used in the developing of a social media app side project and Burner mobile application.'
+				description: 'Used in the developing of component libraries and Burner mobile application.'
 			},
 			{
 				header: 'Java',
