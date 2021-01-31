@@ -121,7 +121,7 @@ const StyledA = styled.a`
 const HomePage = props => {
 	let content1 = `Hello, I am Tyler Siskar, a web and mobile developer.`;
 	let content2 = `Thank you for visiting! Contact me `;
-	const { background, contact} = props;
+	const { background, activeRoute } = props;
 	function _onClickColor(background) {
 		props.onClickColor(background);
 	}
@@ -153,7 +153,7 @@ const HomePage = props => {
 		    	alt="" src={_chooseColor()} />
 			<LeftMain background={props.background}>
 				<LinkGroupContainer>
-					<LinkGroup links={props.links} />
+					<LinkGroup links={props.links} activeRoute={activeRoute}/>
 				</LinkGroupContainer>
 				<DialContainer>
 					<ColorDial background={props.background} colorDial={props.colors} onClick={_onClickColor}/>
@@ -162,7 +162,7 @@ const HomePage = props => {
 			<RightMain src={props.src}>
 				<Content>
 					<Blurb backgroundColor={colors.white} fontColor={background} borderColor={background} width="100%" >
-					{contact ? 
+					{activeRoute === "contact" ? 
 						<Body size="xLarge" color={background}>
 						{content2}
 							<StyledA background={background} href="mailto:tyler.siskar@gmail.com">

@@ -370,7 +370,7 @@ _showMobileNav = (showNav) => {
 						colors={colorDial} 
 						links={links}
 						onClickColor={this._changeColor}
-						contact
+						activeRoute="contact"
 						/>
 				</Page>);
       case 'homepage':
