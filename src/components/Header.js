@@ -6,6 +6,8 @@ import LogoMenu from './LogoMenu';
 import { LinkGroup } from './Links';
 import { Title } from './Typography';
 import ColorDial from './ColorDial/ColorDial';
+import MenuNav from './icebox/MenuNav';
+import colors from '../colors/colors';
 
 const propTypes = {
   onClick: PropTypes.func,
@@ -129,6 +131,18 @@ const SideNav = styled.span`
   }
 `;
 
+const Button = styled.button`
+  background: transparent;
+  padding: 0;
+  border: 0;
+  margin: 0;
+  height: 44px;
+  outline: none;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.7;
+  }
+`;
 const FlexCol = styled.span`
   display: flex;
   flex-direction: column;
@@ -144,7 +158,8 @@ class Header extends Component {
   state = {
     mounted: false,
     name: 'tyler siskar.',
-    showNav: false
+    showNav: false,
+    showModal: false
   }
 
   componentDidMount() {
@@ -159,24 +174,37 @@ class Header extends Component {
     this.props.onClickColor(background);
   }
 
+  _openContactPage = bool => {
+    let overflow = "";
+    if(bool) {
+      overflow = "hidden";
+    }
+    document.body.style.overflow = overflow;
+    this.setState({ showModal: bool });
+  };
+
   render() {
     const { active, background} = this.props;
   	return(
       <FlexCol>
+    {this.state.showModal && <MenuNav 
+        onClick={e => this._openContactPage(false)}
+        open={this.state.showModal}/>}
       <Head>
     		<LeftHeader 
             background={background}
             active={active !== "homepage" && active !== "contact" && active !== "travel" && this.state.mounted}
             >
-          <StyledLink to='/homepage' onMouseOver={() => this.setState({ name: 'tyler siskar!'})} onMouseLeave={() => this.setState({ name: 'tyler siskar.'})}>
-            <Title size="small" logo bold>
+          <StyledLink to='/redesign' onMouseOver={() => this.setState({ name: 'tyler siskar!'})} onMouseLeave={() => this.setState({ name: 'tyler siskar.'})}>
+            <Title size="medium" logo bold>
             {this.state.name}
             </Title>
           </StyledLink>
     		</LeftHeader>
-        <LogoWrapper show={active === 'homepage'}>
-          <LogoMenu color={background}/>
-        </LogoWrapper>
+
+            <Button onClick={e => this._openContactPage(true)}> 
+              <Title size="small" bold color={colors.darkGray}> contact </Title>
+            </Button>
       {active !== 'homepage' && active !== "contact" && 
         <RightHeader>
           <HamburgerButton color={background} onClick={this._onButtonClick}>
@@ -189,9 +217,8 @@ class Header extends Component {
       <SideNav showNav={this.state.showNav} background={background}>
         <FlexRow>
           <LinkGroupContainer>
-            <LinkGroup activeRoute={active} links={this.props.links} />
+          <LinkGroup activeRoute={active} links={this.props.links} />
           </LinkGroupContainer>
-        <LogoMenu color="white"/>
         </FlexRow>
           <DialContainer>
             <ColorDial background={this.props.background} colorDial={this.props.colors} onClick={this._onClickColor}/>
