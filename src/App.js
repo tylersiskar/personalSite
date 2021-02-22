@@ -88,7 +88,7 @@ const developmentContent = [
 			},
 			{
 				header: 'Python',
-				description: 'Primarily used in Physics and Math courses, but also used in teaching at the Coder School Buffalo.'
+				description: 'Mostly used in Physics and Math courses, but also used in teaching at the Coder School Buffalo.'
 			}
 		],
 		image: react
@@ -153,7 +153,7 @@ const personalContent = [
 	}
 ];
 
-const travelString = "After graduating from college, I went on a trip to Europe with a few friends, where we backpacked through 12 cities in 30 days. Watch a video of that trip here";
+const travelString = "After graduating from college in May 2019, I went on a trip to Europe with a few friends, where we backpacked through 12 cities in 30 days. Watch a video of that trip here";
 
 const hobbiesContent = [
 	{
@@ -162,7 +162,7 @@ const hobbiesContent = [
 		[
 			{
 				header: 'watch',
-				description: 'I am a lifelong fan of the Buffalo Bills, and am excited for the upcoming season. I also am fans of the Buffalo Sabres, and New York Knicks.'
+				description: 'I am a lifelong fan of the Buffalo Bills, and support the Buffalo Sabres and New York Knicks.'
 			},
 			{
 				header: 'play',
@@ -181,7 +181,11 @@ const hobbiesContent = [
 			},
 			{
 				header: 'interstellar',
-				description: 'not only is this one of my favorite movies, but the soundtrack is also a favorite of mine.'
+				description: 'Not only is this one of my favorite movies, but the soundtrack is also a favorite of mine.'
+			},
+			{
+				header: 'harry potter',
+				description: 'Having read all of the books early in my childhood, the movies have always been favorties of mine.'
 			}	
 		],
 		image: ironman
@@ -213,7 +217,7 @@ const hobbiesContent = [
 			},
 			{
 				header: "Colombia",
-				description: "I visited Colombia for 3 weeks this past winter",
+				description: "In December 2019 I visited Colombia for 3 weeks, seeing Cartagena, Barranquilla and Santa Marta.",
 			},
 			{
 				header: "Study Abroad",
@@ -231,21 +235,7 @@ class App extends React.Component {
 
   componentDidMount(){
     AOS.init();
-    this.callBackendAPI()
-      .then(res => this.setState({ data: res.express }))
-      .catch(err => console.log(err));
   };
-    // Fetches our GET route from the Express server. (Note the route we are fetching matches the GET route from server.js
-  callBackendAPI = async () => {
-    const response = await fetch('/*');
-    const body = await response.json();
-
-    if (response.status !== 200) {
-      throw Error(body.message) 
-    }
-    return body;
-  };
-
   _changeColor = (background) => {
   	this.setState({background: background});
   };
