@@ -159,7 +159,7 @@ class Header extends Component {
             active={active !== "homepage" && active !== "contact" && active !== "travel" && this.state.mounted}
             >
           <StyledLink to='/redesign' onMouseOver={() => this.setState({ name: 'tyler siskar!'})} onMouseLeave={() => this.setState({ name: 'tyler siskar.'})}>
-            <Title size={active === 'homepage' ? 'medium' : "small"} logo bold>
+            <Title size={"small"} logo bold>
             {this.state.name}
             </Title>
           </StyledLink>

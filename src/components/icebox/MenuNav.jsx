@@ -31,7 +31,7 @@ const PopUpNav = styled.nav`
 	align-items: center;
 	flex-direction: column;
 	width: 100vw;
-	height: 100vh;
+	height: 100%;
 	position: fixed;
 	z-index: 999;
 	overflow: hidden;
