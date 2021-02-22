@@ -102,7 +102,7 @@ const developmentContent = [
 			},
 			{
 				header: 'Finta Web App',
-				description: 'Aid in feature updates on this online fundraising application '
+				description: 'Develops feature updates on this online fundraising application '
 			},
 			{
 				header: 'Burner',
@@ -128,7 +128,7 @@ const personalContent = [
 			},
 			{
 				header: 'background',
-				description: 'I currently live in Clarence Center, New York and have lived in the Buffalo area my entire life, as does most of my family'
+				description: 'Born and raised in Buffalo, NY, where I also completed my undergraduate education at the University at Buffalo. Studied Computational Physics, but grew a passion for coding and web development.'
 			}
 		],
 		image: buffalo
