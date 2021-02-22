@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import LogoMenu from './LogoMenu';
 import { LinkGroup } from './Links';
 import { Title } from './Typography';
 import ColorDial from './ColorDial/ColorDial';
@@ -46,57 +45,16 @@ const LeftHeader = styled.div`
   }
 `;
 
-const LogoWrapper = styled.div`
-  padding-right: 32px;
-    @media screen and (max-width: 767px) {
-      padding-right: 16px;
-    }
-  ${({ show }) => !show && `
-    @media screen and (max-width: 767px) {
-      display: none;
-    }
-  `};
-`;
 
-const RightHeader = styled.div`
+const ContactButtonWrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-right: 16px;
-  ${({ show }) => !show && `
-  @media screen and (min-width: 767px) {
-    display: none;
-  }
-  `}
+  padding-right: 32px;
 `;
 
 const StyledLink = styled(Link)`
   text-decoration: none;
   color: white;
 `;
-
-const HamburgerButton = styled.button`
-  display: flex;
-  flex-direction: column;
-  width: 24px;
-  height: 24px;
-  background-color: ${({ color }) => color};
-  cursor: pointer;
-  outline: none;
-  border: none;
-  border-radius: 5px;
-  justify-content: space-around;
-`;
-
-const Line = styled.span`
-  height: 2px;
-  min-width: 12px;
-  width: 100%;
-  background-color: white;
-  display: flex;
-  position: relative;
-`;
-
 
 const LinkGroupContainer = styled.span`
   display: flex;
@@ -159,7 +117,8 @@ class Header extends Component {
     mounted: false,
     name: 'tyler siskar.',
     showNav: false,
-    showModal: false
+    showModal: false,
+    unmountModal: false
   }
 
   componentDidMount() {
@@ -181,13 +140,17 @@ class Header extends Component {
     }
     document.body.style.overflow = overflow;
     this.setState({ showModal: bool });
+    setTimeout(() => {
+      this.setState({ unmountModal: bool });
+    }, 200);
   };
 
   render() {
     const { active, background} = this.props;
   	return(
       <FlexCol>
-    {this.state.showModal && <MenuNav 
+    {this.state.unmountModal && <MenuNav 
+        background={background}
         onClick={e => this._openContactPage(false)}
         open={this.state.showModal}/>}
       <Head>
@@ -196,23 +159,16 @@ class Header extends Component {
             active={active !== "homepage" && active !== "contact" && active !== "travel" && this.state.mounted}
             >
           <StyledLink to='/redesign' onMouseOver={() => this.setState({ name: 'tyler siskar!'})} onMouseLeave={() => this.setState({ name: 'tyler siskar.'})}>
-            <Title size="medium" logo bold>
+            <Title size={active === 'homepage' ? 'medium' : "small"} logo bold>
             {this.state.name}
             </Title>
           </StyledLink>
     		</LeftHeader>
-
-            <Button onClick={e => this._openContactPage(true)}> 
-              <Title size="small" bold color={colors.darkGray}> contact </Title>
-            </Button>
-      {active !== 'homepage' && active !== "contact" && 
-        <RightHeader>
-          <HamburgerButton color={background} onClick={this._onButtonClick}>
-            <Line />
-            <Line />
-            <Line />
-          </HamburgerButton>
-        </RightHeader>}
+        <ContactButtonWrapper>
+        <Button onClick={e => this._openContactPage(true)}> 
+          <Title size="xSmall" bold color={colors.darkGray}> contact </Title>
+        </Button>
+        </ContactButtonWrapper>
       </Head>
       <SideNav showNav={this.state.showNav} background={background}>
         <FlexRow>

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Blurb, ColorDial, Body } from '../components';
+import { Blurb, ColorDial } from '../components';
 import { LinkGroup } from '../components/Links';
 import colors from '../colors/colors';
 import me from '../images/me.jpg';
@@ -111,16 +111,8 @@ const DialContainer = styled.span`
 	}
 `;
 
-
-const StyledA = styled.a`
-	&:hover {
-		color: ${({ background }) => background};
-	}
-`;
-
 const HomePage = props => {
 	let content1 = `Hello, I am Tyler Siskar, a web and mobile developer.`;
-	let content2 = `Thank you for visiting! Contact me `;
 	const { background, activeRoute } = props;
 	function _onClickColor(background) {
 		props.onClickColor(background);
@@ -162,14 +154,7 @@ const HomePage = props => {
 			<RightMain src={props.src}>
 				<Content>
 					<Blurb backgroundColor={colors.white} fontColor={background} borderColor={background} width="100%" >
-					{activeRoute === "contact" ? 
-						<Body size="xLarge" color={background}>
-						{content2}
-							<StyledA background={background} href="mailto:tyler.siskar@gmail.com">
-							here
-							</StyledA>
-						</Body> 
-						: content1}
+					{content1}
 					</Blurb>
 				</Content>
 			</RightMain>

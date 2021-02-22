@@ -35,6 +35,16 @@ const Page = styled.div`
 	left: 0;
 	right: 0;
 	overflow: hidden;
+	@media screen and (max-width: 767px) {
+	background-image: 
+	${({ page, color }) => page === 'homepage' || page === 'contact' 
+		? 
+		`linear-gradient(to right, ${color} 50%, white 50%)`
+		: 
+		`linear-gradient(to right, ${color} 40%, white 40%)`
+	};
+
+	}
 `;
 
 const colorDial = [
@@ -56,10 +66,6 @@ const links = [
 	{
 		route: 'hobbies',
 		to: '/hobbies'
-	},
-	{
-		route: 'contact',
-		to: '/contact'
 	}
 ];
 
@@ -355,24 +361,6 @@ _showMobileNav = (showNav) => {
 						onClickColor={this._changeColor}
 						/>
 				</Page>);
-      case 'contact':
-        return( <Page page={route}
-        		color={this.state.background}>
-					<Header  
-						active={route} 
-						background={this.state.background}
-						links={links}
-						colors={colorDial}
-						onClickColor={this._changeColor}/>
-					<HomePage {...this.props} 
-						src={this._chooseBackground()}
-						background={this.state.background} 
-						colors={colorDial} 
-						links={links}
-						onClickColor={this._changeColor}
-						activeRoute="contact"
-						/>
-				</Page>);
       case 'homepage':
       default:
         return( <Page 
@@ -416,10 +404,6 @@ _showMobileNav = (showNav) => {
 		          	exact
 		            path="/hobbies" 
 		            component={() => this._renderScreen('hobbies')}/>
-		          <Route 
-		          	exact
-		            path="/contact" 
-		            component={() => this._renderScreen('contact')}/>
 		   		  <Redirect to="/"/>
 		        </Switch>
 

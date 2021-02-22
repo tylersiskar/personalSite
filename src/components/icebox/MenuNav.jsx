@@ -1,6 +1,5 @@
 import React from 'react';
 import styled, { keyframes, css } from 'styled-components';
-import colors from '../../colors/colors';
 import Button from '../Button';
 import { Title, Body } from '../../components';
 import LogoMenu from '../LogoMenu';
@@ -36,21 +35,20 @@ const PopUpNav = styled.nav`
 	position: fixed;
 	z-index: 999;
 	overflow: hidden;
-  background-color: ${colors.forestGreen};
-  animation: ${animateIn} 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-    both;
-${({ unmounted }) =>
-!unmounted &&
-css`
-  animation: ${animateOut} 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-    both;
-`}
+  background-color: ${({ background }) => background};
+  ${({ open }) => open && css`
+  	animation: ${animateIn} 0.35s linear;
+  `};
+
+  ${({ open }) => !open && css`
+  	animation: ${animateOut} 0.35s linear;
+  `};
 `;
 
 
 const NavHeader = styled.div`
 	display: flex;
-  background-color: ${colors.forestGreen};
+  background-color: ${({ background }) => background};
 	padding-bottom: 15px;
 	justify-content: flex-end;
   z-index: 999;
@@ -84,21 +82,20 @@ const Subtitle = styled.span`
 `;
 class MenuNav extends React.Component {
 	
-	_onClick = (e) => {
-		this.setState({ mounted: false})		
-		this.props.onClick();
+	_onClick = (e) => {	
+		this.props.onClick && this.props.onClick();
 	}
 
 	render() {
 		return(
-			<PopUpNav unmounted={this.props.open}>
-					<NavHeader>
+			<PopUpNav open={this.props.open} background={this.props.background}>
+					<NavHeader background={this.props.background}>
 						<Button type="close" onClick={this._onClick}/>
 					</NavHeader>
 					<TextWrapper>
 						<Title size="xLarge" bold>Reach out.</Title>
 						<Subtitle>
-							<Body size="large">Your web and mobile solutions are only a click away. Contact me, check out my resume by clicking the icons below.</Body>
+							<Body size="large">Your web and mobile solutions are only a click away. Contact me or check out my resume by clicking the icons below.</Body>
 						</Subtitle>
 						<div style={{paddingBottom: 16}}><Title size="small">TYLER<b>SISKAR</b></Title></div>
 						<LogoMenu color="white"/>
