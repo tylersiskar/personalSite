@@ -18,7 +18,6 @@ const LinkContainer = styled.div`
 
 const LinkGroup = props => {
 		const { activeRoute, links } = props;
-		console.log(links);
 		return(
 			<LinkContainer>
 			{links.map((item, index) => {

@@ -93,7 +93,7 @@ class MenuNav extends React.Component {
 						<Button type="close" onClick={this._onClick}/>
 					</NavHeader>
 					<TextWrapper>
-						<Title size="xLarge" bold>Reach out.</Title>
+						<Title size="large" bold>Reach out.</Title>
 						<Subtitle>
 							<Body size="large">Your web and mobile solutions are only a click away. Contact me or check out my resume by clicking the icons below.</Body>
 						</Subtitle>

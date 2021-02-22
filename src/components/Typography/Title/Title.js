@@ -54,7 +54,7 @@ const Title = props => {
 				return 48;
 			case "large":
 			default:
-				return 96;
+				return 64;
 		}
 	}
 
