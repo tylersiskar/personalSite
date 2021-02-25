@@ -36,7 +36,7 @@ const Page = styled.div`
 	right: 0;
 	overflow: hidden;
 	@media screen and (max-width: 767px) {
-		background-image: linear-gradient(to right, ${color} 50%, white 50%);
+		background-image: linear-gradient(to right, ${({ color }) => color} 50%, white 50%);
 	}
 `;
 
