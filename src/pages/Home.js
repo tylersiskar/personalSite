@@ -6,6 +6,7 @@ import RightArrow from '../RightArrow';
 
 const Page = styled.div`
 	display: flex;
+	position: relative;
 	align-items: center;
 	justify-content: center;
 	width: 100vw;
@@ -27,13 +28,7 @@ const FlexCol = styled.div`
 const StyledLink = styled.a`
 	text-decoration: none;
 	color: black;
-	padding: 0 32px;
-	&:last-child {
-		padding-right: 0;
-	}
-	@media screen and (max-width: 767px) {
-		padding: 0 16px;
-	}
+
 	&:hover {
 		opacity: 0.7;
 	}
@@ -91,6 +86,46 @@ const IconWrapper = styled.div`
 	}
 `;
 
+const Rectangle = styled.div`
+	height: 150px;
+	width: 100vw;
+	position: absolute;
+	top: 100px;
+	background-color: black;
+	@media screen and (max-width: 1024px) {
+		height: 7.5vh;
+		top: 0;
+	}
+`;
+
+
+const GrayRectangle = styled.div`
+	height: 100vh;
+	width: 150px;
+	position: absolute;
+	right: 100px;
+	background-color: #d6d6d6;
+	@media screen and (max-width: 1024px) {
+		top: 0;
+		right: 0;
+		width: 7.5vw;
+	}
+`;
+
+const VerticalRectangle = styled.div`
+	height: 100vh;
+	width: 150px;
+	position: absolute;
+	top: 100px;
+	left: 100px;
+	background-color: black;
+	@media screen and (max-width: 1024px) {
+		top: 0;
+		left: 0;
+		width: 7.5vw;
+	}
+`;
+
 function _scrollToInfo(e) {
 	document.getElementById('about').scrollIntoView({behavior: "smooth"});
 }
@@ -98,22 +133,16 @@ function _scrollToInfo(e) {
 const Home = props => {
 	return(
 		<Page>
+			<Rectangle />
+			<GrayRectangle />
+			<VerticalRectangle />
 			<ButtonWrapper>
 				<ContactButton> <Subtitle size="small" bold> Contact </Subtitle> </ContactButton>
 			</ButtonWrapper>
 			<FlexCol>
 				<Title size="xxLarge" bold> Tyler Siskar </Title>
 				<FlexRow>
-				{homeData.map((item, index) => {
-					return (
-						<Fragment key={index}>
-							<StyledLink href={`#${item.link}`}> 
-								<Subtitle size="large" color="gray">{item.name}</Subtitle> 
-							</StyledLink> 
-							{index !== homeData.length - 1 && <Subtitle size="large" color="gray"> • </Subtitle>}
-						</Fragment>
-						)
-				})}
+								<Subtitle size="large" color="gray">Frontend Web Developer</Subtitle> 
 				</FlexRow>
 			</FlexCol>
 			<IconWrapper onClick={_scrollToInfo}>

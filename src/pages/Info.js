@@ -31,7 +31,7 @@ const Info = props => {
 		<Title size="xLarge" bold color="white"> Rebuild in progress.</Title>
 		</div>
 		<Subtitle color="white"> To see the previous version, click 
-		<StyledA href="tylersiskar.com" >
+		<StyledA href="http://www.tylersiskar.com" >
 		{` here!`} 
 		</StyledA>
 		</Subtitle>
