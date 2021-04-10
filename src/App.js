@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch, Redirect } from "react-router-dom";
 import styled from 'styled-components';
-import { Home, Info, ReverseInfo } from './pages';
+import { Home, Info } from './pages';
 
 const AppWrapper = styled.div`
 	overflow: auto;
