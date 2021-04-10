@@ -1,8 +1,8 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import styled from 'styled-components';
-import { Title, Subtitle } from '../typography';
+import { Title, Subtitle , RightArrow, Button } from '../components';
 import { homeData } from '../data';
-import RightArrow from '../RightArrow';
+import { ContactModal } from './ContactModal';
 
 const Page = styled.div`
 	display: flex;
@@ -11,6 +11,7 @@ const Page = styled.div`
 	justify-content: center;
 	width: 100vw;
 	height: 100vh;
+	overflow: hidden;
 `;
 
 const FlexRow = styled.div`
@@ -46,31 +47,6 @@ const ButtonWrapper = styled.div`
 	transition: all 0.35s ease;
 	@media screen and (max-width: 767px) {
 		padding: 16px;
-		justify-content: center;
-	}
-`;
-
-const ContactButton = styled.button`
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	box-sizing: border-box;
-	border-radius: 25px;
-	width: 200px;
-	height: 50px;
-	border: 1px solid black;
-	background: white;
-	margin: 0;
-	padding: 0 12px;
-	outline: none;
-	&:hover {
-		border-width: 2px;
-		cursor: pointer;
-	}
-	@media screen and (max-width: 767px) {
-		border-radius: 22px;
-		width: 150px;
-		height: 44px;
 	}
 `;
 
@@ -127,22 +103,38 @@ const VerticalRectangle = styled.div`
 `;
 
 function _scrollToInfo(e) {
-	document.getElementById('about').scrollIntoView({behavior: "smooth"});
+	document.getElementById('Bio').scrollIntoView({ behavior: "smooth" });
 }
 
 const Home = props => {
+	const [ animate, animateContactPage ] = useState(false);
+	const [ contactPage, showContactPage ] = useState(false);
+
+	function _onOpen() {
+		showContactPage(true)
+		animateContactPage(true);
+	}
+
+	function _onClose() {
+		animateContactPage(false);
+		setTimeout(() => {
+			showContactPage(false);
+		}, 350)
+	}
+
 	return(
 		<Page>
 			<Rectangle />
 			<GrayRectangle />
 			<VerticalRectangle />
+			{contactPage && <ContactModal open={animate} onClick={_onClose} />}
 			<ButtonWrapper>
-				<ContactButton> <Subtitle size="small" bold> Contact </Subtitle> </ContactButton>
+				<Button onClick={_onOpen} label="Contact"/>
 			</ButtonWrapper>
 			<FlexCol>
 				<Title size="xxLarge" bold> Tyler Siskar </Title>
 				<FlexRow>
-								<Subtitle size="large" color="gray">Frontend Web Developer</Subtitle> 
+					<Subtitle size="large" color="gray" style={{marginRight: 5}}>Frontend Web Developer</Subtitle> 
 				</FlexRow>
 			</FlexCol>
 			<IconWrapper onClick={_scrollToInfo}>

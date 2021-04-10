@@ -14,7 +14,7 @@ const defaultProps = {
 	bold: false
 };
 
-const SubtitleComponent = styled.h3`
+const BodyComponent = styled.h3`
 	font-size: ${({ desktopSize }) => desktopSize}px;
 	font-family: 'Noto Sans JP', sans-serif;
 	font-weight: ${({ bold }) => bold ? 700 : 400};
@@ -30,39 +30,40 @@ const SubtitleComponent = styled.h3`
 function _getDesktopSize(size) {
 	switch(size){
 		case "large":
-			return 32;
+			return 20;
 		case "medium":
-			return 24;
+			return 16;
 		case "small":
 		default:
-			return 20;
+			return 12;
 	}
 }
 
 function _getMobileSize(size) {
 	switch(size){
 		case "large":
-			return 24;
+			return 16;
 		case "medium":
-			return 20;
+			return 12;
 		case "small":
 		default:
-			return 16;
+			return 8;
 	}
 }
 
-const Subtitle = ({ size, color, bold, children }) => {
+const Body = ({ size, color, bold, children, style }) => {
 	return(
-		<SubtitleComponent
+		<BodyComponent
+			style={style}
 			desktopSize={_getDesktopSize(size)}
 			mobileSize={_getMobileSize(size)}
 			color={color}
 			bold={bold}>
 		{children}
-		</SubtitleComponent>
+		</BodyComponent>
 		)
 }
 
-Subtitle.propTypes = propTypes;
-Subtitle.defaultProps = defaultProps;
-export default Subtitle;
+Body.propTypes = propTypes;
+Body.defaultProps = defaultProps;
+export default Body;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch, Redirect } from "react-router-dom";
 import styled from 'styled-components';
-import { Home, Info } from './pages';
+import { Home, Info, ReverseInfo } from './pages';
 
 const AppWrapper = styled.div`
 	overflow: auto;
@@ -14,7 +14,9 @@ function _renderScreen(route) {
 		return(
 			<AppWrapper>
 			<Home />
-			<Info />
+			<Info title="Bio" />
+			<Info inverted title="Projects" />
+			<Info title="Interests" />
 			</AppWrapper>
 			);
 	}

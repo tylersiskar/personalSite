@@ -50,7 +50,7 @@ function _getDesktopSize(size) {
 function _getMobileSize(size) {
 	switch(size){
 		case "xxLarge":
-			return 64;
+			return 48;
 		case "xLarge":
 			return 32;
 		case "large":
