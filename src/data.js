@@ -1,15 +1,15 @@
 const homeData = [
 	{
-		name: "About",
-		link: "about"
+		name: "ABOUT",
+		link: "/about"
 	},
 	{
-		name: "Work",
-		link: "work"
+		name: "WORK",
+		link: "/work"
 	},
 	{
-		name: "Interests",
-		link: "interests"
+		name: "INTERESTS",
+		link: "/interests"
 	}
 ];
 

@@ -28,17 +28,12 @@ const StyledButton = styled.button`
 	margin: 0;
 	padding: 0 12px;
 	outline: none;
+	transition: all 0.35s ease;
 	&:hover {
-		border-width: 2px;
+		background-color: #FB4D3D;
 		cursor: pointer;
 	}
-	&:active {
-		border-color: #d6d6d6;
-		h3 {
-		  color: #d6d6d6;
-		}
-	}
-	@media screen and (max-width: 767px) {
+	@media screen and (max-width: 1024px) {
 		border-radius: 22px;
 		width: 150px;
 		height: 44px;

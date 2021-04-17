@@ -1,37 +1,35 @@
 import React, { Fragment, useState } from 'react';
 import styled from 'styled-components';
-import { Title, Subtitle , RightArrow, Button } from '../components';
+import { Title, Subtitle , Button, Link, wheel } from '../components';
 import { homeData } from '../data';
 import { ContactModal } from './ContactModal';
 
 const Page = styled.div`
 	display: flex;
 	position: relative;
-	align-items: center;
 	justify-content: center;
 	width: 100vw;
 	height: 100vh;
 	overflow: hidden;
+	background-image: url(${wheel});
+	background-position: center;
+	background-size: cover;
 `;
 
 const FlexRow = styled.div`
 	display: flex;
 	justify-content: flex-end;
 	width: 100%;
+	padding-bottom: 96px;
 `;
 
 const FlexCol = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-`;
-
-const StyledLink = styled.a`
-	text-decoration: none;
-	color: black;
-
-	&:hover {
-		opacity: 0.7;
+	padding: 32px;
+	@media screen and (max-width: 767px) {
+		padding-top: 10vh;
 	}
 `;
 
@@ -50,61 +48,11 @@ const ButtonWrapper = styled.div`
 	}
 `;
 
-const IconWrapper = styled.div`
-	position: absolute;
-	bottom: 15vh;
+const LinkWrapper = styled.div`
 	display: flex;
-	align-items: center;
-	justify-content: center;
-	transform: rotate(90deg);
-	&:hover {
-		cursor: pointer;
-	}
+	width: 100%;
+	justify-content: space-between;
 `;
-
-const Rectangle = styled.div`
-	height: 150px;
-	width: 100vw;
-	position: absolute;
-	top: 100px;
-	background-color: black;
-	@media screen and (max-width: 1024px) {
-		height: 7.5vh;
-		top: 0;
-	}
-`;
-
-
-const GrayRectangle = styled.div`
-	height: 100vh;
-	width: 150px;
-	position: absolute;
-	right: 100px;
-	background-color: #d6d6d6;
-	@media screen and (max-width: 1024px) {
-		top: 0;
-		right: 0;
-		width: 7.5vw;
-	}
-`;
-
-const VerticalRectangle = styled.div`
-	height: 100vh;
-	width: 150px;
-	position: absolute;
-	top: 100px;
-	left: 100px;
-	background-color: black;
-	@media screen and (max-width: 1024px) {
-		top: 0;
-		left: 0;
-		width: 7.5vw;
-	}
-`;
-
-function _scrollToInfo(e) {
-	document.getElementById('Bio').scrollIntoView({ behavior: "smooth" });
-}
 
 const Home = props => {
 	const [ animate, animateContactPage ] = useState(false);
@@ -124,22 +72,19 @@ const Home = props => {
 
 	return(
 		<Page>
-			<Rectangle />
-			<GrayRectangle />
-			<VerticalRectangle />
 			{contactPage && <ContactModal open={animate} onClick={_onClose} />}
 			<ButtonWrapper>
 				<Button onClick={_onOpen} label="Contact"/>
 			</ButtonWrapper>
 			<FlexCol>
-				<Title size="xxLarge" bold> Tyler Siskar </Title>
+				<Title size="xxLarge" bold color="white"> Tyler Siskar </Title>
 				<FlexRow>
 					<Subtitle size="large" color="gray" style={{marginRight: 5}}>Frontend Web Developer</Subtitle> 
 				</FlexRow>
+				<LinkWrapper>
+				{homeData.map(item => <Link to={item.link} text={item.name} size="medium" bold color="white" />)}
+				</LinkWrapper>
 			</FlexCol>
-			<IconWrapper onClick={_scrollToInfo}>
-				<RightArrow />
-			</IconWrapper>
 		</Page>
     )
 }

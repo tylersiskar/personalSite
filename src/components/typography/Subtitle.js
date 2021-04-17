@@ -16,6 +16,7 @@ const defaultProps = {
 
 const SubtitleComponent = styled.h3`
 	font-size: ${({ desktopSize }) => desktopSize}px;
+	line-height: ${({ desktopSize }) => desktopSize}px;
 	font-family: 'Noto Sans JP', sans-serif;
 	font-weight: ${({ bold }) => bold ? 700 : 400};
 	color: ${({ color }) => color};
@@ -24,6 +25,7 @@ const SubtitleComponent = styled.h3`
 	outline: none;
 	@media screen and (max-width: 767px) {
 		font-size: ${({ mobileSize }) => mobileSize}px;
+		line-height: ${({ mobileSize }) => mobileSize}px;
 	}
 `;
 

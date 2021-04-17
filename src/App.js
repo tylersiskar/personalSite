@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch, Redirect } from "react-router-dom";
 import styled from 'styled-components';
-import { Home, Info } from './pages';
+import { Home, About } from './pages';
 
 const AppWrapper = styled.div`
 	overflow: auto;
@@ -9,16 +9,31 @@ const AppWrapper = styled.div`
 `;
 function _renderScreen(route) {
 	switch(route) {
+		case 'work':
+			return (
+				<AppWrapper>
+				<About />
+				</AppWrapper>
+				)
+		case 'interests':
+			return (
+				<AppWrapper>
+				<About />
+				</AppWrapper>
+				)
+		case 'about':
+			return (
+				<AppWrapper>
+				<About />
+				</AppWrapper>
+				)
 		case 'homepage':
-	default:
-		return(
-			<AppWrapper>
-			<Home />
-			<Info title="Bio" />
-			<Info inverted title="Projects" />
-			<Info title="Interests" />
-			</AppWrapper>
-			);
+		default:
+			return(
+				<AppWrapper>
+				<Home />
+				</AppWrapper>
+				);
 	}
 }
 
@@ -29,6 +44,18 @@ const App = props => {
       	exact
         path="/" 
         component={() => _renderScreen('homepage')}/>
+      <Route 
+      	exact
+        path="/about" 
+        component={() => _renderScreen('about')}/>
+      <Route 
+      	exact
+        path="/work" 
+        component={() => _renderScreen('work')}/>
+      <Route 
+      	exact
+        path="/interests" 
+        component={() => _renderScreen('interests')}/>
 		  <Redirect to="/"/>
     </Switch>
     )

@@ -31,7 +31,15 @@ const StyledLink = styled.a`
   }
   &:hover {
     cursor: pointer;
-    opacity: 0.5;
+    svg path {
+      fill: #FB4D3D;
+    }
+    svg polygon {
+      fill: #FB4D3D;
+    }
+    svg rect {
+      fill: #FB4D3D;
+    }
 
   }
 `;
