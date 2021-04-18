@@ -49,11 +49,11 @@ const StyledButton = styled.button`
 
 
 const Link = props => {
-	const { text, to, href, color, size, bold, onClick } = props;
+	const { text, to, href, color, size, bold, onClick, active } = props;
 	const TrueLink = href ? StyledLink : to ? StyledNavLink : StyledButton;
 	return (
 		<TrueLink to={to} href={href} onClick={onClick}>
-			<Subtitle size={size} color={color} bold={bold}>
+			<Subtitle size={size} color={active ? '#FB4D3D' : color} bold={bold}>
 			{text}
 			</Subtitle>
 		</TrueLink>

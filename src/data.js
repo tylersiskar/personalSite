@@ -18,7 +18,22 @@ const data = {
 		{
 			title: "About",
 			img: mesunset,
-			content: "Born and raised in Buffalo, NY and continuing my education at the University at Buffalo in Computational Physics. I have always been interested in problems solving, and during my time at UB, I found that I specifically enjoyed computer science courses and the projects that went along with them. Following my graduation in May 2019, I stepped into a role as a Developer and never looked back. In the last two years, I have obsessively worked on my craft to become the best web developer I can be. On this site, you will learn of the projects I've worked on, both professionally and personally, and some fun facts from my life. Hope you enjoy!"
+			content: [
+				{
+					title: 'Bio',
+					description: "Born and raised in Buffalo, NY and continuing my education at the University at Buffalo in Computational Physics. I have always been interested in problems solving, and during my time at UB, I found that I specifically enjoyed computer science courses and the projects that went along with them. Following my graduation in May 2019, I stepped into a role as a Developer and never looked back."
+				}
+			]
+		},
+		{
+			place: 'Education',
+			timeline: "2015 - 2019",
+			content: [
+				{
+					title: 'University at Buffalo',
+					description: "Bachelor of Science in Computational Physics, minor in Mathematics"
+				}
+			]
 		}
 	],
 	work: [

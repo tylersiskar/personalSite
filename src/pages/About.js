@@ -10,6 +10,7 @@ const Page = styled.div`
   position: relative;
   width: 100vw;
   height: 100%;
+  min-height: 100vh;
   padding-top: 100px;
   background-color: rgba(0,0,0,0.8);
 `;
@@ -99,7 +100,7 @@ const renderImage = (img) => {
 }
 
 const renderProjects = (content) => {
-	return content.map(item => {
+	return content?.map(item => {
 		return (
 			<FlexCol>
 				<SubtitleWrapper>
@@ -119,7 +120,7 @@ const About = ({ data }) => {
 				<TitleWrapper>
 					<Title color="white" size="xLarge" bold> {data[0].title} </Title>
 				</TitleWrapper>
-			{data.map(obj => {
+			{data?.map(obj => {
 				return(
 					<BodyContainer>
 						{obj.img && renderImage(obj.img)}

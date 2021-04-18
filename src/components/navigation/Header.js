@@ -75,7 +75,7 @@ const HomeLinkWrapper = styled.a`
 	}
 `;
 
-const Header = ({ children, onButtonClick }) => {
+const Header = ({ children, onButtonClick, path }) => {
 	const [ open, openMenu ] = useState(false);
 	return (
 		<FixedContainer>
@@ -87,7 +87,7 @@ const Header = ({ children, onButtonClick }) => {
 				</FlexRow>
 			</HomeLinkWrapper>
 			<LinkWrapper>
-			{data['home'].map(item => <Link to={item.link} text={item.name} size="medium" bold color="white" />)}
+			{data['home'].map(item => <Link to={item.link} text={item.name} active={`/${path}` == item.link} size="small" bold color="white" />)}
 			</LinkWrapper>
 			<ButtonWrapper>
 				<Button onClick={onButtonClick} label="Contact"/>

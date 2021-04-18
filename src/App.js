@@ -36,7 +36,7 @@ function _renderScreen(route) {
 			return (
 				<AppWrapper>
 				{contactPage && <ContactModal open={animate} onClick={_onClose} />}
-				<Header onButtonClick={_onOpen}/>
+				<Header onButtonClick={_onOpen} path={path}/>
 				<About data={data[path]}/>
 				</AppWrapper>
 				)
@@ -44,7 +44,7 @@ function _renderScreen(route) {
 			return (
 				<AppWrapper>
 				{contactPage && <ContactModal open={animate} onClick={_onClose} />}
-				{!contactPage && <Header onButtonClick={_onOpen}/>}
+				<Header onButtonClick={_onOpen} path={path}/>
 				<About data={data[path]}/>
 				</AppWrapper>
 				)
@@ -52,7 +52,7 @@ function _renderScreen(route) {
 			return (
 				<AppWrapper>
 				{contactPage && <ContactModal open={animate} onClick={_onClose} />}
-				<Header onButtonClick={_onOpen}/>
+				<Header onButtonClick={_onOpen} path={path}/>
 				<About data={data[path]}/>
 				</AppWrapper>
 				)
