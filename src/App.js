@@ -40,7 +40,7 @@ function _renderScreen(route) {
 				<About data={data[path]}/>
 				</AppWrapper>
 				)
-		case 'interests':
+		case 'academia':
 			return (
 				<AppWrapper>
 				{contactPage && <ContactModal open={animate} onClick={_onClose} />}
@@ -83,8 +83,8 @@ const App = props => {
         component={() => _renderScreen('work')}/>
       <Route 
       	exact
-        path="/interests" 
-        component={() => _renderScreen('interests')}/>
+        path="/academia" 
+        component={() => _renderScreen('academia')}/>
 		  <Redirect to="/"/>
     </Switch>
     )

@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Title, Subtitle , Button, Link, wheel } from '../components';
 import { ContactModal } from './ContactModal';

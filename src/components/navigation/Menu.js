@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Link } from '../links';
 import { CloseButton } from '../buttons';
-import { Title, Subtitle } from '../typography';
 import { data } from '../../data';
 
 const StyledMenu = styled.nav`
@@ -67,7 +66,7 @@ const Menu = ({ onContactClick, onClose, open }) => {
 					)
 			})}
 			<MenuItem>
-				<Link onClick={onContactClick} text="CONTACT" color="white" bold/>
+				<Link onClick={onContactClick} text="Contact" color="white" bold/>
 			</MenuItem>
 		</StyledMenu>
 		)

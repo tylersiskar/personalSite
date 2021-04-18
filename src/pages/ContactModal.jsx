@@ -79,10 +79,10 @@ const ContactModal = ({ open, onClick }) => {
 		<NavHeader> <CloseButton onClick={onClick} /> </NavHeader>
 				<TextWrapper>
 				<div style={{padding: "16px 0"}}>
-					<Title size="xxLarge" bold color="white">Reach out.</Title>
+					<Title size="xLarge" bold color="white">Want to connect?</Title>
 					</div>
-					<Subtitle size="medium" color="white">
-					Your web and mobile solutions are only a click away. Contact me or check out my resume by clicking the icons below.
+					<Subtitle size="small" color="white">
+					Reach out to me through email or LinkedIn, I look forward to hearing from you!
 					</Subtitle>
 					<div style={{padding: "16px 0"}}><Title size="medium" color="white">tyler<b>siskar</b></Title></div>
 					<LogoMenu color="white"/>

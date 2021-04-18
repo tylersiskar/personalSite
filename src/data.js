@@ -1,17 +1,17 @@
-import { mesunset, vz, ferriswheel } from './components';
+import { mesunset } from './components';
 const data = {
 	home: [
 		{
-			name: "About",
+			name: "Bio",
 			link: "/about"
+		},
+		{
+			name: "Academia",
+			link: "/academia"
 		},
 		{
 			name: "Work",
 			link: "/work"
-		},
-		{
-			name: "Interests",
-			link: "/interests"
 		}
 	],
 	about: [
@@ -21,17 +21,10 @@ const data = {
 			content: [
 				{
 					title: 'Bio',
-					description: "Born and raised in Buffalo, NY and continuing my education at the University at Buffalo in Computational Physics. I have always been interested in problems solving, and during my time at UB, I found that I specifically enjoyed computer science courses and the projects that went along with them. Following my graduation in May 2019, I stepped into a role as a Developer and never looked back."
-				}
-			]
-		},
-		{
-			place: 'Education',
-			timeline: "2015 - 2019",
-			content: [
+					description: "Hello! My name is Tyler Siskar and I am a web / mobile developer in Buffalo, NY. I completed my undergraduate education at the University at Buffalo, where I studied Computational Physics. I initially pursued Physics as I was interested in astronomy and cosomology, but after taking several CS courses, I found that I was far more interested in computer science. Following graudation I stepping into a role as a developer and never looked back."
+				},
 				{
-					title: 'University at Buffalo',
-					description: "Bachelor of Science in Computational Physics, minor in Mathematics"
+					description: "On this website you'll find more information from my time at University, and my project experience as a developer. Thank you for visiting!"
 				}
 			]
 		}
@@ -50,7 +43,8 @@ const data = {
 					title: "VDS - Documentation Site",
 					description: `Website built in React to display developer and design documentation of the Verizon Design System library. Data is fed through Strapi and connected using Hooks and Redux.`
 				},
-			]
+			],
+			keyItems: "React, Redux, React Native, Gitlab, Strapi, Jenkins, Invision"
 		},
 		{
 			title: "Work",
@@ -61,7 +55,8 @@ const data = {
 					title: "Finta Web App",
 					description: `React application that facilitates the fundraising / investing process between startups and investors.\nDesigns and develops new features to improve the user experience and improve functionality of the app.\nUsing OpenAI’s GPT-3 API, created a personalized email generator from founders to investors.`
 				}
-			]
+			],
+			keyItems: "React, Redux, Firebase, Git, Productboard"
 		},
 		{
 			title: "Work",
@@ -69,23 +64,56 @@ const data = {
 			content: [
 				{
 					title: "tylersiskar.com",
-					addLink: true,
+					link: "http://tylersiskar.com",
 					description: `Developed personal site using React, hosted by Amazon Web Services and Cloudfront, with continuous deployment service client Buddy. `
 				},
 				{
 					title: "tcsiskar.com",
-					addLink: true,
+					link: "http://tcsiskar.com",
 					description: `Developed another website in React that is hosted and deployed using Netlify. Data is fed through a content management service Contentful, and retrieved using Redux.`
 				},
-			]
+			],
+			keyItems: "React, Redux, AWS, Netlify, Git, Contentful"
 		}
 	],
-	interests: [
+	academia: [
 		{
-			title: "Interests",
-			img: ferriswheel,
-			content: "Born and raised in Buffalo, NY and continuing my education at the University at Buffalo in Computational Physics. I have always been interested in problems solving, and during my time at UB, I found that I specifically enjoyed computer science courses and the projects that went along with them. Following my graduation in May 2019, I stepped into a role as a Developer and never looked back. In the last two years, I have obsessively worked on my craft to become the best web developer I can be. On this site, you will learn of the projects I've worked on, both professionally and personally, and some fun facts from my life. Hope you enjoy!"
-		}
+			title: "Academia",
+			place: "Education",
+			timeline: "Fall 2015 - Spring 2019",
+			content: [
+				{
+					title: 'University at Buffalo',
+					description: "Bachelor of Science in Computational Physics, minor in Mathematics. Honors College Scholar."
+				}, {
+					title: "Universitie de technologie de Troyes",
+					description: "6 week study abroad program based in Troyes, France. Took French, Engineering Statics, and World History."
+				}
+			],
+			keyItems: "Data Structures and Algorithms, Software Engineering, Programming Languages"
+		},
+		{
+			title: "Academia",
+			place: "Research",
+			timeline: "Spring 2017 - Spring 2019",
+			content: [
+				{
+					title: 'Sensors and Microactuators Learning Lab (SMALL)',
+					description: "Electrical Engineering resarch lab at the University at Buffalo, where topics of focus were in Microfluidics and creating realistic test phantoms."
+				},
+				{
+					title: "Additive Manufacturing of Microfluidic ... Wax Extrusion",
+					link: "https://briefs.techconnect.org/papers/additive-manufacturing-of-microfluidic-components-via-wax-extrusion/",
+					description: "Paper published in Nanotech 2018, comparing the cross section and fluidic properties of a wax extrusion device and a computational model using FLOW3D to determine feasibility of creating Microfluidic devices. Created a poster and presented at research symposium."
+				},
+				{
+					title: "Microfluidic Test Target for Photoacoustic Imaging",
+					link: "https://briefs.techconnect.org/papers/microfluidic-test-target-for-photoacoustic-imaging/",
+					description: "Paper published in Nanotech 2018, determining the potential of using microfluidic devices to replicate photoacoustic imaging of the Appendix F test target."
+				}
+			],
+			keyItems: "MATLAB, Academic writing and presenting, profilometer measuring, silicon wafer cleaning and preparing"
+		},
 	],
 };
 

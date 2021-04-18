@@ -44,7 +44,7 @@ function _getMobileSize(size) {
 		case "large":
 			return 16;
 		case "medium":
-			return 12;
+			return 14;
 		case "small":
 		default:
 			return 8;

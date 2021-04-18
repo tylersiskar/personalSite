@@ -87,7 +87,7 @@ const Header = ({ children, onButtonClick, path }) => {
 				</FlexRow>
 			</HomeLinkWrapper>
 			<LinkWrapper>
-			{data['home'].map(item => <Link to={item.link} text={item.name} active={`/${path}` == item.link} size="small" bold color="white" />)}
+			{data['home'].map(item => <Link to={item.link} text={item.name} active={`/${path}` === item.link} size="small" bold color="white" />)}
 			</LinkWrapper>
 			<ButtonWrapper>
 				<Button onClick={onButtonClick} label="Contact"/>

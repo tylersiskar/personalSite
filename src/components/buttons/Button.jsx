@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Subtitle } from '../typography';
+import { Body } from '../typography';
 
 const propTypes = {
 	label: PropTypes.string,
@@ -34,9 +34,9 @@ const StyledButton = styled.button`
 		cursor: pointer;
 	}
 	@media screen and (max-width: 1024px) {
-		border-radius: 22px;
-		width: 150px;
-		height: 44px;
+		border-radius: 16px;
+		width: 100px;
+		height: 32px;
 	}
 `;
 
@@ -44,7 +44,7 @@ const Button = props =>  {
 	const { label } = props;
 	return (
 		<StyledButton {...props}>
-			<Subtitle size="small" bold>{label}</Subtitle> 
+			<Body size="large" bold>{label}</Body> 
 		</StyledButton>
 	)
 }
