@@ -1,23 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from '../links';
 import { Button } from '../buttons';
 import { Title, Subtitle } from '../typography';
-import { homeData } from '../../data';
+import { data } from '../../data';
 import { ReactComponent as Hamburger } from '../icons/hamburger.svg';
+import Menu from './Menu';
 
+const FixedContainer = styled.div`
+    z-index:2;
+    height:100px;
+    position: fixed; 
+    width: 100%;
+`;
 const HeaderContainer = styled.header`
 	display: flex;
 	align-items: center;
+	position: relative;
 	justify-content: space-around;
 	height: 100px;
-	background: transparent;
+	background: black;
 	border-bottom: 1px solid gray;
 	width: 100%;
-	padding: 0 32px;
+	padding: 0 64px;
+	z-index: 1;
 	box-sizing: border-box;
 	@media screen and (max-width: 1024px) {
 		justify-content: space-between;
+		padding: 0 32px;
 	}
 `;
 
@@ -43,10 +53,11 @@ const ButtonWrapper = styled.div`
 	}
 `;
 
-const StyledHamburger = styled(Hamburger)`
+const StyledHamburger = styled.div`
+	display: ${({ open }) => open ? 'none' : 'block'};
 	&:hover {
 		cursor: pointer;
-		rect {
+		svg rect {
 			fill: #FB4D3D;
 		}
 	}
@@ -65,7 +76,9 @@ const HomeLinkWrapper = styled.a`
 `;
 
 const Header = ({ children, onButtonClick }) => {
+	const [ open, openMenu ] = useState(false);
 	return (
+		<FixedContainer>
 		<HeaderContainer>
 			<HomeLinkWrapper href="/home">
 				<Title size="medium" bold color="white"> Tyler Siskar </Title>
@@ -74,13 +87,17 @@ const Header = ({ children, onButtonClick }) => {
 				</FlexRow>
 			</HomeLinkWrapper>
 			<LinkWrapper>
-			{homeData.map(item => <Link to={item.link} text={item.name} size="medium" bold color="white" />)}
+			{data['home'].map(item => <Link to={item.link} text={item.name} size="medium" bold color="white" />)}
 			</LinkWrapper>
 			<ButtonWrapper>
-			<Button onClick={onButtonClick} label="Contact"/>
+				<Button onClick={onButtonClick} label="Contact"/>
 			</ButtonWrapper>
-			<StyledHamburger fill="white"/>
+			<StyledHamburger open={open} onClick={e => openMenu(true)}>
+				<Hamburger fill="white" />
+			</StyledHamburger>
+			{open && <Menu open={open} onClose={e => openMenu(false)} onContactClick={onButtonClick}/>}
 		</HeaderContainer>
+		</FixedContainer>
 		)
 }
 

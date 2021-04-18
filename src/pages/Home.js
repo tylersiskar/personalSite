@@ -1,7 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import styled from 'styled-components';
 import { Title, Subtitle , Button, Link, wheel } from '../components';
-import { homeData } from '../data';
 import { ContactModal } from './ContactModal';
 
 const Page = styled.div`
@@ -54,7 +53,7 @@ const LinkWrapper = styled.div`
 	justify-content: space-between;
 `;
 
-const Home = props => {
+const Home = ({ data }) => {
 	const [ animate, animateContactPage ] = useState(false);
 	const [ contactPage, showContactPage ] = useState(false);
 
@@ -82,7 +81,7 @@ const Home = props => {
 					<Subtitle size="large" color="gray" style={{marginRight: 5}}>Frontend Web Developer</Subtitle> 
 				</FlexRow>
 				<LinkWrapper>
-				{homeData.map(item => <Link to={item.link} text={item.name} size="medium" bold color="white" />)}
+				{data.map(item => <Link to={item.link} text={item.name} size="medium" bold color="white" />)}
 				</LinkWrapper>
 			</FlexCol>
 		</Page>

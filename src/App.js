@@ -1,37 +1,66 @@
-import React from 'react';
-import { Route, Switch, Redirect } from "react-router-dom";
+import React, { useState } from 'react';
+import { Route, Switch, Redirect, useLocation } from "react-router-dom";
 import styled from 'styled-components';
-import { Home, About } from './pages';
+import { Home, About, ContactModal } from './pages';
+import { Header, wheel } from './components';
+import { data } from './data';
 
 const AppWrapper = styled.div`
-	overflow: auto;
+	background-image: url(${wheel});
+	background-position: center;
+	background-size: cover;
+	overflow: hidden;
 	scroll-behavior: smooth;
+
 `;
 function _renderScreen(route) {
+	const [ animate, animateContactPage ] = useState(false);
+	const [ contactPage, showContactPage ] = useState(false);
+	const loc = useLocation();
+	let path = loc.pathname.substring(1, loc.pathname.length);
+
+	function _onOpen() {
+		showContactPage(true)
+		animateContactPage(true);
+	}
+
+	function _onClose() {
+		animateContactPage(false);
+		setTimeout(() => {
+			showContactPage(false);
+		}, 350)
+	}
+
 	switch(route) {
 		case 'work':
 			return (
 				<AppWrapper>
-				<About />
+				{contactPage && <ContactModal open={animate} onClick={_onClose} />}
+				<Header onButtonClick={_onOpen}/>
+				<About data={data[path]}/>
 				</AppWrapper>
 				)
 		case 'interests':
 			return (
 				<AppWrapper>
-				<About />
+				{contactPage && <ContactModal open={animate} onClick={_onClose} />}
+				{!contactPage && <Header onButtonClick={_onOpen}/>}
+				<About data={data[path]}/>
 				</AppWrapper>
 				)
 		case 'about':
 			return (
 				<AppWrapper>
-				<About />
+				{contactPage && <ContactModal open={animate} onClick={_onClose} />}
+				<Header onButtonClick={_onOpen}/>
+				<About data={data[path]}/>
 				</AppWrapper>
 				)
 		case 'homepage':
 		default:
 			return(
 				<AppWrapper>
-				<Home />
+				<Home data={data['home']}/>
 				</AppWrapper>
 				);
 	}
