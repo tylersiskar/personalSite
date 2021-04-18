@@ -60,6 +60,18 @@ const data = {
 		},
 		{
 			title: "Work",
+			place: "The Coder School",
+			timeline: "December 2019 - June 2020",
+			content: [
+				{
+					title: "Code Coach",
+					description: `Taught students ages 6 through 18 in Python, HTML/CSS/JS, and Scratch in hour-long sessions. Outlines key coding concepts through development of a game or project.`
+				}
+			],
+			keyItems: "Python, Scratch, HTML/CSS/JS"
+		},
+		{
+			title: "Work",
 			place: "Solo Projects",
 			content: [
 				{
