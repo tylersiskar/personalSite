@@ -39,7 +39,7 @@ const SubtitleWrapper = styled.div`
 const Image = styled.div`
 	width: 400px;
 	height: 400px;
-	border-radius: 25%;
+	border-radius: 10%;
 	background-image: url(${({ image }) => image});
 	background-size: cover;
 	background-position: center;
