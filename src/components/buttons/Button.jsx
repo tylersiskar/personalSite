@@ -11,8 +11,8 @@ const propTypes = {
 
 const defaultProps = {
 	label: "Button",
-	backgroundColor: 'white',
-	borderColor: 'black'
+	backgroundColor: 'black',
+	borderColor: 'white'
 };
 
 const StyledButton = styled.button`
@@ -20,8 +20,8 @@ const StyledButton = styled.button`
 	align-items: center;
 	justify-content: center;
 	box-sizing: border-box;
-	border-radius: 25px;
-	width: 200px;
+	border-radius: 10px;
+	width: 150px;
 	height: 50px;
 	border: 1px solid ${({ borderColor }) => borderColor};
 	background: ${({ backgroundColor }) => backgroundColor};
@@ -30,13 +30,16 @@ const StyledButton = styled.button`
 	outline: none;
 	transition: all 0.35s ease;
 	&:hover {
-		background-color: #FB4D3D;
+		border-color: #FB4D3D;
+		h3 {
+			transition: all 0.35s ease;
+			color: #FB4D3D;
+		}
 		cursor: pointer;
 	}
 	@media screen and (max-width: 1024px) {
-		border-radius: 16px;
-		width: 100px;
-		height: 32px;
+		width: 112px;
+		height: 36px;
 	}
 `;
 
@@ -44,7 +47,7 @@ const Button = props =>  {
 	const { label } = props;
 	return (
 		<StyledButton {...props}>
-			<Body size="large" bold>{label}</Body> 
+			<Body size="large" bold color="white">{label}</Body> 
 		</StyledButton>
 	)
 }
