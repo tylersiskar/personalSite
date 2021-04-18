@@ -98,9 +98,9 @@ const renderPlace = (obj) => {
 	return (
 		<Container>
 			<SubtitleWrapper>
-				<Subtitle color="gray" size="large" bold>{obj.place}</Subtitle>
+				<Subtitle color="#9c9c9c" size="large" bold>{obj.place}</Subtitle>
 			</SubtitleWrapper>
-			{obj.timeline && <Body color="gray" size="medium" bold>{obj.timeline}</Body>}
+			{obj.timeline && <Body color="#9c9c9c" size="medium" bold>{obj.timeline}</Body>}
 		</Container>
 		)
 }
