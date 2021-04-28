@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Route, Switch, Redirect, useLocation } from "react-router-dom";
 import styled from 'styled-components';
-import { Home, About, ContactModal } from './pages';
+import { Home, About, ContactModal, Map } from './pages';
 import { Header, wheel } from './components';
 import { data } from './data';
 
@@ -14,8 +14,8 @@ const AppWrapper = styled.div`
 
 `;
 function _renderScreen(route) {
-	const [ animate, animateContactPage ] = useState(false);
-	const [ contactPage, showContactPage ] = useState(false);
+	const [animate, animateContactPage] = useState(false);
+	const [contactPage, showContactPage] = useState(false);
 	const loc = useLocation();
 	let path = loc.pathname.substring(1, loc.pathname.length);
 
@@ -31,63 +31,75 @@ function _renderScreen(route) {
 		}, 350)
 	}
 
-	switch(route) {
+	switch (route) {
+		case 'map':
+			return (
+				<AppWrapper>
+					{contactPage && <ContactModal open={animate} onClick={_onClose} />}
+					<Header onButtonClick={_onOpen} path={path} />
+					<Map />
+				</AppWrapper>
+			)
 		case 'work':
 			return (
 				<AppWrapper>
-				{contactPage && <ContactModal open={animate} onClick={_onClose} />}
-				<Header onButtonClick={_onOpen} path={path}/>
-				<About data={data[path]}/>
+					{contactPage && <ContactModal open={animate} onClick={_onClose} />}
+					<Header onButtonClick={_onOpen} path={path} />
+					<About data={data[path]} />
 				</AppWrapper>
-				)
+			)
 		case 'academia':
 			return (
 				<AppWrapper>
-				{contactPage && <ContactModal open={animate} onClick={_onClose} />}
-				<Header onButtonClick={_onOpen} path={path}/>
-				<About data={data[path]}/>
+					{contactPage && <ContactModal open={animate} onClick={_onClose} />}
+					<Header onButtonClick={_onOpen} path={path} />
+					<About data={data[path]} />
 				</AppWrapper>
-				)
+			)
 		case 'about':
 			return (
 				<AppWrapper>
-				{contactPage && <ContactModal open={animate} onClick={_onClose} />}
-				<Header onButtonClick={_onOpen} path={path}/>
-				<About data={data[path]}/>
+					{contactPage && <ContactModal open={animate} onClick={_onClose} />}
+					<Header onButtonClick={_onOpen} path={path} />
+					<About data={data[path]} />
 				</AppWrapper>
-				)
+			)
 		case 'homepage':
 		default:
-			return(
+			return (
 				<AppWrapper>
-				<Home data={data['home']}/>
+					<Home data={data['home']} />
 				</AppWrapper>
-				);
+			);
 	}
 }
 
 const App = props => {
-	return(
-    <Switch>
-      <Route 
-      	exact
-        path="/" 
-        component={() => _renderScreen('homepage')}/>
-      <Route 
-      	exact
-        path="/about" 
-        component={() => _renderScreen('about')}/>
-      <Route 
-      	exact
-        path="/work" 
-        component={() => _renderScreen('work')}/>
-      <Route 
-      	exact
-        path="/academia" 
-        component={() => _renderScreen('academia')}/>
-		  <Redirect to="/"/>
-    </Switch>
-    )
+	return (
+		<Switch>
+			<Route
+				exact
+				path="/map"
+				component={() => _renderScreen('map')} />
+			<Route
+				exact
+				path="/"
+				component={() => _renderScreen('homepage')} />
+			<Route
+				exact
+				path="/about"
+				component={() => _renderScreen('about')} />
+			<Route
+				exact
+				path="/work"
+				component={() => _renderScreen('work')} />
+			<Route
+				exact
+				path="/academia"
+				component={() => _renderScreen('academia')} />
+			<Redirect to="/" />
+		</Switch>
+	)
 }
 
 export default App;

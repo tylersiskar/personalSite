@@ -76,29 +76,29 @@ const HomeLinkWrapper = styled.a`
 `;
 
 const Header = ({ children, onButtonClick, path }) => {
-	const [ open, openMenu ] = useState(false);
+	const [open, openMenu] = useState(false);
 	return (
 		<FixedContainer>
-		<HeaderContainer>
-			<HomeLinkWrapper href="/home">
-				<Title size="medium" bold color="white"> Tyler Siskar </Title>
-				<FlexRow>
-					<Subtitle size="small" color="gray">Frontend Web Developer</Subtitle> 
-				</FlexRow>
-			</HomeLinkWrapper>
-			<LinkWrapper>
-			{data['home'].map(item => <Link to={item.link} text={item.name} active={`/${path}` === item.link} size="small" bold color="white" />)}
-			</LinkWrapper>
-			<ButtonWrapper>
-				<Button onClick={onButtonClick} label="Contact"/>
-			</ButtonWrapper>
-			<StyledHamburger open={open} onClick={e => openMenu(true)}>
-				<Hamburger fill="white" />
-			</StyledHamburger>
-			{open && <Menu open={open} onClose={e => openMenu(false)} onContactClick={onButtonClick}/>}
-		</HeaderContainer>
+			<HeaderContainer>
+				<HomeLinkWrapper href="/home">
+					<Title size="medium" bold color="white"> Tyler Siskar </Title>
+					<FlexRow>
+						<Subtitle size="small" color="gray">Frontend Web Developer</Subtitle>
+					</FlexRow>
+				</HomeLinkWrapper>
+				<LinkWrapper>
+					{data['home'].map(item => <Link key={item.link} to={item.link} text={item.name} active={`/${path}` === item.link} size="small" bold color="white" />)}
+				</LinkWrapper>
+				<ButtonWrapper>
+					<Button onClick={onButtonClick} label="Contact" />
+				</ButtonWrapper>
+				<StyledHamburger open={open} onClick={e => openMenu(true)}>
+					<Hamburger fill="white" />
+				</StyledHamburger>
+				{open && <Menu open={open} onClose={e => openMenu(false)} onContactClick={onButtonClick} />}
+			</HeaderContainer>
 		</FixedContainer>
-		)
+	)
 }
 
 export default Header;
