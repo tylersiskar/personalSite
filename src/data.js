@@ -21,7 +21,7 @@ const data = {
 			content: [
 				{
 					title: 'Bio',
-					description: "Hello! My name is Tyler Siskar and I am a web / mobile developer in Buffalo, NY. I completed my undergraduate education at the University at Buffalo, where I studied Computational Physics. I initially pursued Physics as I was interested in astronomy and cosomology, but after taking several CS courses, I found that I was far more interested in computer science. Following graudation I stepped into a role as a developer and never looked back."
+					description: "Hello! My name is Tyler Siskar and I am a web / mobile developer in Buffalo, NY. I completed my undergraduate education at the University at Buffalo, where I studied Computational Physics. I initially pursued Physics as I was interested in astronomy and cosmology, but after taking several CS courses, I found that I was far more interested in computer science. Following graduation I stepped into a role as a developer and never looked back."
 				},
 				{
 					description: "On this website you'll find more information from my time at University, and my project experience as a developer. Thank you for visiting!"
