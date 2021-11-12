@@ -1,8 +1,8 @@
-import { mesunset } from './components';
+import { currentImage } from './components';
 const data = {
 	home: [
 		{
-			name: "Bio",
+			name: "About",
 			link: "/about"
 		},
 		{
@@ -17,7 +17,7 @@ const data = {
 	about: [
 		{
 			title: "About",
-			img: mesunset,
+			img: currentImage,
 			content: [
 				{
 					title: 'Bio',
@@ -32,8 +32,20 @@ const data = {
 	work: [
 		{
 			title: "Experience",
+			place: "Booz Allen Hamilton",
+			timeline: "September 2021 - Present",
+			content: [
+				{
+					title: "Defense Contractor",
+					description: `Front End Web Developer on React applications within the Defense department.`
+				},
+			],
+			keyItems: "React, Redux, AWS, Github, SQL, Docker"
+		},
+		{
+			title: "Experience",
 			place: "Mean Guppy",
-			timeline: "June 2019 - Present",
+			timeline: "June 2019 - August 2021",
 			content: [
 				{
 					title: "Verizon Design System",
