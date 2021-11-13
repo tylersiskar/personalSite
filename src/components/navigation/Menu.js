@@ -1,20 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Link } from '../links';
-import { CloseButton } from '../buttons';
 import { data } from '../../data';
 
 const StyledMenu = styled.nav`
-	display: flex;
+	display: ${({ open }) => open ? 'flex' : 'none'};
 	flex-direction: column;
 	height: 100vh;
 	width: 33%;
 	text-align: left; 
 	position: absolute;
 	top: 0;
-	right: ${({ open }) => open ? '0' : '-33%'};
-	opacity: ${({ open }) => open ? '1' : '0'};
-	transition: right 0.35s ease;
+	right: 0;
+	padding-top: 100px;
+	z-index: 1;
+	box-shadow: grey 0px 12px 12px;
+	background: black;
 	@media screen and (min-width: 1024px) {
 		display: none;
 	}
@@ -27,49 +28,30 @@ const MenuItem = styled.div`
 	display: flex;
 	background-color: black;
 	box-sizing: border-box;
-	width: 100%;
-	padding: 24px;
-	border-left: 1px solid gray;
-	border-bottom: 1px solid gray;
+	padding: 24px 0;
+	margin: 0 24px;
+	border-bottom: 1px solid darkgray;
+	&:last-child {
+		border: none;
+	}
 `;
 
-const CloseButtonWrapper = styled.div`
-	display: flex;
-	background-color: transparent;
-	width: 100%;
-	height: 100px;
-	padding-right: 16px;
-	border-bottom: 1px solid gray;
-	box-sizing: border-box;
-	justify-content: flex-end;
-`;
-
-
-const Menu = ({ onContactClick, onClose, open }) => {
-	const [ animate, setAnimate ] = useState(false);
-	useEffect(() => {
-		setTimeout(() => {
-			setAnimate(open);
-		}, 350)
-	}, [open])
-
+const Menu = ({ onContactClick, open }) => {
+	console.log(open);
 	return (
-		<StyledMenu open={animate}>
-			<CloseButtonWrapper>
-			<CloseButton onClick={onClose} />
-			</CloseButtonWrapper>
+		<StyledMenu open={open}>
 			{data['home'].map(item => {
 				return (
 					<MenuItem>
-						<Link to={item.link} text={item.name} color="white" bold/>
+						<Link to={item.link} text={item.name} color="white" bold />
 					</MenuItem>
-					)
+				)
 			})}
 			<MenuItem>
-				<Link onClick={onContactClick} text="Contact" color="white" bold/>
+				<Link onClick={onContactClick} text="Contact" color="white" bold />
 			</MenuItem>
 		</StyledMenu>
-		)
+	)
 }
 
 export default Menu;

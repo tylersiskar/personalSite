@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Route, Switch, Redirect, useLocation } from "react-router-dom";
 import styled from 'styled-components';
 import { Home, About, ContactModal, Map } from './pages';
-import { Header, wheel } from './components';
+import { Header, wheel, Menu } from './components';
 import { data } from './data';
 
 const AppWrapper = styled.div`
@@ -16,6 +16,7 @@ const AppWrapper = styled.div`
 function _renderScreen(route) {
 	const [animate, animateContactPage] = useState(false);
 	const [contactPage, showContactPage] = useState(false);
+	const [open, setOpen] = useState(false);
 	const loc = useLocation();
 	let path = loc.pathname.substring(1, loc.pathname.length);
 
@@ -36,7 +37,8 @@ function _renderScreen(route) {
 			return (
 				<AppWrapper>
 					{contactPage && <ContactModal open={animate} onClick={_onClose} />}
-					<Header onButtonClick={_onOpen} path={path} />
+					<Header onButtonClick={_onOpen} path={path} onBurgerClick={setOpen} />
+					<Menu open={open} onContactClick={_onOpen} />
 					<Map />
 				</AppWrapper>
 			)
@@ -44,7 +46,8 @@ function _renderScreen(route) {
 			return (
 				<AppWrapper>
 					{contactPage && <ContactModal open={animate} onClick={_onClose} />}
-					<Header onButtonClick={_onOpen} path={path} />
+					<Header onButtonClick={_onOpen} path={path} onBurgerClick={setOpen} />
+					<Menu open={open} onContactClick={_onOpen} />
 					<About data={data[path]} />
 				</AppWrapper>
 			)
@@ -52,7 +55,8 @@ function _renderScreen(route) {
 			return (
 				<AppWrapper>
 					{contactPage && <ContactModal open={animate} onClick={_onClose} />}
-					<Header onButtonClick={_onOpen} path={path} />
+					<Header onButtonClick={_onOpen} path={path} onBurgerClick={setOpen} />
+					<Menu open={open} onContactClick={_onOpen} />
 					<About data={data[path]} />
 				</AppWrapper>
 			)
@@ -60,7 +64,8 @@ function _renderScreen(route) {
 			return (
 				<AppWrapper>
 					{contactPage && <ContactModal open={animate} onClick={_onClose} />}
-					<Header onButtonClick={_onOpen} path={path} />
+					<Header onButtonClick={_onOpen} path={path} onBurgerClick={setOpen} />
+					<Menu open={open} onContactClick={_onOpen} />
 					<About data={data[path]} />
 				</AppWrapper>
 			)

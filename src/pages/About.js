@@ -102,7 +102,7 @@ const renderPlace = (obj) => {
 			</SubtitleWrapper>
 			{obj.timeline && <Body color="#9c9c9c" size="medium" bold>{obj.timeline}</Body>}
 		</Container>
-		)
+	)
 }
 
 const renderImage = (img) => {
@@ -110,7 +110,7 @@ const renderImage = (img) => {
 		<Container img>
 			<Image image={img} />
 		</Container>
-		)
+	)
 }
 
 const renderProjects = (content) => {
@@ -118,46 +118,46 @@ const renderProjects = (content) => {
 		return (
 			<FlexCol>
 				<SubtitleWrapper>
-				<Subtitle size="medium" bold color="white" style={{paddingRight: 12}}>{item.title}</Subtitle>
-				{item.link && <a rel="noopener noreferrer" target="_blank" href={item.link}><LinkIcon fill="white"/> </a>}
+					<Subtitle size="medium" bold color="white" style={{ paddingRight: 12 }}>{item.title}</Subtitle>
+					{item.link && <a rel="noopener noreferrer" target="_blank" href={item.link}><LinkIcon fill="white" /> </a>}
 				</SubtitleWrapper>
 				<Body color="white" size="medium">{item.description}</Body>
 			</FlexCol>
-			)
+		)
 	})
 }
 
 const About = ({ data }) => {
-	return(
+	return (
 		<Page>
 			<ContentWrapper>
 				<TitleWrapper>
-					<Title color="white" size="xLarge" bold> {data[0].title} </Title>
+					<Title color="white" size="large" bold> {data[0].title} </Title>
 				</TitleWrapper>
-			{data?.map(obj => {
-				let word = obj.place === "Education" ? "Courses" : "Skills";
-				return(
-					<KeyItemsContanier border={obj.place}>
-						<BodyContainer>
-							{obj.img && renderImage(obj.img)}
-							{obj.place && renderPlace(obj)}
-							<Container>
-								{typeof obj.content !== 'string' && renderProjects(obj.content)}
-								{typeof obj.content === 'string' && 
-									<Body color="white" size="large">{obj.content}</Body>
-								}
-							</Container>
-						</BodyContainer>
-						{obj.keyItems &&
-						<Container width="50%"> 
-							<Body color="#FB4D3D" size="medium"><b>Key {word}: </b>{obj.keyItems}</Body>
-						</Container>}
-					</KeyItemsContanier>
+				{data?.map(obj => {
+					let word = obj.place === "Education" ? "Courses" : "Skills";
+					return (
+						<KeyItemsContanier border={obj.place}>
+							<BodyContainer>
+								{obj.img && renderImage(obj.img)}
+								{obj.place && renderPlace(obj)}
+								<Container>
+									{typeof obj.content !== 'string' && renderProjects(obj.content)}
+									{typeof obj.content === 'string' &&
+										<Body color="white" size="large">{obj.content}</Body>
+									}
+								</Container>
+							</BodyContainer>
+							{obj.keyItems &&
+								<Container width="50%">
+									<Body color="#FB4D3D" size="medium"><b>Key {word}: </b>{obj.keyItems}</Body>
+								</Container>}
+						</KeyItemsContanier>
 					)
-			})}
+				})}
 			</ContentWrapper>
 		</Page>
-    )
+	)
 }
 
 export default About;

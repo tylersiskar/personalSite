@@ -20,11 +20,11 @@ const data = {
 			img: currentImage,
 			content: [
 				{
-					title: 'Bio',
-					description: "Hello! My name is Tyler Siskar and I am a web / mobile developer in Buffalo, NY. I completed my undergraduate education at the University at Buffalo, where I studied Computational Physics. I initially pursued Physics as I was interested in astronomy and cosmology, but after taking several CS courses, I found that I was far more interested in computer science. Following graduation I stepped into a role as a developer and never looked back."
+					// title: 'Bio',
+					description: "Hi everyone. My name is Tyler Siskar and I am a front end web developer in Washington, D.C. I completed my undergraduate education at the University at Buffalo, where I studied Computational Physics. I initially pursued Physics as I was interested in astronomy and cosmology, but after taking several CS courses, I found that I was far more interested in computer science. Following graduation I stepped into a role as a developer and never looked back."
 				},
 				{
-					description: "On this website you'll find more information from my time at University, and my project experience as a developer. Thank you for visiting!"
+					description: "Here you'll find more information from my time at university, and my project experience as a developer. Thank you for visiting!"
 				}
 			]
 		}
@@ -37,7 +37,7 @@ const data = {
 			content: [
 				{
 					title: "Defense Contractor",
-					description: `Front End Web Developer on React applications within the Defense department.`
+					description: `Front End Web Developer on React applications within the Defense department. Builds UI modules and manages some AWS infrastructure, including CI/CD pipelines and S3 buckets.`
 				},
 			],
 			keyItems: "React, Redux, AWS, Github, SQL, Docker"
@@ -66,9 +66,13 @@ const data = {
 				{
 					title: "Finta Web App",
 					description: `React application that facilitates the fundraising / investing process between startups and investors.\nDesigns and develops new features to improve the user experience and improve functionality of the app.\nUsing OpenAI’s GPT-3 API, created a personalized email generator from founders to investors.`
+				},
+				{
+					title: "Finta Mobile App",
+					description: `React Native application that displays organization funding progress and deal rooms. Users have the ability to share their deal room and add investors to their tracker seen on the web app.`
 				}
 			],
-			keyItems: "React, Redux, Firebase, Git, Productboard"
+			keyItems: "React, React Native, Redux, Context, Firebase, Git, Productboard"
 		},
 		{
 			title: "Work",
@@ -84,7 +88,7 @@ const data = {
 		},
 		{
 			title: "Work",
-			place: "Solo Projects",
+			place: "Side Projects",
 			content: [
 				{
 					title: "tylersiskar.com",
@@ -95,7 +99,7 @@ const data = {
 					title: "tcsiskar.com",
 					link: "http://tcsiskar.com",
 					description: `Developed another website in React that is hosted and deployed using Netlify. Data is fed through a content management service Contentful, and retrieved using Redux.`
-				},
+				}
 			],
 			keyItems: "React, Redux, AWS, Netlify, Git, Contentful"
 		}

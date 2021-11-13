@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from '../links';
-import { Button } from '../buttons';
+import { Button, Burger } from '../buttons';
 import { Title, Subtitle } from '../typography';
 import { data } from '../../data';
-import { ReactComponent as Hamburger } from '../icons/hamburger.svg';
-import Menu from './Menu';
 
 const FixedContainer = styled.div`
     z-index:2;
     height:100px;
     position: fixed; 
     width: 100%;
+	box-shadow: grey 0px 0px 12px;
 `;
 const HeaderContainer = styled.header`
 	display: flex;
@@ -20,7 +19,6 @@ const HeaderContainer = styled.header`
 	justify-content: space-around;
 	height: 100px;
 	background: black;
-	border-bottom: 1px solid gray;
 	width: 100%;
 	padding: 0 64px;
 	z-index: 1;
@@ -53,18 +51,6 @@ const ButtonWrapper = styled.div`
 	}
 `;
 
-const StyledHamburger = styled.div`
-	display: ${({ open }) => open ? 'none' : 'block'};
-	&:hover {
-		cursor: pointer;
-		svg rect {
-			fill: #FB4D3D;
-		}
-	}
-	@media screen and (min-width: 1024px) {
-		display: none;
-	}
-`;
 const HomeLinkWrapper = styled.a`
 	display: flex;
 	flex-direction: column;
@@ -75,8 +61,13 @@ const HomeLinkWrapper = styled.a`
 	}
 `;
 
-const Header = ({ children, onButtonClick, path }) => {
+const Header = ({ children, onButtonClick, path, onBurgerClick }) => {
 	const [open, openMenu] = useState(false);
+
+	const _onBurgerClick = opened => {
+		openMenu(opened);
+		onBurgerClick(opened);
+	}
 	return (
 		<FixedContainer>
 			<HeaderContainer>
@@ -92,10 +83,7 @@ const Header = ({ children, onButtonClick, path }) => {
 				<ButtonWrapper>
 					<Button onClick={onButtonClick} label="Contact" />
 				</ButtonWrapper>
-				<StyledHamburger open={open} onClick={e => openMenu(true)}>
-					<Hamburger fill="white" />
-				</StyledHamburger>
-				{open && <Menu open={open} onClose={e => openMenu(false)} onContactClick={onButtonClick} />}
+				<Burger open={open} setOpen={_onBurgerClick} />
 			</HeaderContainer>
 		</FixedContainer>
 	)
