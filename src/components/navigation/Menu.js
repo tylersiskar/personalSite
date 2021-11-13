@@ -9,7 +9,7 @@ const StyledMenu = styled.nav`
 	height: 100vh;
 	width: 33%;
 	text-align: left; 
-	position: absolute;
+	position: fixed;
 	top: 0;
 	right: 0;
 	padding-top: 100px;
